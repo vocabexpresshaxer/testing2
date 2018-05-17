@@ -31,7 +31,7 @@ async def answer_question(question, original_answers):
     quoted = re.findall('"([^"]*)"', question_lower)  # Get all words in quotes
     no_quote = question_lower
     for quote in quoted:
-        no_quote = no_quote.replace(f"\"{quote}\"", "1placeholder1")
+        no_quote = no_quote.replace("\"%s\"" % quote, "1placeholder1")
 
     question_keywords = search.find_keywords(no_quote)
     for quote in quoted:
@@ -48,7 +48,7 @@ async def answer_question(question, original_answers):
         best_answer = await __search_method2(search_text, answers, reverse)
 
     if best_answer != "":
-        print(f"{Fore.GREEN}{best_answer}{Style.RESET_ALL}\n")
+        print(Fore.GREEN + best_answer + Style.RESET_ALL} + "\n")
 
     # Get key nouns for Method 3
     key_nouns = set(quoted)
@@ -68,11 +68,11 @@ async def answer_question(question, original_answers):
         key_nouns -= {"type"}
 
     key_nouns = [noun.lower() for noun in key_nouns]
-    print(f"Question nouns: {key_nouns}")
+    print("Question nouns: %s" % str(key_nouns))
     answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
-    print(f"{Fore.GREEN}{answer3}{Style.RESET_ALL}")
+    print(Fore.GREEN + answer3 + Style.RESET_ALL)
 
-    print(f"Search took {time.time() - start} seconds")
+    print("Search took %s seconds" % str(time.time() - start))
 
 
 async def __search_method1(texts, answers, reverse):
@@ -88,7 +88,7 @@ async def __search_method1(texts, answers, reverse):
 
     for text in texts:
         for answer in counts:
-            counts[answer] += len(re.findall(f" {answer} ", text))
+            counts[answer] += len(re.findall(" %s " % answer, text))
 
     print(counts)
 
@@ -113,7 +113,7 @@ async def __search_method2(texts, answers, reverse):
     for text in texts:
         for keyword_counts in counts.values():
             for keyword in keyword_counts:
-                keyword_counts[keyword] += len(re.findall(f" {keyword} ", text))
+                keyword_counts[keyword] += len(re.findall(" %s " % keyword, text))
 
     print(counts)
     counts_sum = {answer: sum(keyword_counts.values()) for answer, keyword_counts in counts.items()}
@@ -163,7 +163,7 @@ async def __search_method3(question_keywords, question_key_nouns, answers, rever
 
         for text in texts:
             for keyword, score_types in word_score_map.items():
-                score = len(re.findall(f" {keyword} ", text))
+                score = len(re.findall(" %s " % keyword, text))
                 if "KW" in score_types:
                     keyword_score += score
                 if "KN" in score_types:
@@ -178,8 +178,8 @@ async def __search_method3(question_keywords, question_key_nouns, answers, rever
     print("\n".join([f"{answer}: {dict(scores)}" for answer, scores in answer_noun_scores_map.items()]))
     print()
 
-    print(f"Keyword scores: {keyword_scores}")
-    print(f"Noun scores: {noun_scores}")
+    print("Keyword scores: %s" % keyword_scores)
+    print("Noun scores: %s" % str(noun_scores))
     if set(noun_scores.values()) != {0}:
         return min(noun_scores, key=noun_scores.get) if reverse else max(noun_scores, key=noun_scores.get)
     if set(keyword_scores.values()) != {0}:
