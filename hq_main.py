@@ -1,5 +1,4 @@
 import asyncio
-import logging
 import os
 import time
 from datetime import datetime
@@ -8,8 +7,6 @@ import networking
 
 # Set up color-coding
 colorama.init()
-# Set up logging
-logging.basicConfig(filename="data.log", level=logging.INFO, filemode="w")
 
 uk = True
 
@@ -24,7 +21,6 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as c
         BEARER_TOKEN = settings[0].split("=")[1]
         USER_ID = settings[1].split("=")[1]
     except IndexError as e:
-        logging.fatal("Settings read error: %s" % settings)
         raise e
 
 print("Starting up Bot...")
@@ -44,8 +40,6 @@ while True:
         print("Server response not JSON, retrying...")
         time.sleep(1)
         continue
-
-    logging.info(response_data)
 
     if "broadcast" not in response_data or response_data["broadcast"] is None:
         if "error" in response_data and response_data["error"] == "Auth not valid":
