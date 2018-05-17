@@ -8,7 +8,7 @@ Features:
 * 1 Search Method
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
-* New features and search methods constantly being created to give you the edge
+* New features and search methods constantly being created to give you the edge over other competitors
 * Regulary updated to bypass new restrictions / measures created by HQ Trivia
 
 
@@ -22,7 +22,6 @@ Curently supporting these HQ games:
 -> (US NOT YET SUPPORTED)
 
 (7PM + 1AM UTC, as well as all 'suprise' games)
-
 
 
 # How To Use
@@ -49,7 +48,11 @@ Q: As the client is made in python, can i just copy the code and run it from my 
 
 A: Of course! The reason why the client is on repl.it is so people don't have to install a python environment, and can run the bot from ANYWHERE, but if you want to run it on your computer directly, feel free, but make sure to use python 3.x, as the client isn't compatible with python 2
 
+Q: Why is the bot not getting every question right?
 
+A: It would be impossible to create a bot that wins every time, and that it probably be the end of HQ if that was the case. I have tried to make it as accurate as possible, however there are specific instances where common sense is needed.
+
+The bot struggles when you have to compare the answers e.g. what author is the oldest out of the answers, but isn't the oldest author ever. The bot also struggles when one (or part of) the answers is in the question, so care is adviced, and don't just follow the bot blindly, but it is a good start, especially in lots of the savage questions
 
 # Pricing
 
@@ -57,10 +60,12 @@ Currently, until all the bugs have been completely ironed out, and the answer se
 
 While the bot is free, use the password 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
 
-£1 / week = 12 Games per week (24 if you compete in both the UK and US games), not even including all the 'suprise' games with massive jackpots.
--
 The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development. This bot is created for the greater good, not profit.
 
+You may share a code with friends, and split the cost etc., however you may NOT post an access code that you have online. If you want to test the bot before buying, please contact me. 
+
+£1 ($1.35) / week = 12 Games per week (24 if you compete in both the UK and US games), + all the suprise games with massive jackpots.
+-
 
 Accepted forms of payment:
 -
