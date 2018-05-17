@@ -3,9 +3,7 @@ import logging
 import os
 import time
 from datetime import datetime
-
 import colorama
-
 import networking
 
 # Set up color-coding
@@ -13,20 +11,25 @@ colorama.init()
 # Set up logging
 logging.basicConfig(filename="data.log", level=logging.INFO, filemode="w")
 
+uk = True
+
+if uk == True:c = "ukconn.txt"
+else:c = "usconn.txt"
+
 # Read in bearer token and user ID
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_settings.txt"), "r") as conn_settings:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as conn_settings:
     settings = conn_settings.read().splitlines()
 
     try:
         BEARER_TOKEN = settings[0].split("=")[1]
         USER_ID = settings[1].split("=")[1]
     except IndexError as e:
-        logging.fatal(f"Settings read error: {settings}")
+        logging.fatal("Settings read error: %s" % settings)
         raise e
 
-print("getting")
-main_url = f"https://api-quiz.hype.space/shows/now?type=hq&userId={USER_ID}"
-headers = {"Authorization": f"Bearer {BEARER_TOKEN}",
+print("Starting up Bot...")
+main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
+headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
            "x-hq-client": "Android/1.3.0"}
 # "x-hq-stk": "MQ==",
 # "Connection": "Keep-Alive",
@@ -53,10 +56,10 @@ while True:
             now = time.time()
             offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
 
-            print(f"Next show time: {(next_time + offset).strftime('%Y-%m-%d %I:%M %p')}")
+            print("Next show time: %s" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
             print("Prize: " + response_data["nextShowPrize"])
             time.sleep(5)
     else:
         socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
-        print(f"Show active, connecting to socket at {socket}")
+        print("Show active, connecting to socket at %s" % socket)
         asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
