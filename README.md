@@ -23,7 +23,7 @@ Curently supporting these HQ games:
 
 (7PM + 1AM UTC, as well as all 'suprise' games)
 
-* For this game, the £ sign sometimes changes to a $ when showing the next game time. This is a problem with HQ itself, and occurs in their app too in the UK game. It is not a glitch in the bot, but rather a problem with HQ itself.
+*For this game, the £ sign sometimes changes to a $ when showing the next game time. This is a problem with HQ itself, and occurs in their app too in the UK game. It is not a glitch in the bot, but rather a problem with HQ itself.
 
 # How To Use
 
