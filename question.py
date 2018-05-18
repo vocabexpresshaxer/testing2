@@ -71,7 +71,7 @@ async def answer_question(question, original_answers):
     print("Question nouns: %s" % str(key_nouns))
     answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
     print(Fore.GREEN + answer3 + Style.RESET_ALL)
-    with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "Method 1: " + best_answer + "\nMethod 2: " + answer3)
+    with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "\nMethod 1: " + best_answer + "\nMethod 2: " + answer3)
     print("Search took %s seconds" % str(time.time() - start))
 
 
