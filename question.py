@@ -175,7 +175,7 @@ async def __search_method3(question_keywords, question_key_nouns, answers, rever
         answer_noun_scores_map[answer] = noun_score_map
 
     print()
-    print("\n".join([f"{answer}: {dict(scores)}" for answer, scores in answer_noun_scores_map.items()]))
+    print("\n".join(["%s: %s" % (answer, str(dict(scores))) for answer, scores in answer_noun_scores_map.items()]))
     print()
 
     print("Keyword scores: %s" % keyword_scores)
