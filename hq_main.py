@@ -67,8 +67,8 @@ headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
 start_new_thread(processConn, ())
 lastCTime = time.time()
 while True:
-    offset = time.time() - lastCTime
-    if int(offset) < 60: 
+    offse = time.time() - lastCTime
+    if int(offse) < 60: 
         print()
         try:
             response_data = asyncio.get_event_loop().run_until_complete(
@@ -83,12 +83,15 @@ while True:
                 raise RuntimeError("Connection settings invalid")
             else:
                 print("Show not on.")
-                next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
-                now = time.time()
-                offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
+                try:
+                    next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
+                    now = time.time()
+                    offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
+                    print("Next show time: %s" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
+                    print("Prize: " + response_data["nextShowPrize"])
+                except Exception as e:print(e)
 
-                print("Next show time: %s" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
-                print("Prize: " + response_data["nextShowPrize"])
+          
                 time.sleep(5)
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
