@@ -5,6 +5,7 @@ from datetime import datetime
 import colorama
 import networking
 from _thread import start_new_thread
+import socket
 
 # Set up color-coding
 colorama.init()
