@@ -60,7 +60,7 @@ async def websocket_handler(uri, headers):
                     answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
                     print("\n" * 5)
                     print("Question detected.")
-                    print(f"Question %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
+                    print("Question %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
                     aMsg = Fore.CYAN + question_str + "\n"
                     for a in answers:
                         aMsg = aMsg + "\n" + a
