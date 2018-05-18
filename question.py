@@ -48,7 +48,7 @@ async def answer_question(question, original_answers):
         best_answer = await __search_method2(search_text, answers, reverse)
 
     if best_answer != "":
-        print(Fore.GREEN + best_answer + Style.RESET_ALL} + "\n")
+        print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
     # Get key nouns for Method 3
     key_nouns = set(quoted)
