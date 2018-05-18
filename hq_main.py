@@ -38,7 +38,7 @@ def getResponse(data):
         with open("pass.txt", "w") as p:p.write(data)
         return "Done"
     elif entryp == "" or data == entryp:
-        lines = """"""
+        lines = """*There may be bugs or errors today, as the backend has had a massive redesign*\n\n"""
         for line in open("uk.txt"):
             lines = lines + line + "\n"
         return lines
