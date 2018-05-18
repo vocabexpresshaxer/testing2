@@ -98,5 +98,5 @@ while True:
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
             print("Show active, connecting to socket at %s" % socket)
-            with open("uk.txt", "w") as uk:us.write("Show active, connecting to socket at %s" % socket)
+            with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
