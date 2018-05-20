@@ -1,11 +1,11 @@
 # HQ Trivia Acebot
 
-HQ Trivia Acebot uses a total of 3 search methods to find the most likely answer for HQ Trivia questions.
+HQ Trivia Acebot uses a total of 2 powerful search methods to find the most likely answer for HQ Trivia questions.
 It is run on a powerful server with gigabit internet speeds, meaning it can process much more data and information that a standard pc, increasing the number of correct answers, however this bot can't promise all correct answers due to HQ always striving to make HQ as hard as possible to bot or search answers, by making 'decoy' questions, obvious to humans, but that are able to trick a bot. For more infomation about this and what types of questions to do yourself, check out the FAQ section.
 
 Features:
 -
-* 3 Search Methods
+* 2 Search Methods
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
 * New features and search methods constantly being created to give you the edge over other competitors
@@ -21,7 +21,7 @@ Curently supporting these HQ games:
 
 -> (US NOT YET SUPPORTED)
 
-(7PM + 1AM UTC, as well as all 'suprise' games)
+
 
 *For this game, the £ sign sometimes changes to a $ when showing the next game time. This is a problem with HQ itself, and occurs in their app too in the UK game. It is not a glitch in the bot, but rather a problem with HQ itself.
 
