@@ -5,7 +5,7 @@ It is run on a powerful server with gigabit internet speeds, meaning it can proc
 
 Features:
 -
-* 2 Search Methods
+* 2 Powerful Search Methods
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
 * New features and search methods constantly being created to give you the edge over other competitors
