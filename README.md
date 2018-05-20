@@ -1,6 +1,6 @@
 # HQ Trivia Acebot
 
-HQ Trivia Acebot uses a total of 2 powerful search methods to find the most likely answer for HQ Trivia questions.
+HQ Trivia Acebot uses 2 powerful search methods to find the most likely answer for HQ Trivia questions.
 It is run on a powerful server with gigabit internet speeds, meaning it can process much more data and information that a standard pc, increasing the number of correct answers, however this bot can't promise all correct answers due to HQ always striving to make HQ as hard as possible to bot or search answers, by making 'decoy' questions, obvious to humans, but that are able to trick a bot. For more infomation about this and what types of questions to do yourself, check out the FAQ section.
 
 Features:
