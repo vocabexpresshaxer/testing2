@@ -1,11 +1,7 @@
-import asyncio
-import os
-import time
+import asyncio, os, time, colorama, networking, socket
 from datetime import datetime
-import colorama
-import networking
 from _thread import start_new_thread
-import socket
+
 
 # Set up color-coding
 colorama.init()
@@ -39,7 +35,7 @@ def getResponse(data):
         with open("pass.txt", "w") as p:p.write(data)
         return "Done"
     elif entryp == "" or data == entryp:
-        lines = """*There may be bugs or errors today, as the backend has had a massive redesign*\n\n"""
+        lines = """"""
         for line in open("uk.txt"):
             lines = lines + line + "\n"
         return lines
