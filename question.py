@@ -45,8 +45,8 @@ async def answer_question(question, original_answers):
 
     best_answer = await __search_method1(search_text, answers, reverse)
     if best_answer == "":
-        best_answer = await __search_method2(search_text, answers, reverse)
-        with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "\nMethod 1: " + best_answer + "\n[High Probability Of Being Inaccurate]")
+        #best_answer = await __search_method2(search_text, answers, reverse)
+        with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "\nMethod 1: [Couldn't find the most likely answer, use method 3 instead]")
     else:
         with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "\nMethod 1: " + best_answer)
         
@@ -184,7 +184,14 @@ async def __search_method3(question_keywords, question_key_nouns, answers, rever
     print("Keyword scores: %s" % keyword_scores)
     print("Noun scores: %s" % str(noun_scores))
     if set(noun_scores.values()) != {0}:
-        return min(noun_scores, key=noun_scores.get) if reverse else max(noun_scores, key=noun_scores.get)
+        if reverse == True:
+            return min(noun_scores, key=noun_scores.get)
+        else:
+            return max(noun_scores, key=noun_scores.get)
+        
     if set(keyword_scores.values()) != {0}:
-        return min(keyword_scores, key=keyword_scores.get) if reverse else max(keyword_scores, key=keyword_scores.get)
+        if reverse == True:
+            return min(keyword_scores, key=keyword_scores.get)
+        else:
+            return max(keyword_scores, key=keyword_scores.get)
     return ""
