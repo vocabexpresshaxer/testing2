@@ -67,7 +67,7 @@ async def answer_question(question, original_answers):
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]"
     else:
-        toWrite = toWrite + "\nMethod 1: " + best_answer)
+        toWrite = toWrite + "\nMethod 1: " + best_answer
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
     if best_answer != "":
