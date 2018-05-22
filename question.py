@@ -65,7 +65,7 @@ async def answer_question(question, original_answers):
         toWrite = toWrite + "\n*Anti Bot Q Detected: Use Own Knowledge Or Method 2*"
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
-        toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]")
+        toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]"
     else:
         toWrite = toWrite + "\nMethod 1: " + best_answer)
     
