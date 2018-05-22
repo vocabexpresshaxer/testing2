@@ -61,6 +61,8 @@ async def answer_question(question, original_answers):
     toWrite = "Question:\n"
     if inaccurate == True:
         toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n" + question
+    if b_method == 2:
+        toWrite = toWrite + "\n*Anti Bot Q Detected: Use Own Knowledge Or Method 2*"
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]")
