@@ -22,20 +22,25 @@ async def answer_question(question, original_answers):
     answers = list(dict.fromkeys(answers))
     print(answers)
     
-    #Detecting Possible Inaccuracies#
-    inaccurate = False
-    for o in original_answers:
-        if o.lower() in queestion.lower():
-           inaccurate = True
-    #################################
-    
-    
-    
     question_lower = question.lower()
 
     reverse = "NOT" in question or\
               ("least" in question_lower and "at least" not in question_lower) or\
               "NEVER" in question
+    
+    #Detecting Possible Inaccuracies#
+    inaccurate = False
+    for o in original_answers:
+        if o.lower() in question_lower:
+           inaccurate = True
+    #################################
+    
+    #Determining Best method to solve question#
+    b_method = 1
+    if "which of these" in question_lower:
+        if "est " in question_lower or " the most " in question_lower or " the least " in question_lower:
+            b_method = 2
+    ###########################################
 
     quoted = re.findall('"([^"]*)"', question_lower)  # Get all words in quotes
     no_quote = question_lower
@@ -53,11 +58,14 @@ async def answer_question(question, original_answers):
     search_text = [x.translate(punctuation_to_none) for x in await search.get_clean_texts(search_results)]
 
     best_answer = await __search_method1(search_text, answers, reverse)
+    toWrite = "Question:\n"
+    if inaccurate == True:
+        toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n" + question
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
-        with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]")
+        with open("uk.txt", "w") as uk:uk.write(toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]")
     else:
-        with open("uk.txt", "w") as uk:uk.write("Question:\n" + question + "\nMethod 1: " + best_answer)
+        with open("uk.txt", "w") as uk:uk.write(toWrite + "\nMethod 1: " + best_answer)
         
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
