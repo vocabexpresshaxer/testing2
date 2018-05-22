@@ -21,7 +21,16 @@ async def answer_question(question, original_answers):
         answers.append(ans.translate(punctuation_to_space))
     answers = list(dict.fromkeys(answers))
     print(answers)
-
+    
+    #Detecting Possible Inaccuracies#
+    inaccurate = False
+    for o in original_answers:
+        if o.lower() in queestion.lower():
+           inaccurate = True
+    #################################
+    
+    
+    
     question_lower = question.lower()
 
     reverse = "NOT" in question or\
