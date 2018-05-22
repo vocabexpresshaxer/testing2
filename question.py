@@ -63,10 +63,11 @@ async def answer_question(question, original_answers):
         toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n" + question
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
-        with open("uk.txt", "w") as uk:uk.write(toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]")
+        toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]")
     else:
-        with open("uk.txt", "w") as uk:uk.write(toWrite + "\nMethod 1: " + best_answer)
-        
+        toWrite = toWrite + "\nMethod 1: " + best_answer)
+    
+    with open("uk.txt", "w") as uk:uk.write(toWrite)
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
