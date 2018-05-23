@@ -59,11 +59,13 @@ async def answer_question(question, original_answers):
     search_text = [x.translate(punctuation_to_none) for x in await search.get_clean_texts(search_results)]
 
     best_answer = await __search_method1(search_text, answers, reverse)
-    toWrite = "Question:\n" + question
+    toWrite = "Question:\n" + question + "\n"
     if inaccurate == True:
         toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n"
-    if b_method == 2:
-        toWrite = toWrite + "\n*Anti Bot Q Detected: Use Own Knowledge Or Method 2*"
+    if b_method == 1:
+        toWrite = toWrite + "\n*AI: [Method 1 Most Accurate]*"
+    elif b_method == 2:
+        toWrite = toWrite + "\n*AI: Anti Bot Q Detected [Method 2 Most Accurate]*"
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]"
