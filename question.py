@@ -121,7 +121,10 @@ async def __search_method1(texts, answers, reverse):
     # If not all answers have count of 0 and the best value doesn't occur more than once, return the best answer
     best_value = min(counts.values()) if reverse else max(counts.values())
     if not all(c == 0 for c in counts.values()) and list(counts.values()).count(best_value) == 1:
-        return min(counts, key=counts.get) if reverse else max(counts, key=counts.get)
+        if reverse:
+            return min(counts, key=counts.get) 
+        else:
+            return max(counts, key=counts.get)
     return ""
 
 
@@ -145,7 +148,10 @@ async def __search_method2(texts, answers, reverse):
     counts_sum = {answer: sum(keyword_counts.values()) for answer, keyword_counts in counts.items()}
 
     if not all(c == 0 for c in counts_sum.values()):
-        return min(counts_sum, key=counts_sum.get) if reverse else max(counts_sum, key=counts_sum.get)
+        if reverse:
+            return min(counts_sum, key=counts_sum.get)
+        else:
+            return max(counts_sum, key=counts_sum.get)
     return ""
 
 
