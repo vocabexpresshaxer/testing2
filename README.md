@@ -5,11 +5,11 @@ It is run on a powerful server with gigabit internet speeds, meaning it can proc
 
 Features:
 -
-* 2 Powerful Search Methods
-* AI can detect Anti-Bot questions
-* AI picks the best of the two search methods based on the type of question, giving a 85+% accurancy (on average)
+* 2 Powerful Search Methods (Typically ~85%, Higher Accuracy than HQuack)
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
+* AI can detect Anti-Bot questions
+* AI picks the best of the two search methods based on the type of question, giving a 85+% accurancy (on average)
 * New features and search methods constantly being created and optimised to give you the edge over other competitors
 * The bot runs on our servers, not your wifi, meaning it is impossible for you to get banned for cheating.
 * Regulary updated to bypass new restrictions / measures created by HQ Trivia
