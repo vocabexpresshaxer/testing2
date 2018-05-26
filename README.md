@@ -74,7 +74,6 @@ Botter Package:
 * £5 per month. 
 * Comes with access to the bot 24/7. 
 * Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key.
--
 
 Ultimate Botter Package:
 -
@@ -82,13 +81,12 @@ Ultimate Botter Package:
 * Comes with access to the bot 24/7. 
 * Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key. 
 * The access comes with 10 free lives per month, massively increasing your chance of winning (when you sort out payment, message me with your referal code so i can get the lives sorted out)
--
 
 EXTRAS: 
 -
 -> UK HQ Trivia Account: £2
 
-
+-> 10 Extra Lives (£3 if on Ultimate Botter Package, £5 if on Botter Package)
 
 Accepted forms of payment:
 -
