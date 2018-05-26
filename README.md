@@ -103,7 +103,3 @@ caffiene0addict0420@gmail.com (EMAIL)
 Caffiene_Addict_420 (REDDIT)
 
 Make sure to check spelling of my account before sending a message, as i spell Caffeine like Caffiene, so be warned that you may of spelt it the correct way, but just not the way of my account. If i don't reply within a day, please send the email again, checking the name.
-
-# Guarantee
-
-In the unlikely event that the bot goes down for any reason, i would be more than happy to reinburse the cost for the duration bot over the time the bot goes down and/or extend the access time for the bot by the duration of the bot downtime.
