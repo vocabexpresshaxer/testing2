@@ -53,7 +53,10 @@ Q: Why is the bot not getting every question right?
 
 A: It would be impossible to create a bot that wins every time, and that it probably be the end of HQ if that was the case. I have tried to make it as accurate as possible, however there are specific instances where common sense is needed.
 
-The bot struggles when you have to compare the answers e.g. what author is the oldest out of the answers, but isn't the oldest author ever. The bot also struggles when one (or part of) the answers is in the question, so care is adviced, and don't just follow the bot blindly, but it is a good start, especially in lots of the savage questions
+Q: The bot has said this question is an anti-bot question? What can i do?
+
+A: The bot detects specific types of questions which hq uses to throw off bots, which try and eliminate everyone who is using a bot. When one is found, method 2 tends to be more accurate, however your best bet is to do your best guess yourself for these questions.
+
 
 # Pricing
 
