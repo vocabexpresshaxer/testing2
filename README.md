@@ -69,14 +69,19 @@ The price of access of the bot will (hopefully) decrease over time, as more peop
 
 You may share a code with friends, and split the cost etc., however you may NOT post an access code that you have online. If you want to test the bot before buying, please contact me. 
 
-Botter Package
+Botter Package:
 -
-£5 per month. Comes with access to the bot 24/7. Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key.
+* £5 per month. 
+* Comes with access to the bot 24/7. 
+* Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key.
 -
 
-Ultimate Botter Package
+Ultimate Botter Package:
 -
-£10 per month. Comes with access to the bot 24/7. Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key. The access comes with 10 free lives per month, massively increasing your chance of winning (when you sort out payment, message me with your referal code so i can get the lives sorted out)
+* £10 per month. 
+* Comes with access to the bot 24/7. 
+* Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key. 
+* The access comes with 10 free lives per month, massively increasing your chance of winning (when you sort out payment, message me with your referal code so i can get the lives sorted out)
 -
 
 EXTRAS: 
