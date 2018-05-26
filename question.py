@@ -65,7 +65,7 @@ async def answer_question(question, original_answers):
     if b_method == 1:
         toWrite = toWrite + "*AI: [Method 1 Most Accurate]*"
     elif b_method == 2:
-        toWrite = toWrite + "*AI: Anti Bot Q Detected- USE OWN KNOWLEDGE OVER BOT ANSWERS!*\n*AI: [Method 2 Most Accurate]*"
+        toWrite = toWrite + "*AI: Anti Bot Q Detected- DON'T TRUST BOT ANSWERS!*\n*AI: [Method 2 Most Accurate]*"
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]"
