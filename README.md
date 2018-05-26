@@ -6,6 +6,8 @@ It is run on a powerful server with gigabit internet speeds, meaning it can proc
 Features:
 -
 * 2 Powerful Search Methods
+* AI can detect Anti-Bot questions
+* AI picks the best of the two search methods based on the type of question, giving a 85+% accurancy (on average)
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
 * New features and search methods constantly being created to give you the edge over other competitors
@@ -19,9 +21,7 @@ Curently supporting these HQ games:
 -
 -> UK (@2PM + 8PM UTC, as well as all 'suprise' games) *
 
--> (US NOT YET SUPPORTED)
-
-
+-> US probably will never be supported as the prizes are much lower on average. If you are from the US, contact me as i can sell you a UK HQ trivia account for £2
 
 *For this game, the £ sign sometimes changes to a $ when showing the next game time. This is a problem with HQ itself, and occurs in their app too in the UK game. It is not a glitch in the bot, but rather a problem with HQ itself.
 
@@ -65,8 +65,21 @@ The price of access of the bot will (hopefully) decrease over time, as more peop
 
 You may share a code with friends, and split the cost etc., however you may NOT post an access code that you have online. If you want to test the bot before buying, please contact me. 
 
-£1 ($1.35) / week = 12 Games per week (24 if you compete in both the UK and US games), + all the suprise games with massive jackpots.
+Botter Package
 -
+£5 per month. Comes with access to the bot 24/7. Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key.
+-
+
+Ultimate Botter Package
+-
+£10 per month. Comes with access to the bot 24/7. Nothing needs to be downloaded, as the bot is online, and you pay for a monthly access key. The access comes with 10 free lives per month, massively increasing your chance of winning (when you sort out payment, message me with your referal code so i can get the lives sorted out)
+-
+
+EXTRAS: 
+-
+-> UK HQ Trivia Account: £2
+
+
 
 Accepted forms of payment:
 -
