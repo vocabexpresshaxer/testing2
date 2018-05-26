@@ -30,7 +30,7 @@ Curently supporting these HQ games:
 
 Step 1
 -
-Navigate to https://repl.it/repls/MediumblueRightCron in a browser window on your computer (phones work, but are too small to see and use, plus increase difficulty of switching tabs back to HQ etc.)
+Navigate to [Website Given Once Paid] in a browser window on your computer (phones work, but are too small to see and use, plus increase difficulty of switching tabs back to HQ etc.)
 
 Step 2
 -
@@ -61,13 +61,9 @@ A: The bot detects specific types of questions which hq uses to throw off bots, 
 
 # Pricing
 
-Currently, until all the bugs have been completely ironed out, and the answer searcher is as accurate as possible, the bot will be completely FREE. 
-
-While the bot is free, use the password 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
-
 The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development. This bot is created for the greater good, not profit.
 
-You may share a code with friends, and split the cost etc., however you may NOT post an access code that you have online. If you want to test the bot before buying, please contact me. 
+You may share a code with friends, and split the cost etc., however you may NOT post an access code that you have online. If you want to test the bot before buying, please contact me.
 
 Botter Package:
 -
