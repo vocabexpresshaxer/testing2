@@ -11,6 +11,7 @@ Features:
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
 * New features and search methods constantly being created to give you the edge over other competitors
+* The bot runs on our servers, not your wifi, meaning it is impossible for you to get banned for cheating.
 * Regulary updated to bypass new restrictions / measures created by HQ Trivia
 
 
