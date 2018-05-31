@@ -12,6 +12,7 @@ def processConn():
     global lastCTime
     ip2 = "0.0.0.0"
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     serversocket.bind((ip2, 80))
     serversocket.listen(5)
     while True:
