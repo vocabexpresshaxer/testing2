@@ -87,7 +87,7 @@ while True:
                     offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
                     print("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
                     print("Prize: " + response_data["nextShowPrize"])
-                    with open("uk.txt", "w") as uk:uk.write("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
+                    with open("uk.txt", "w") as uk:uk.write("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
                 except Exception as e:print(e)
 
           
