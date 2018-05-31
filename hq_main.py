@@ -39,7 +39,7 @@ def getResponse(data):
         for line in open("uk.txt"):
             lines = lines + line + "\n"
         return lines
-    else:return "ERROR- invalid logon"
+    else:return "ERROR- invalid logon\nGo to https://github.com/Caffiene0Addict0420/HQ-Trivia-Acebot"
 
 if uk == True:c = "ukconn.txt"
 else:c = "usconn.txt"
