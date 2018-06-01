@@ -27,15 +27,11 @@ def processConn():
         except Exception as e:print(e)
 
 def getResponse(data):
-    try:
-        for line in open("pass.txt"):
-            entryp = line
-    except:entryp = ""
-    if data.startswith("create_"):
-        data = data.replace("create_", "")
-        with open("pass.txt", "w") as p:p.write(data)
-        return "Done"
-    elif entryp == "" or data == entryp:
+    valid = [
+        "AranMartin", #Valid Forever
+        "JacobBurns", #Valid Until 2nd July
+    ]
+    if data in valid:
         lines = """"""
         for line in open("uk.txt"):
             lines = lines + line + "\n"
