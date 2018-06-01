@@ -28,9 +28,10 @@ def processConn():
 
 def getResponse(data):
     valid = [
-        
+        "AranMartin",
         "hqtriviabot123", #Valid Forever
         "JacobBurns", #Valid Until 2nd July
+        "DKAMV",
     ]
     if data in valid:
         lines = """"""
