@@ -29,6 +29,7 @@ def processConn():
 def getResponse(data):
     valid = [
         "AranMartin", #Valid Forever
+        "saffronparkes", #Valid Forever
         "JacobBurns", #Valid Until 2nd July
     ]
     if data in valid:
