@@ -28,7 +28,7 @@ def processConn():
 
 def getResponse(data):
     valid = [
-        "AranMartin", #Valid Forever
+        
         "hqtriviabot123", #Valid Forever
         "JacobBurns", #Valid Until 2nd July
     ]
