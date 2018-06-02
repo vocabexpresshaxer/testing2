@@ -4,7 +4,7 @@ import time
 from collections import defaultdict
 
 from colorama import Fore, Style
-
+from discord import Webhook
 import search
 
 punctuation_to_none = str.maketrans({key: None for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
@@ -73,6 +73,7 @@ async def answer_question(question, original_answers):
         toWrite = toWrite + "\nMethod 1: " + best_answer
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
+    Webhook("DISOCORD WEBHOOK URL----------------",msg=toWrite).post()
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
@@ -98,6 +99,7 @@ async def answer_question(question, original_answers):
     answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
     print(Fore.GREEN + answer3 + Style.RESET_ALL)
     with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
+    Webhook("DISCORD WEBHOOK URL-------------------------",msg="Method 2: " + answer3).post()
     print("Search took %s seconds" % str(time.time() - start))
 
 
