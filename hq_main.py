@@ -2,7 +2,6 @@ import asyncio, os, time, colorama, networking, socket
 from datetime import datetime
 from _thread import start_new_thread
 
-
 # Set up color-coding
 colorama.init()
 
