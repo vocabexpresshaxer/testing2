@@ -73,7 +73,7 @@ async def answer_question(question, original_answers):
         toWrite = toWrite + "\nMethod 1: " + best_answer
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
-    Webhook("DISOCORD WEBHOOK URL----------------",msg=toWrite).post()
+    Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg=toWrite).post()
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
@@ -99,7 +99,7 @@ async def answer_question(question, original_answers):
     answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
     print(Fore.GREEN + answer3 + Style.RESET_ALL)
     with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
-    Webhook("DISCORD WEBHOOK URL-------------------------",msg="Method 2: " + answer3).post()
+    Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Method 2: " + answer3).post()
     print("Search took %s seconds" % str(time.time() - start))
 
 
