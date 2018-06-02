@@ -1,6 +1,9 @@
 import asyncio, os, time, colorama, networking, socket
 from datetime import datetime
 from _thread import start_new_thread
+from discord import Webhook
+
+
 
 # Set up color-coding
 colorama.init()
@@ -85,6 +88,7 @@ while True:
                     print("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
                     print("Prize: " + response_data["nextShowPrize"])
                     with open("uk.txt", "w") as uk:uk.write("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
+                    Webhook("-----------Discord Webhook URL--------",msg="Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]).post()
                 except Exception as e:print(e)
 
           
@@ -93,4 +97,5 @@ while True:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
             print("Show active, connecting to socket at %s" % socket)
             with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
+            Webhook("-----------Discord Webhook URL--------",msg="Show active, connecting to socket at %s" % socket).post()
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
