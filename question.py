@@ -101,7 +101,7 @@ async def answer_question(question, original_answers):
     print(Fore.GREEN + answer3 + Style.RESET_ALL)
     with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
     Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Method 2: " + answer3).post()
-    #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
+    Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", msg="Method 2: " + answer3).post()
     print("Search took %s seconds" % str(time.time() - start))
 
 
