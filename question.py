@@ -74,7 +74,7 @@ async def answer_question(question, original_answers):
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
     Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg=toWrite).post()
-    #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
+    Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", msg=toWrite).post()
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
