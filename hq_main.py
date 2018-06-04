@@ -30,10 +30,10 @@ def processConn():
 
 def getResponse(data):
     valid = [
-        "AranMartin",
+        "AranMartin", #Valid Forever
         "hqtriviabot123", #Valid Forever
-        "JacobBurns", #Valid Until 2nd July
-        "DKAMV",
+        "JacobBurns", #Valid Until 4th July
+        "DKAMV", #Valid Until 5th July
     ]
     if data in valid:
         lines = """"""
@@ -99,5 +99,6 @@ while True:
             print("Show active, connecting to socket at %s" % socket)
             with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
             #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Show active, connecting to socket at %s" % socket).post()
-            Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
+            try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
+            except:pass
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
