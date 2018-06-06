@@ -32,6 +32,9 @@ def getResponse(data):
     valid = [
         "AranMartin", #Valid Forever
         "hqtriviabot123", #Valid Forever
+        "LittleBird", #Valid Until 12th June
+        "Pardeep", #Valid Until 12th June
+        "LmaoMaxi", #Valid Until 12th June
         "JacobBurns", #Valid Until 4th July
         "DKAMV", #Valid Until 5th July
     ]
