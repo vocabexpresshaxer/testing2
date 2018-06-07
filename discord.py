@@ -130,9 +130,5 @@ class Webhook:
 
 		result = requests.post(self.url, data=self.json, headers=headers)
 
-		if result.status_code == 400:
-			print("Post Failed, Error 400")
-		else:
-			print("Payload delivered successfuly")
-			print("Code : "+str(result.status_code))
+		if result.status_code != 400:
 			time.sleep(2)
