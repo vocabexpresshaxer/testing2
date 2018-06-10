@@ -76,7 +76,7 @@ async def answer_question(question, original_answers):
     #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg=toWrite).post()
     try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", msg=toWrite).post()
     except:pass
-    try:Webhook("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", msg=toWrite).post())
+    try:Webhook("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", msg=toWrite).post()
     except:pass
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
