@@ -39,6 +39,8 @@ def getResponse(data):
         "DKAMV", #Valid Until 5th July
         "yoelZ", #13th June
         "JustinS", #14th June
+        "upflare", #16th June
+        "jeffery" #16th June
     ]
     if data in valid:
         lines = """"""
