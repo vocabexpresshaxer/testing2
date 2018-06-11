@@ -12,7 +12,7 @@ punctuation_to_none = str.maketrans({key: None for key in "!\"#$%&\'()*+,-.:;<=>
 punctuation_to_space = str.maketrans({key: " " for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
 
 def runW(url, tosend):
-    try:Webhook(url, tosend).post()
+    try:Webhook(url, msg=tosend).post()
     except:pass
 
 async def answer_question(question, original_answers):
@@ -77,11 +77,10 @@ async def answer_question(question, original_answers):
         toWrite = toWrite + "\nMethod 1: " + best_answer
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
-    #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg=toWrite).post()
-    try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", msg=toWrite).post()
-    except:pass
-    try:Webhook("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", msg=toWrite).post()
-    except:pass
+        
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", toWrite))
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", toWrite))
+    
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
@@ -111,11 +110,8 @@ async def answer_question(question, original_answers):
         lines = lines + line
    
     with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
-    #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Method 2: " + answer3).post()
-    try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", msg="Method 2: " + answer3).post()
-    except:pass
-    try:Webhook("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", msg="Method 2: " + answer3).post()
-    except:pass
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", "Method 2: " + answer3))
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", "Method 2: " + answer3))
     print("Search took %s seconds" % str(time.time() - start))
 
 
