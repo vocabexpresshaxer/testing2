@@ -2,6 +2,7 @@ import itertools
 import re
 import time
 from collections import defaultdict
+from _thread import start_new_thread
 
 from colorama import Fore, Style
 from discord import Webhook
@@ -10,6 +11,9 @@ import search
 punctuation_to_none = str.maketrans({key: None for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
 punctuation_to_space = str.maketrans({key: " " for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
 
+def runW(url, tosend):
+    try:Webhook(url, tosend).post()
+    except:pass
 
 async def answer_question(question, original_answers):
     print("Searching")
