@@ -40,7 +40,7 @@ def getResponse(data):
         "yoelZ", #13th June
         "JustinS", #14th June
         "upflare", #16th June
-        "jeffery" #16th June
+        "jeffery", #16th June
         "hexcruncher", # 18th June
     ]
     if data in valid:
