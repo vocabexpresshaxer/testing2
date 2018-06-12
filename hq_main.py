@@ -41,6 +41,7 @@ def getResponse(data):
         "JustinS", #14th June
         "upflare", #16th June
         "jeffery" #16th June
+        "hexcruncher", # 18th June
     ]
     if data in valid:
         lines = """"""
