@@ -21,12 +21,13 @@ def processConn():
     Version 1.2.2
     
     Upcoming Features:
+    -> Better Anti-Bot Question detection
     -> Points displayed for each answer
     -> Android App (possible)
     
     Contact me at caffiene0addict0420@gmail.com to suggest features / improvements
     
-    If you like the bot, please refer colleagues or friends
+    If you like the bot, please tell colleagues or friends about us :)
     """
     global AREconnected
     global lastCTime
