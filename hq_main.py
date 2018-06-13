@@ -13,6 +13,8 @@ uk = True
 AREconnected = []
 
 def processConn():
+    global AREconnected
+    global lastCTime
     startMSG = """
     ##############
     #Using ACEBOT#
@@ -29,8 +31,7 @@ def processConn():
     
     If you like the bot, please tell colleagues or friends about us :)
     """
-    global AREconnected
-    global lastCTime
+
     ip2 = "0.0.0.0"
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
