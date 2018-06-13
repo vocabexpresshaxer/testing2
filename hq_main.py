@@ -10,7 +10,10 @@ colorama.init()
 
 uk = True
 
+AREconnected = []
+
 def processConn():
+    global AREconnected
     global lastCTime
     ip2 = "0.0.0.0"
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -22,7 +25,13 @@ def processConn():
             clientsocket, addr = serversocket.accept()
             recieved = clientsocket.recv(1024)
             recieved = recieved.decode("utf-8", "replace")
-            data = getResponse(recieved)
+            if addr in AREconnected:
+                data = getResponse(recieved)
+            else:
+                #something here
+                data = ""
+                AREconnected.append(addr)
+                
             clientsocket.send(data.encode("utf-8", "replace"))
             clientsocket.close()
             lastCTime = time.time()
@@ -110,7 +119,7 @@ while True:
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
             print("Show active, connecting to socket at %s" % socket)
-            with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
+            with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
             #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Show active, connecting to socket at %s" % socket).post()
             try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
             except:pass
