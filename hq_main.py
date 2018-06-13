@@ -22,7 +22,11 @@ def processConn():
     
     Version 1.2.2
     
+    New Features (Since Last Version)):
+    -> This Screen
+    
     Upcoming Features:
+    -> Reduce the number of times Method 1 is inconclusive (can't find an answer)
     -> Better Anti-Bot Question detection
     -> Points displayed for each answer
     -> Android App (possible)
@@ -30,6 +34,8 @@ def processConn():
     Contact me at caffiene0addict0420@gmail.com to suggest features / improvements
     
     If you like the bot, please tell colleagues or friends about us :)
+    
+    
     """
 
     ip2 = "0.0.0.0"
