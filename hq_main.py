@@ -25,6 +25,8 @@ def processConn():
     -> Android App (possible)
     
     Contact me at caffiene0addict0420@gmail.com to suggest features / improvements
+    
+    If you like the bot, please refer colleagues or friends
     """
     global AREconnected
     global lastCTime
