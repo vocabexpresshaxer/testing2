@@ -43,12 +43,11 @@ def processConn():
             recieved = clientsocket.recv(1024)
             recieved = recieved.decode("utf-8", "replace")
             print(AREconnected)
-            time.sleep(5)
-            if addr in AREconnected:
+            if addr[0] in AREconnected:
                 data = getResponse(recieved)
             else:
                 data = startMSG
-                AREconnected.append(addr)
+                AREconnected.append(addr[0])
                 
             clientsocket.send(data.encode("utf-8", "replace"))
             clientsocket.close()
