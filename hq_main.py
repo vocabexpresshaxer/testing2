@@ -42,7 +42,6 @@ def processConn():
             clientsocket, addr = serversocket.accept()
             recieved = clientsocket.recv(1024)
             recieved = recieved.decode("utf-8", "replace")
-            print(AREconnected)
             if addr[0] in AREconnected:
                 data = getResponse(recieved)
             else:
