@@ -13,6 +13,17 @@ uk = True
 AREconnected = []
 
 def processConn():
+    startMSG = """
+    ##############
+    #Using ACEBOT#
+    ##############
+    
+    Version 1.6.2
+    
+    Upcoming Features:
+    -> 
+    -> Android App (possible)
+    """
     global AREconnected
     global lastCTime
     ip2 = "0.0.0.0"
