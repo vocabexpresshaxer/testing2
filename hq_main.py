@@ -18,11 +18,13 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.6.2
+    Version 1.2.2
     
     Upcoming Features:
-    -> 
+    -> Points displayed for each answer
     -> Android App (possible)
+    
+    Contact me at caffiene0addict0420@gmail.com to suggest features / improvements
     """
     global AREconnected
     global lastCTime
