@@ -20,7 +20,7 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.2.2
+    Version 1.2.3
     
     New Features (Since Last Version)):
     -> This Screen
@@ -69,7 +69,7 @@ def getResponse(data):
         "LmaoMaxi", #Valid Until 12th June
         "JacobBurns", #Valid Until 4th July
         "DKAMV", #Valid Until 5th July
-        "yoelZ", #13th June
+        #"yoelZ", #13th June
         "JustinS", #14th June
         "upflare", #16th June
         "jeffery", #16th June
