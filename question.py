@@ -139,7 +139,7 @@ async def __search_method1(texts, answers, reverse):
             return min(counts, key=counts.get) 
         else:
             return max(counts, key=counts.get)
-    return ""
+    return __search_method2(texts, answers, reverse) + "***"
 
 
 async def __search_method2(texts, answers, reverse):
