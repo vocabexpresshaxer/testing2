@@ -20,13 +20,13 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.2.3
+    Version 1.2.4
     
     New Features (Since Last Version)):
     -> This Screen
+    -> Reduced the number of times Method 1 is inconclusive (can't find an answer)
     
     Upcoming Features:
-    -> Reduce the number of times Method 1 is inconclusive (can't find an answer)
     -> Better Anti-Bot Question detection
     -> Points displayed for each answer
     -> Android App (possible)
