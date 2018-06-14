@@ -30,7 +30,7 @@ def processConn():
     -> Better Anti-Bot Question detection
     -> Points displayed for each answer
     -> Android App (possible)
-    -> Semi-Auto Extra Lives Bot (possible)
+    -> Semi-Auto Extra Lives Bot (in development)
     
     Contact me at caffiene0addict0420@gmail.com to suggest features / improvements
     
