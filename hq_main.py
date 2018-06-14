@@ -20,11 +20,11 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.2.4
+    Version 1.2.5
     
     New Features (Since Last Version)):
-    -> This Screen
     -> Reduced the number of times Method 1 is inconclusive (can't find an answer)
+    -> Bug Fixes that caused the script to crash (fingers crossed)
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
