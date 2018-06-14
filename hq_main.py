@@ -63,7 +63,7 @@ def processConn():
 def getResponse(data):
     valid = [
         "AranMartin", #Valid Forever
-        "hqtriviabot123", #Valid Forever
+        "7vsquad", #Valid Forever
         "LittleBird", #Valid Until 12th July
         "Pardeep", #Valid Until 12th July
         #"LmaoMaxi", #Valid Until 12th June
