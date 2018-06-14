@@ -65,16 +65,16 @@ def getResponse(data):
     valid = [
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
-        "LittleBird", #Valid Until 12th July
-        "Pardeep", #Valid Until 12th July
-        #"LmaoMaxi", #Valid Until 12th June
-        "JacobBurns", #Valid Until 4th July
-        "DKAMV", #Valid Until 5th July
-        #"yoelZ", #13th June
-        "JustinS", #14th June
-        "upflare", #16th June
-        "jeffery", #16th June
-        "hexcruncher", # 18th June
+        "LittleBird", #Valid Until 13th July
+        "Pardeep", #Valid Until 13th July
+        #"LmaoMaxi", #Valid Until 13th June
+        "JacobBurns", #Valid Until 5th July
+        "DKAMV", #Valid Until 6th July
+        #"yoelZ", #14th June
+        "JustinS", #15th June
+        "upflare", #17th June
+        "jeffery", #17th June
+        "hexcruncher", # 19th June
     ]
     if data in valid:
         lines = """"""
