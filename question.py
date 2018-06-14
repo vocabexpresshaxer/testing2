@@ -139,9 +139,10 @@ async def __search_method1(texts, answers, reverse):
             return min(counts, key=counts.get) 
         else:
             return max(counts, key=counts.get)
-    m2_ans = await __search_method2(texts, answers, reverse)
-    m2_ans = str(m2_ans) + "***"
-    return m2_ans
+    #m2_ans = await __search_method2(texts, answers, reverse)
+    #m2_ans = str(m2_ans) + "***"
+    #return m2_ans
+    return ""
 
 async def __search_method2(texts, answers, reverse):
     """
