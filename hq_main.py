@@ -22,6 +22,8 @@ def processConn():
     
     Version 1.2.5
     
+    *Apologies for the server crashing during the 3pm game. All problems have been fixed, and everyone has access extended by 1 day*
+    
     New Features (Since Last Version)):
     -> Reduced the number of times Method 1 is inconclusive (can't find an answer)
     -> Bug Fixes that caused the script to crash (fingers crossed)
