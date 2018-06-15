@@ -61,8 +61,7 @@ def processConn():
             lastCTime = time.time()
         except Exception as e:print(e)
 
-def getResponse(data):
-    import 
+def getResponse(data): 
     valid = [
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
