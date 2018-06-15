@@ -40,17 +40,17 @@ def _to_snake(name):
     return _cap_re.sub(r"\1_\2", s1).lower()
 
 
-class HQUserLeaderboard:
-    def __init__(self, **kwargs):
-        self.total_cents = kwargs.get("total_cents")
-        self.total = kwargs.get("total")
-        self.unclaimed = kwargs.get("unclaimed")
-        for p in ("alltime", "weekly"):
-            for v in ("wins", "total", "rank"):
-                try:
-                    setattr(self, f"{p}_{v}", kwargs.get(p).get(v))
-                except:
-                    pass
+#class HQUserLeaderboard:
+#    def __init__(self, **kwargs):
+#        self.total_cents = kwargs.get("total_cents")
+#        self.total = kwargs.get("total")
+#        self.unclaimed = kwargs.get("unclaimed")
+#        for p in ("alltime", "weekly"):
+#            for v in ("wins", "total", "rank"):
+#                try:
+#                    setattr(self, f"{p}_{v}", kwargs.get(p).get(v))
+#                except:
+#                    pass
 
 
 class HQUserInfo:
