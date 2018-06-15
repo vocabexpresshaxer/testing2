@@ -99,13 +99,13 @@ def getResponse(data):
                 else:return("Wahoo! Extra life given to the account!") 
             else:
                 return("Invalid Code")
-        else:
-            if data in valid:
-                lines = """"""
-                for line in open("uk.txt"):
-                    lines = lines + line + "\n"
-                return lines
-            else:return """ERROR- invalid logon - check you have the right password, and your access is still valid.
+    else:
+        if data in valid:
+            lines = """"""
+            for line in open("uk.txt"):
+                lines = lines + line + "\n"
+            return lines
+        else:return """ERROR- invalid logon - check you have the right password, and your access is still valid.
     https://github.com/Caffiene0Addict0420/HQ-Trivia-Acebot
     Has been taken down so this bot doesn't attract the attention of HQ Trivia, and there are enough people subscribed to fund the server.
     
