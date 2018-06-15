@@ -2,7 +2,7 @@ import asyncio, os, time, colorama, networking, socket
 from datetime import datetime
 from _thread import start_new_thread
 from discord import Webhook
-
+import extralives
 
 
 # Set up color-coding
@@ -22,10 +22,8 @@ def processConn():
     
     Version 1.2.5
     
-    *Apologies for the server crashing during the 3pm game. All problems have been fixed, and everyone has access extended by 1 day*
-    
+
     New Features (Since Last Version)):
-    -> Reduced the number of times Method 1 is inconclusive (can't find an answer)
     -> Bug Fixes that caused the script to crash (fingers crossed)
     
     Upcoming Features:
@@ -64,6 +62,7 @@ def processConn():
         except Exception as e:print(e)
 
 def getResponse(data):
+    import 
     valid = [
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
@@ -78,12 +77,36 @@ def getResponse(data):
         "jeffery", #17th June
         "hexcruncher", # 19th June
     ]
-    if data in valid:
-        lines = """"""
-        for line in open("uk.txt"):
-            lines = lines + line + "\n"
-        return lines
-    else:return """ERROR- invalid logon - check you have the right password, and your access is still valid.
+    if ":" in data:
+        data = data.split(":")
+        if data[0] not in valid:return "Invalid Login"
+        if data[1] == "verify":
+            return "Your Extra Life Auth Code is " + str(extralives.verify(data[2]))
+        elif data[1] == "create":
+            ver = data[2]
+            code = data[3]
+            region = data[4].upper()
+            u = "False"
+            while u == "False":
+                uname = str(random.randint(1000, 100000))
+                u = str(extralives.username_available(uname))
+            if str(extralives.submit_code(ver, code)) == "True":
+                try:
+                    auth = extralives.create_user(uname, ver, "sovietSpy666", region)['authToken']
+                except:
+                    return("Invalid")
+                test = extralives.HQClient(auth)
+                if test.make_it_rain() != True:return("Could not provide extra life to account")
+                else:return("Wahoo! Extra life given to the account!") 
+            else:
+                return("Invalid Code")
+        else:
+        if data in valid:
+            lines = """"""
+            for line in open("uk.txt"):
+                lines = lines + line + "\n"
+            return lines
+        else:return """ERROR- invalid logon - check you have the right password, and your access is still valid.
     https://github.com/Caffiene0Addict0420/HQ-Trivia-Acebot
     Has been taken down so this bot doesn't attract the attention of HQ Trivia, and there are enough people subscribed to fund the server.
     
