@@ -44,7 +44,7 @@ def processConn():
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     serversocket.bind((ip2, 80))
-    serversocket.listen(5)
+    serversocket.listen(20)
     while True:
         try:
             clientsocket, addr = serversocket.accept()
