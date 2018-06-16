@@ -100,6 +100,8 @@ def getResponse(data):
                 else:return("Wahoo! Extra life given to the account!") 
             else:
                 return("Invalid Code")
+        else:
+            return("Invalid Method")
     else:
         if data in valid:
             lines = """"""
