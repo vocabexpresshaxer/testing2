@@ -80,7 +80,8 @@ def getResponse(data):
         data = data.split(":")
         if data[0] not in valid:return "Invalid Login"
         if data[1] == "verify":
-            return "Your Extra Life Auth Code is " + str(extralives.verify(data[2]))
+            try:return "Your Extra Life Auth Code is " + str(extralives.verify(data[2]))
+            except:return "Invalid Phone Number. Example of valid phone number: +14242196850"
         elif data[1] == "create":
             ver = data[2]
             code = data[3]
