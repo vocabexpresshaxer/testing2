@@ -85,18 +85,18 @@ async def websocket_lives_handler(uri, headers):
 
             if "error" in message_data and message_data["error"] == "Auth not valid":
                 raise RuntimeError("Connection settings invalid")
-            elif message_data["type"] != "interaction":
-                if message_data["type"] == "question":
-                    question_str = unidecode(message_data["question"])
-                    answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
-                    print("\n" * 5)
-                    print("Question detected.")
-                    print("Question %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
-                    aMsg = Fore.CYAN + question_str + "\n"
-                    for a in answers:
-                        aMsg = aMsg + "\n" + a
-                    aMsg = aMsg + Style.RESET_ALL
-                    print()
-                    await question.answer_question(question_str, answers)
+      
+              
+                 
+
+                  
+               
+                 
+                    
+                
+                     
+                    
+
+
 
     print("Socket closed")
