@@ -76,6 +76,7 @@ def getResponse(data):
         "jeffery", #17th June
         "hexcruncher", # 19th June
         "jacobpotter", #23rd June
+        "chris", #23rd Jun
     ]
     if ":" in data:
         data = data.split(":")
