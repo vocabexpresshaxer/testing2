@@ -71,9 +71,9 @@ def getResponse(data):
         "JacobBurns", #Valid Until 5th July
         "DKAMV", #Valid Until 6th July
         #"yoelZ", #14th June
-        "JustinS", #15th June
-        "upflare", #17th June
-        "jeffery", #17th June
+        #"JustinS", #15th June
+        "upflare", #17th July
+        #"jeffery", #17th June
         "hexcruncher", # 19th June
         "jacobpotter", #23rd June
         "chris", #23rd Jun
