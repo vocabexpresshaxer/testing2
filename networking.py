@@ -71,32 +71,19 @@ async def websocket_handler(uri, headers):
     print("Socket closed")
     
     
-async def websocket_lives_handler(uri, headers):
-    websocket = WebSocket(uri)
-    for header, value in headers.items():
-        websocket.add_header(str.encode(header), str.encode(value))
+async def websocket_lives_handler(uri, bearers):
+    for bearer in bearers:
+        headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0", "type": "subscribe", "broadcastId": "placeholder_broadcastid"}
+        websocket = WebSocket(uri)
+        for header, value in headers.items():
+            websocket.add_header(str.encode(header), str.encode(value))
+            
+        for msg in websocket.connect(ping_rate=5):
+            if msg.name == "text":
+                message = msg.text
+                message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
+                message_data = json.loads(message)
 
-    for msg in websocket.connect(ping_rate=5):
-        if msg.name == "text":
-            message = msg.text
-            message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
-
-            message_data = json.loads(message)
-
-            if "error" in message_data and message_data["error"] == "Auth not valid":
-                raise RuntimeError("Connection settings invalid")
-      
-              
-                 
-
-                  
-               
-                 
-                    
-                
-                     
-                    
-
-
-
-    print("Socket closed")
+                if "error" in message_data and message_data["error"] == "Auth not valid":
+                    raise RuntimeError("Connection settings invalid")
+                break
