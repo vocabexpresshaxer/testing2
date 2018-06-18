@@ -85,6 +85,8 @@ def getResponse(data):
             try:return "Your Extra Life Auth Code is " + str(extralives.verify(data[2]))
             except:return "Invalid Phone Number. Example of valid phone number: +14242196850"
         elif data[1] == "create":
+            if len(data) != 5:
+                return("Invalid Number of Arguments to create an account")
             ver = data[2]
             code = data[3]
             region = data[4].upper()
