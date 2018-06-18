@@ -113,14 +113,14 @@ def getResponse(data):
                 for line in open("uk.txt"):
                     lines = lines + line + "\n"
                 return lines
-            else:return """ERROR- invalid logon - check you have the right password, and your access is still valid.
+            except:return("An exception occured server-side, please bear with us")
+        else:return """ERROR- invalid logon - check you have the right password, and your access is still valid.
     https://github.com/Caffiene0Addict0420/HQ-Trivia-Acebot
     Has been taken down so this bot doesn't attract the attention of HQ Trivia, and there are enough people subscribed to fund the server.
     
     To extend your access / buy access (you can still refer friends etc) email me at caffiene0addict0420
             """
-            except:
-                return("An exception occured server-side, please bear with us")
+
 
 if uk == True:c = "ukconn.txt"
 else:c = "usconn.txt"
