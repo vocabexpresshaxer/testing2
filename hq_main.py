@@ -97,11 +97,11 @@ def getResponse(data):
             if str(extralives.submit_code(ver, code)) == "True":
                 try:
                     auth = extralives.create_user(uname, ver, "sovietSpy666", region)['authToken']
+                    test = extralives.HQClient(auth)
+                    if test.make_it_rain() != True:return("Could not provide extra life to account")
+                    else:return("Wahoo! Extra life given to the account!") 
                 except:
                     return("Invalid")
-                test = extralives.HQClient(auth)
-                if test.make_it_rain() != True:return("Could not provide extra life to account")
-                else:return("Wahoo! Extra life given to the account!") 
             else:
                 return("Invalid Code")
         else:
