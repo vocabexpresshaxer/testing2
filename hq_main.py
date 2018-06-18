@@ -20,11 +20,12 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.2.5
+    Version 1.2.6
     
 
     New Features (Since Last Version)):
-    -> Bug Fixes that caused the script to crash (fingers crossed)
+    -> Even More Bug Fixes (fingers crossed)
+    -> More Progress with both the account creator and extra lives bot
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
