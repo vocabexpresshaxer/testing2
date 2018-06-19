@@ -77,6 +77,7 @@ async def answer_question(question, original_answers):
         if best_answer != "":
             
             toWrite = toWrite + "\nMethod 1.2: " + best_answer
+        else:toWrite = toWrite + "\nMethod 1.2: *inconclusive*"
     else:
         toWrite = toWrite + "\nMethod 1: " + best_answer
     
