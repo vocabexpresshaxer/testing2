@@ -22,7 +22,6 @@ def processConn():
     
     Version 1.2.6
     
-
     New Features (Since Last Version)):
     -> Even More Bug Fixes (fingers crossed)
     -> More Progress with both the account creator and extra lives bot
@@ -137,4 +136,51 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as c
         raise e
 
 print("Starting up Bot...")
-main_url = "https://api-q
+main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
+headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
+           "x-hq-client": "Android/1.3.0"}
+# "x-hq-stk": "MQ==",
+# "Connection": "Keep-Alive",
+# "User-Agent": "okhttp/3.8.0"}
+start_new_thread(processConn, ())
+lastCTime = time.time()
+while True:
+    offse = time.time() - lastCTime
+    if int(offse) < 60: 
+        print()
+        try:
+            response_data = asyncio.get_event_loop().run_until_complete(
+                networking.get_json_response(main_url, timeout=1.5, headers=headers))
+        except:
+            print("Server response not JSON, retrying...")
+            time.sleep(1)
+            continue
+
+        if "broadcast" not in response_data or response_data["broadcast"] is None:
+            if "error" in response_data and response_data["error"] == "Auth not valid":
+                raise RuntimeError("Connection settings invalid")
+            else:
+                print("Show not on.")
+                try:
+                    next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
+                    now = time.time()
+                    offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
+                    print("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
+                    print("Prize: " + response_data["nextShowPrize"])
+                    with open("uk.txt", "w") as uk:uk.write("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
+                    #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]).post()
+                    #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
+                except Exception as e:print(e)
+
+          
+                time.sleep(5)
+        else:
+            socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
+            print("Show active, connecting to socket at %s" % socket)
+            AREconnected = []
+            with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
+            #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Show active, connecting to socket at %s" % socket).post()
+            try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
+            except:pass
+            #asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
+            asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
