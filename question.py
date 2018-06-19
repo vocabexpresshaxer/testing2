@@ -72,9 +72,11 @@ async def answer_question(question, original_answers):
         toWrite = toWrite + "*AI: Anti Bot Q Detected- DON'T TRUST BOT ANSWERS!*"
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
-        toWrite = toWrite + "\nMethod 1: [Couldn't find the most likely answer, use method 2 instead]"
+        toWrite = toWrite + "\nMethod 1: *inconclusive*"
         best_answer = await __search_method2(search_text, answers, reverse)
-        toWrite = toWrite + "\nMethod 1.2: " + best_answer
+        if best_answer != "":
+            
+            toWrite = toWrite + "\nMethod 1.2: " + best_answer
     else:
         toWrite = toWrite + "\nMethod 1: " + best_answer
     
