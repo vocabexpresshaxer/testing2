@@ -20,7 +20,7 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.3.1
+    Version 1.3.2
     
     *TO USE THE NEW FEATURES, USE THE UPGRADED CLIENT AT:*
     https://repl.it/repls/SympatheticConsideratePorts
@@ -28,6 +28,7 @@ def processConn():
     New Features (Since Last Version)):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
     -> Ability to activate extra life (swipe up) easter egg (experimental)
+    -> Improved search methods
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
@@ -76,7 +77,7 @@ def getResponse(data):
         #"JustinS", #15th June
         "upflare", #17th July
         #"jeffery", #17th June
-        "hexcruncher", # 19th June
+        #"hexcruncher", # 19th June
         "jacobpotter", #23rd June
         "chris", #23rd Jun
     ]
