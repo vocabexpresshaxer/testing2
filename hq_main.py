@@ -77,7 +77,7 @@ def getResponse(data):
         #"JustinS", #15th June
         "upflare", #17th July
         #"jeffery", #17th June
-        #"hexcruncher", # 19th June
+        "hexcruncher", # started 19th June. topay 22nd june
         "jacobpotter", #23rd June
         "chris", #23rd Jun
     ]
