@@ -73,7 +73,7 @@ async def answer_question(question, original_answers):
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: *inconclusive*"
-        best_answer = await __search_method2(search_text, answers, reverse)
+        best_answer, points = await __search_method2(search_text, answers, reverse)
         if best_answer != "":
             
             toWrite = toWrite + "\nMethod 1.2: " + best_answer
@@ -170,10 +170,10 @@ async def __search_method2(texts, answers, reverse):
 
     if not all(c == 0 for c in counts_sum.values()):
         if reverse:
-            return min(counts_sum, key=counts_sum.get)
+            return (min(counts_sum, key=counts_sum.get), counts)
         else:
-            return max(counts_sum, key=counts_sum.get)
-    return ""
+            return (max(counts_sum, key=counts_sum.get), counts)
+    return ("", counts)
 
 
 async def __search_method3(question_keywords, question_key_nouns, answers, reverse):
