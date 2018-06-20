@@ -81,7 +81,7 @@ async def answer_question(question, original_answers):
             toWrite = toWrite + "\nMethod 1.2: " + best_answer + "  " + points
         else:toWrite = toWrite + "\nMethod 1.2: *inconclusive*  " + points
     else:
-        toWrite = toWrite + "\nMethod 1: " + best_answer + "    " + points 
+        toWrite = toWrite + "\nMethod 1: " + best_answer
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
         
