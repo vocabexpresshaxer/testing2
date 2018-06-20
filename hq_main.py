@@ -25,18 +25,19 @@ def processConn():
     *TO USE THE NEW FEATURES, USE THE UPGRADED CLIENT AT:*
     https://repl.it/repls/SympatheticConsideratePorts
     
-    New Features (Since Last Version)):
+    New Features (Since Last Major Version):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
     -> Ability to activate extra life (swipe up) easter egg (experimental)
     -> Improved search methods
+    -> Points are displayed for method 1.2
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
-    -> Points displayed for each answer
+    -> Points displayed for Method 1 and 2
     -> Android App (possible)
     -> Semi-Auto Extra Lives Bot (in development)
     
-    Contact me at caffiene0addict0420@gmail.com to suggest features / improvements
+    Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
     
     If you like the bot, please tell colleagues or friends about us :)
     
