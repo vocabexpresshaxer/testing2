@@ -73,13 +73,15 @@ async def answer_question(question, original_answers):
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: *inconclusive*"
+        
         best_answer, points = await __search_method2(search_text, answers, reverse)
+        best_answer, points = str(best_answer), str(points)
         if best_answer != "":
             
-            toWrite = toWrite + "\nMethod 1.2: " + best_answer
-        else:toWrite = toWrite + "\nMethod 1.2: *inconclusive*"
+            toWrite = toWrite + "\nMethod 1.2: " + best_answer + "  " + points
+        else:toWrite = toWrite + "\nMethod 1.2: *inconclusive*  " + points
     else:
-        toWrite = toWrite + "\nMethod 1: " + best_answer
+        toWrite = toWrite + "\nMethod 1: " + best_answer + "    " + points 
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
         
