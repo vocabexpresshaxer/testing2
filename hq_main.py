@@ -20,10 +20,12 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.3.2
+    Version 1.3.3
     
     *TO USE THE NEW FEATURES, USE THE UPGRADED CLIENT AT:*
     https://repl.it/repls/SympatheticConsideratePorts
+    Apologies for the server crashing at the start of the 3pm game
+    Everyone now has 1 day longer access
     
     New Features (Since Last Major Version):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
@@ -73,18 +75,18 @@ def getResponse(data):
     valid = [
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
-        "LittleBird", #Valid Until 13th July
-        "Pardeep", #Valid Until 13th July
+        "LittleBird", #Valid Until 14th July
+        "Pardeep", #Valid Until 14th July
         #"LmaoMaxi", #Valid Until 13th June
-        "JacobBurns", #Valid Until 5th July
-        "DKAMV", #Valid Until 6th July
+        "JacobBurns", #Valid Until 6th July
+        "DKAMV", #Valid Until 7th July
         #"yoelZ", #14th June
         #"JustinS", #15th June
-        "upflare", #17th July
+        "upflare", #18th July
         #"jeffery", #17th June
-        "hexcruncher", # started 19th June. topay 22nd june
-        "jacobpotter", #23rd June
-        "chris", #23rd Jun
+        "hexcruncher", # started 21th June. topay 22nd june
+        "jacobpotter", #24rd June
+        "chris", #24rd Jun
     ]
     if ":" in data:
         data = data.split(":")
