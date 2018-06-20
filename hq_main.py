@@ -88,6 +88,7 @@ def getResponse(data):
         "hexcruncher", # started 21th June. topay 22nd june
         "jacobpotter", #24rd June
         "chris", #24rd Jun
+        "dankestmemes", #26th june
     ]
     if ":" in data:
         data = data.split(":")
