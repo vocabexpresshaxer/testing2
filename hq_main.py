@@ -75,6 +75,7 @@ def getResponse(data):
     valid = [
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
+        "rohan", #forever
         "LittleBird", #Valid Until 14th July
         "Pardeep", #Valid Until 14th July
         #"LmaoMaxi", #Valid Until 13th June
