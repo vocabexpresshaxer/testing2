@@ -42,6 +42,10 @@ def processConn():
     If you like the bot, please tell colleagues or friends about us :)
     
     
+    
+    Would people want me to start a referal system where you get 10 days free access per paying referal?
+    
+    
     """
 
     ip2 = "0.0.0.0"
