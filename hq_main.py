@@ -28,8 +28,8 @@ def processConn():
     New Features (Since Last Major Version):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
     -> Ability to activate extra life (swipe up) easter egg (experimental)
-    -> Improved search methods
-    -> Points are displayed for method 1.2
+
+    -> Points are displayed for method 1.2 + bug fix for this
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
