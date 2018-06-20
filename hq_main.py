@@ -24,8 +24,8 @@ def processConn():
     
     *TO USE THE NEW FEATURES, USE THE UPGRADED CLIENT AT:*
     https://repl.it/repls/SympatheticConsideratePorts
-    Apologies for the server crashing at the start of the 3pm game
-    Everyone now has 1 day longer access
+
+
     
     New Features (Since Last Major Version):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
