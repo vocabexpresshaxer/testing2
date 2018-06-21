@@ -85,5 +85,5 @@ async def websocket_lives_handler(uri, bearers):
                 message_data = json.loads(message)
 
                 if "error" in message_data and message_data["error"] == "Auth not valid":
-                    raise RuntimeError("Connection settings invalid")
+                    print("Connection settings invalid")
                 websocket.close()
