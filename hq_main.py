@@ -126,8 +126,8 @@ def getResponse(data):
                     pickle.dumps(bearers, open("bearers.p", "wb"))
                     return("Life is Queued For Creation During Next UK Game")
                     
-                except:
-                    return("Invalid")
+                except Exception as e:
+                    return(e)
             else:
                 return("Invalid Code")
         else:
@@ -209,6 +209,6 @@ while True:
             try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
             except:pass
             
-            #asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
+            asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
             print("Added Lives :)")
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
