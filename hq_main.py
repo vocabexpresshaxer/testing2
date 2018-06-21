@@ -210,5 +210,6 @@ while True:
             except:pass
             
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
-            print("Added Lives :)")
+            bearers = []
+            pickle.dump(bearers, open("bearers.p", "wb"))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
