@@ -78,8 +78,8 @@ async def answer_question(question, original_answers):
         best_answer, points = str(best_answer), str(points)
         if best_answer != "":
             
-            toWrite = toWrite + "\nMethod 1.2: " + best_answer + "  " + points
-        else:toWrite = toWrite + "\nMethod 1.2: *inconclusive*  " + points
+            toWrite = toWrite + "\nMethod 1.2: " + best_answer + "\n" + points
+        else:toWrite = toWrite + "\nMethod 1.2: *inconclusive*\n" + points
     else:
         toWrite = toWrite + "\nMethod 1: " + best_answer
     
