@@ -29,6 +29,7 @@ def processConn():
     Version 1.4.0
     
     *TO USE NEW FEATURE, YOU NEED THE LATEST CLIENT*
+    --> https://repl.it/repls/MassiveVelvetyCgibin <--
     
     New Features (Since Last Major Version):
     -> Semi-Auto Extra Lives Bot (experimental)
