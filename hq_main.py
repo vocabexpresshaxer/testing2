@@ -122,6 +122,10 @@ def getResponse(data):
             if str(extralives.submit_code(ver, code)) == "True":
                 try:
                     auth = extralives.create_user(uname, ver, ref, "GB")['authToken']
+                    
+                    ######################################
+                    #Do Something Here With Auth + Pickle#
+                    ######################################
                 except:
                     return("Invalid")
             else:
