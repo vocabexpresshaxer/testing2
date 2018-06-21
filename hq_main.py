@@ -26,20 +26,18 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.3.4
+    Version 1.4.0
     
-    There *May* be problems / bugs with the bot as i am trialling the extra life bot during the 3PM game
+    *TO USE NEW FEATURE, YOU NEED THE LATEST CLIENT*
     
     New Features (Since Last Major Version):
-    -> Semi-Auto UK or US Account Creator Bot (experimental)
-    -> Ability to activate extra life (swipe up) easter egg (experimental)
-    -> Points are displayed for method 1.2 + bug fix for this
+    -> Semi-Auto Extra Lives Bot (experimental)
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
     -> Points displayed for Method 1 and 2
+    -> Support For US Game (possible)
     -> Android App (possible)
-    -> Semi-Auto Extra Lives Bot (in development)
     
     Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
     
