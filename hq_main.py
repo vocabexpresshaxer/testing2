@@ -24,13 +24,11 @@ def processConn():
     
     *TO USE THE NEW FEATURES, USE THE UPGRADED CLIENT AT:*
     https://repl.it/repls/SympatheticConsideratePorts
-
-
+    
     
     New Features (Since Last Major Version):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
     -> Ability to activate extra life (swipe up) easter egg (experimental)
-
     -> Points are displayed for method 1.2 + bug fix for this
     
     Upcoming Features:
