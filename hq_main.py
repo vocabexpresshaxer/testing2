@@ -121,9 +121,13 @@ def getResponse(data):
                 u = str(extralives.username_available(uname))
             if str(extralives.submit_code(ver, int(code))) == "True":
                 try:
+                    print("0")
                     auth = extralives.create_user(uname, ver, ref, "GB")['authToken']
+                    print("1")
                     bearers.append(str(auth))
+                    print("2")
                     pickle.dumps(bearers, open("bearers.p", "wb"))
+                    print("3")
                     return("Life is Queued For Creation During Next UK Game")
                     
                 except Exception as e:
