@@ -76,13 +76,9 @@ def getResponse(data):
         "rohan", #forever
         "LittleBird", #Valid Until 14th July
         "Pardeep", #Valid Until 14th July
-        #"LmaoMaxi", #Valid Until 13th June
         "JacobBurns", #Valid Until 6th July
         "DKAMV", #Valid Until 7th July
-        #"yoelZ", #14th June
-        #"JustinS", #15th June
         "upflare", #18th July
-        #"jeffery", #17th June
         "hexcruncher", # started 21th June. topay 22nd june
         "jacobpotter", #24rd June
         "chris", #24rd Jun
