@@ -26,11 +26,9 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.3.3
+    Version 1.3.4
     
-    *TO USE THE NEW FEATURES, USE THE UPGRADED CLIENT AT:*
-    https://repl.it/repls/SympatheticConsideratePorts
-    
+    There *May* be problems / bugs with the bot as i am trialling the extra life bot during the 3PM game
     
     New Features (Since Last Major Version):
     -> Semi-Auto UK or US Account Creator Bot (experimental)
@@ -47,11 +45,7 @@ def processConn():
     
     If you like the bot, please tell colleagues or friends about us :)
     
-    
-    
-    Would people want me to start a referal system where you get 10 days free access per paying referal?
-    
-    
+
     """
 
     ip2 = "0.0.0.0"
