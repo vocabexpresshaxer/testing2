@@ -21,7 +21,6 @@ except:
 def processConn():
     global AREconnected
     global lastCTime
-    global bearers
     startMSG = """
     ##############
     #Using ACEBOT#
@@ -70,6 +69,7 @@ def processConn():
         except Exception as e:print(e)
 
 def getResponse(data): 
+    global bearers
     valid = [
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
