@@ -21,6 +21,7 @@ except:
 def processConn():
     global AREconnected
     global lastCTime
+    global bearers
     startMSG = """
     ##############
     #Using ACEBOT#
