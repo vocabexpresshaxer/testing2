@@ -114,6 +114,22 @@ def getResponse(data):
                     return("Invalid")
             else:
                 return("Invalid Code")
+        elif data[1] == "life":
+            if len(data) != 5:return("Invalid Number of Arguments")
+            ver = data[2]
+            code = data[3]
+            ref = data[4]
+            u = "False"
+            while u == "False":
+                uname = str(random.randint(1000, 100000))
+                u = str(extralives.username_available(uname))
+            if str(extralives.submit_code(ver, code)) == "True":
+                try:
+                    auth = extralives.create_user(uname, ver, ref, "GB")['authToken']
+                except:
+                    return("Invalid")
+            else:
+                return("Invalid Code")
         else:
             return("Invalid Method")
     else:
