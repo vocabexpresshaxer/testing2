@@ -126,6 +126,8 @@ def getResponse(data):
                     ######################################
                     #Do Something Here With Auth + Pickle#
                     ######################################
+                    return auth
+                    
                 except:
                     return("Invalid")
             else:
