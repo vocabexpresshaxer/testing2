@@ -11,6 +11,12 @@ colorama.init()
 uk = True
 
 AREconnected = []
+bearers = [
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwOTEzNDA1LCJ1c2VybmFtZSI6Ijk3OTE4IiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9kMnh1MWhkb21oM25yeC5jbG91ZGZyb250Lm5ldC9kZWZhdWx0X2F2YXRhcnMvVW50aXRsZWQtMV8wMDA0X2dvbGQucG5nIiwidG9rZW4iOm51bGwsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTI5NTgyMTA4LCJleHAiOjE1MzczNTgxMDgsImlzcyI6Imh5cGVxdWl6LzEifQ.6w_WoVXe0_VMXFtYhHc-x6u2CKdKH7aeizJ5GxiLdn4",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwOTEzNDE3LCJ1c2VybmFtZSI6IjI1NjI0IiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9kMnh1MWhkb21oM25yeC5jbG91ZGZyb250Lm5ldC9kZWZhdWx0X2F2YXRhcnMvVW50aXRsZWQtMV8wMDAwX2dyZWVuLnBuZyIsInRva2VuIjpudWxsLCJyb2xlcyI6W10sImNsaWVudCI6IiIsImd1ZXN0SWQiOm51bGwsInYiOjEsImlhdCI6MTUyOTU4MjE5MCwiZXhwIjoxNTM3MzU4MTkwLCJpc3MiOiJoeXBlcXVpei8xIn0.mANoEtu1_oEtZQ0dym5FEja6KZD-kGXTyV0D2K0qpY0",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwOTEzNDMyLCJ1c2VybmFtZSI6Ijc1OTgxIiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9kMnh1MWhkb21oM25yeC5jbG91ZGZyb250Lm5ldC9kZWZhdWx0X2F2YXRhcnMvVW50aXRsZWQtMV8wMDAxX2JsdWUucG5nIiwidG9rZW4iOm51bGwsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTI5NTgyMjc0LCJleHAiOjE1MzczNTgyNzQsImlzcyI6Imh5cGVxdWl6LzEifQ.Ton5HRiM-Azae0xY6fA_I_lqL_kRkPAhxG68XNcp42E",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwOTEzNDQ5LCJ1c2VybmFtZSI6IjcyMzc4IiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9kMnh1MWhkb21oM25yeC5jbG91ZGZyb250Lm5ldC9kZWZhdWx0X2F2YXRhcnMvVW50aXRsZWQtMV8wMDAyX3B1cnBsZS5wbmciLCJ0b2tlbiI6bnVsbCwicm9sZXMiOltdLCJjbGllbnQiOiIiLCJndWVzdElkIjpudWxsLCJ2IjoxLCJpYXQiOjE1Mjk1ODIzNzAsImV4cCI6MTUzNzM1ODM3MCwiaXNzIjoiaHlwZXF1aXovMSJ9.X7noBvRGuGA7fyUbbcwwRZ5N_dFxIwJ6DNEsow0uAwc",
+]
 
 def processConn():
     global AREconnected
@@ -210,5 +216,7 @@ while True:
             #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Show active, connecting to socket at %s" % socket).post()
             try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
             except:pass
-            #asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
+            
+            asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
+            print("Added Lives :)")
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
