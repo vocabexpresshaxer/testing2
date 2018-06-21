@@ -111,6 +111,7 @@ async def answer_question(question, original_answers):
     key_nouns = [noun.lower() for noun in key_nouns]
     print("Question nouns: %s" % str(key_nouns))
     answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
+    if answer3 == "":answer3 = "*inconclusive*"
     print(Fore.GREEN + answer3 + Style.RESET_ALL)
     lines = """"""
     for line in open("uk.txt"):
