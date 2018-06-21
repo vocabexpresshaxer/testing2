@@ -100,7 +100,7 @@ def getResponse(data):
             while u == "False":
                 uname = str(random.randint(1000, 100000))
                 u = str(extralives.username_available(uname))
-            if str(extralives.submit_code(ver, code)) == "True":
+            if str(extralives.submit_code(ver, int(code))) == "True":
                 try:
                     auth = extralives.create_user(uname, ver, "sovietSpy666", region)['authToken']
                     test = extralives.HQClient(auth)
