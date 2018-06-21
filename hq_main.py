@@ -127,7 +127,7 @@ def getResponse(data):
                     return("Life is Queued For Creation During Next UK Game")
                     
                 except Exception as e:
-                    return(e)
+                    return(str(e))
             else:
                 return("Invalid Code")
         else:
