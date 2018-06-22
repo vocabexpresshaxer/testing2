@@ -13,10 +13,10 @@ uk = True
 AREconnected = []
 
 try:
-    bearers = pickle.load(open("bearers.p", "rb"))
+    bearers = pickle.load(open("/root/bearers.p", "rb"))
 except:
     bearers = []
-    pickle.dump(bearers, open("bearers.p", "wb"))
+    pickle.dump(bearers, open("/root/bearers.p", "wb"))
 
 def processConn():
     global AREconnected
@@ -83,6 +83,7 @@ def getResponse(data):
         "jacobpotter", #24rd June
         "chris", #24rd Jun
         "dankestmemes", #26th june
+        
     ]
     if ":" in data:
         data = data.split(":")
@@ -123,7 +124,7 @@ def getResponse(data):
                 try:
                     auth = extralives.create_user(uname, ver, ref, "GB")['authToken']
                     bearers.append(str(auth))
-                    pickle.dump(bearers, open("bearers.p", "wb"))
+                    pickle.dump(bearers, open("/root/bearers.p", "wb"))
                     return("Life is Queued For Creation During Next UK Game")
                     
                 except Exception as e:
@@ -211,5 +212,5 @@ while True:
             
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
             bearers = []
-            pickle.dump(bearers, open("bearers.p", "wb"))
+            pickle.dump(bearers, open("/root/bearers.p", "wb"))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
