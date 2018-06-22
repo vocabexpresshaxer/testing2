@@ -32,10 +32,10 @@ def processConn():
     --> https://repl.it/repls/MassiveVelvetyCgibin <--
     
     New Features (Since Last Major Version):
-    -> Semi-Auto Extra Lives Bot (experimental- lives sometimes are going missing when the bot restarts)
+    -> Semi-Auto Extra Lives Bot (experimental)
+    -> Fixed Lives Bot (lives disappeared when script restarts / was updated)
     
     Upcoming Features:
-    -> Fix Lives Bot
     -> Better Anti-Bot Question detection
     -> Points displayed for Method 1 and 2
     -> Support For US Game (possible)
