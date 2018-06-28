@@ -212,17 +212,23 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as c
         raise e
 
 print("Starting up Bot...")
-main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
-headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
-           "x-hq-client": "Android/1.3.0"}
-# "x-hq-stk": "MQ==",
-# "Connection": "Keep-Alive",
-# "User-Agent": "okhttp/3.8.0"}
 start_new_thread(processConn, ())
 lastCTime = time.time()
 
 print(nextGame(uk_bearer, us_bearer)[0])
 while True:
+    if nextGame(uk_bearer, us_bearer)[0] == "uk":
+        USER_ID = uk_bearer[1]
+        BEARER_TOKEN = uk_bearer[0]
+        nextG = "UK"
+    else:
+        USER_ID = us_bearer[1]
+        BEARER_TOKEN = us_bearer[0]
+        nextG = "US"
+        
+    main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
+    headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
+           "x-hq-client": "Android/1.3.0"}
     offse = time.time() - lastCTime
     if int(offse) < 60: 
         try:
@@ -242,9 +248,9 @@ while True:
                     next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
                     now = time.time()
                     offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
-                    print("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
+                    print("The Next game is a %s game.\nNext game will be at: %s UTC" % (nextG,str((next_time + offset).strftime('%I:%M %p')) + "\n"))
                     print("Prize: " + response_data["nextShowPrize"])
-                    with open("uk.txt", "w") as uk:uk.write("Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
+                    with open("uk.txt", "w") as uk:uk.write("The Next game is a %s game.\nNext game will be at: %s UTC" % (nextG,str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]))
                     #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]).post()
                     #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
                 except Exception as e:print(e)
