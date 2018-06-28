@@ -185,19 +185,14 @@ def nextGame(uk, us):
                         offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
                         
                         if r == "uk":
-                            #next_uk = next_time + datetime.fromtimestamp(offset)
                             timetouk = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         elif r == "us":
-                            #next_us = next_time + datetime.fromtimestamp(offset)
                             timetous = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         done = True
                     except Exception as e:print(e)
-    print("Time to UK:")
-    print(timetouk)
-    print("Time to US:")
-    print(timetous)
-    if timetouk < timetous:return "uk"
-    else:return "us"
+    tTo = "Time to next UK game: %s\nTime to next UK game: %s" % (timetouk, timetous)
+    if timetouk < timetous:return ("uk", tTo)
+    else:return ("us", tTo)
 
 uk_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4NDY1MTU1LCJ1c2VybmFtZSI6IklDdWNrTmFucyIsImF2YXRhclVybCI6InMzOi8vaHlwZXNwYWNlLXF1aXovZGVmYXVsdF9hdmF0YXJzL1VudGl0bGVkLTFfMDAwMV9ibHVlLnBuZyIsInRva2VuIjoiVENRUEg4Iiwicm9sZXMiOltdLCJjbGllbnQiOiIiLCJndWVzdElkIjpudWxsLCJ2IjoxLCJpYXQiOjE1MjU3ODQ4OTcsImV4cCI6MTUzMzU2MDg5NywiaXNzIjoiaHlwZXF1aXovMSJ9.32laQw5QOA9FuBixO2LIaUKy6Lp6J8uadXud6OdjfuA", "18465155")
 us_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1OTQ0MTI2LCJ1c2VybmFtZSI6IkFsZXhhbmRlclNpZmZpIiwiYXZhdGFyVXJsIjoiczM6Ly9oeXBlc3BhY2UtcXVpei9hL2JiLzE1OTQ0MTI2LUhpV0M3ci5qcGciLCJ0b2tlbiI6IlVYcW4wYyIsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTIzOTY5NjA1LCJleHAiOjE1MzE3NDU2MDUsImlzcyI6Imh5cGVxdWl6LzEifQ.Nm0p2g7_DhsJoWmB3tSbLGpELe4zkchxRrrmS7my_Qc", "15944126")
@@ -225,7 +220,7 @@ headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
 start_new_thread(processConn, ())
 lastCTime = time.time()
 
-print(nextGame(uk_bearer, us_bearer))
+print(nextGame(uk_bearer, us_bearer))[0]
 while True:
     offse = time.time() - lastCTime
     if int(offse) < 60: 
