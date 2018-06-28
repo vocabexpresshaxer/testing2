@@ -27,6 +27,9 @@ def processConn():
     
     Version 1.5.0
     
+    *APOLOGIES FOR DOWNTIME*
+    *YOU WILL BE COMPENSATED WITH EXTRA ACCESS AND LIVES WHEN FIXED*
+    
     New Features (Since Last Major Version):
     -> Support for US game
     
