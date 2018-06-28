@@ -83,8 +83,6 @@ def getResponse(data):
         "DKAMV", #Valid Until 7th July
         "upflare", #18th July
         #"hexcruncher", # started 21th June. topay 22nd june
-        #"jacobpotter", #24rd June
-        #"chris", #24rd Jun
         #"dankestmemes", #26th june
         "amit", #28th june
         "ross", #24th July
