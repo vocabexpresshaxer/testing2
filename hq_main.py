@@ -7,11 +7,8 @@ import extralives
 
 # Set up color-coding
 colorama.init()
-
 uk = True
-
 AREconnected = []
-
 try:
     bearers = pickle.load(open("/root/bearers.p", "rb"))
 except:
@@ -34,15 +31,21 @@ def processConn():
     
     Upcoming Features:
     -> Extra Lives bot delivers lives at next game (US, UK OR DE), not just next uk game
+    -> Support For US and DE Game
+    
+    Planned Features:
     -> Better Anti-Bot Question detection
     -> Points displayed for Method 1 and 2
-    -> Support For US Game (possible)
     -> Android App (possible)
     
     Pricing:
     -> £5 per month
     -> £30 for lifetime access
-    -> Free Month after referring 2 paying 
+    
+    Referal Offers:
+    -> Free Month after referring 2 people who buy a months access
+    -> Free 3 months access per person buying lifetime access referred 
+    
     
     Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
     
@@ -67,12 +70,14 @@ def processConn():
             else:
                 data = startMSG
                 AREconnected.append(addr[0])
-                
             clientsocket.send(data.encode("utf-8", "replace"))
             clientsocket.close()
             lastCTime = time.time()
         except Exception as e:print(e)
 
+            
+            
+            
 def getResponse(data): 
     global bearers
     valid = [
@@ -85,10 +90,7 @@ def getResponse(data):
         "DKAMV", #Valid Until 7th July
         "upflare", #18th July
         #"hexcruncher", # started 21th June. topay 22nd june
-        #"dankestmemes", #26th june
-        "amit", #28th june
         "ross", #24th July
-        
     ]
     if ":" in data:
         data = data.split(":")
