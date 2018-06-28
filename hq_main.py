@@ -68,7 +68,7 @@ def processConn():
             if addr[0] in AREconnected:
                 data = getResponse(recieved)
             else:
-                data = startMSG
+                data = startMSG + str(nextGame(uk_bearer, us_bearer)[1])
                 AREconnected.append(addr[0])
             clientsocket.send(data.encode("utf-8", "replace"))
             clientsocket.close()
