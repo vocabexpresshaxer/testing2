@@ -220,7 +220,7 @@ headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
 start_new_thread(processConn, ())
 lastCTime = time.time()
 
-print(nextGame(uk_bearer, us_bearer))[0]
+print(nextGame(uk_bearer, us_bearer)[0])
 while True:
     offse = time.time() - lastCTime
     if int(offse) < 60: 
