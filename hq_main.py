@@ -87,7 +87,7 @@ def getResponse(data):
         #"chris", #24rd Jun
         #"dankestmemes", #26th june
         "amit", #28th june
-        #"ross", #24th July
+        "ross", #24th July
         
     ]
     if ":" in data:
