@@ -33,6 +33,7 @@ def processConn():
     -> Some server-side modifications
     
     Upcoming Features:
+    -> Extra Lives bot delivers lives at next game (US, UK OR DE), not just next uk game
     -> Better Anti-Bot Question detection
     -> Points displayed for Method 1 and 2
     -> Support For US Game (possible)
@@ -41,6 +42,7 @@ def processConn():
     Pricing:
     -> £5 per month
     -> £30 for lifetime access
+    -> Free Month after referring 2 paying 
     
     Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
     
