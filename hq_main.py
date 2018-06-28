@@ -34,6 +34,7 @@ def processConn():
     -> Support For US and DE Game
     
     Planned Features:
+    -> Question no. and question (as suggested)
     -> Better Anti-Bot Question detection
     -> Points displayed for Method 1 and 2
     -> Android App (possible)
@@ -48,8 +49,6 @@ def processConn():
     
     
     Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
-    
-    If you like the bot, please tell colleagues or friends about us :)
     
 
     """
