@@ -221,7 +221,6 @@ lastCTime = time.time()
 
 print(nextGame(uk_bearer, us_bearer)[0])
 while True:
-    print(0)
     if nextGame(uk_bearer, us_bearer)[0] == "uk":
         USER_ID = uk_bearer[1]
         BEARER_TOKEN = uk_bearer[0]
@@ -230,20 +229,15 @@ while True:
         USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
         nextG = "US"
-    print(1)
         
     main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
            "x-hq-client": "Android/1.3.0"}
-    print(2)
     offse = time.time() - lastCTime
-    print(3)
     if int(offse) < 60: 
         try:
-            print(4)
             response_data = asyncio.get_event_loop().run_until_complete(
                 networking.get_json_response(main_url, timeout=1.5, headers=headers))
-            print(5)
         except:
             print("Server response not JSON, retrying...")
             time.sleep(1)
@@ -258,9 +252,9 @@ while True:
                     next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
                     now = time.time()
                     offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
-                    print("The Next game is a %s game.\nNext game will be at: %s" % (nextG,str((next_time + offset).strftime('%I:%M %p')) + "\n"))
+                    print("The Next game is a %s game.\nNext game will be at: %s" % (nextG,str((next_time + offset).strftime('%I:%M %p')) + "UTC\n"))
                     print("Prize: " + response_data["nextShowPrize"])
-                    with open("uk.txt", "w") as uk:uk.write("The Next game is a %s game.\nNext game will be at: %s" % (nextG,str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]))
+                    with open("uk.txt", "w") as uk:uk.write("The Next game is a %s game.\nNext game will be at: %s" % (nextG,str((next_time + offset).strftime('%I:%M %p')) + "UTC\n" + "Prize: " + response_data["nextShowPrize"]))
                     #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]).post()
                     #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
                 except Exception as e:print(e)
