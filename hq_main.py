@@ -239,7 +239,7 @@ while True:
             print("Server response not JSON, retrying...")
             time.sleep(1)
             continue
-
+        print(response_data)
         if "broadcast" not in response_data or response_data["broadcast"] is None:
             if "error" in response_data and response_data["error"] == "Auth not valid":
                 raise RuntimeError("Connection settings invalid")
