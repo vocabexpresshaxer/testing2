@@ -18,6 +18,8 @@ except:
 def processConn():
     global AREconnected
     global lastCTime
+    global uk_bearer
+    global us_bearer
     startMSG = """
     ##############
     #Using ACEBOT#
@@ -49,8 +51,8 @@ def processConn():
     
     Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
     
-
-    """
+    %s
+    """ % str(nextGame(uk_bearer, us_bearer)[1])
     #https://repl.it/repls/MassiveVelvetyCgibin
     ip2 = "0.0.0.0"
     socket.setdefaulttimeout(5)
