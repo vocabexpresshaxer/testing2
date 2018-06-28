@@ -23,15 +23,14 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.4.1
+    Version 1.5.0
     
     New Features (Since Last Major Version):
-    -> Semi-Auto Extra Lives Bot
-    -> Some server-side modifications
+    -> Support for US game
     
     Upcoming Features:
     -> Extra Lives bot delivers lives at next game (US, UK OR DE), not just next uk game
-    -> Support For US and DE Game
+    -> Support For DE Game
     
     Planned Features:
     -> Question no. and question (as suggested)
