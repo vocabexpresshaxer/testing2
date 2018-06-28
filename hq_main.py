@@ -26,14 +26,11 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.4.0
-    
-    *TO USE NEW FEATURE, YOU NEED THE LATEST CLIENT*
-    --> https://repl.it/repls/MassiveVelvetyCgibin <--
+    Version 1.4.1
     
     New Features (Since Last Major Version):
-    -> Semi-Auto Extra Lives Bot (experimental)
-    -> Fixed Lives Bot (lives disappeared when script restarts / was updated)
+    -> Semi-Auto Extra Lives Bot
+    -> Some server-side modifications
     
     Upcoming Features:
     -> Better Anti-Bot Question detection
@@ -47,7 +44,7 @@ def processConn():
     
 
     """
-
+    #https://repl.it/repls/MassiveVelvetyCgibin
     ip2 = "0.0.0.0"
     socket.setdefaulttimeout(5)
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
