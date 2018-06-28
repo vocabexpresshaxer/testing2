@@ -154,8 +154,11 @@ def getResponse(data):
             """
 
 
-if uk == True:c = "ukconn.txt"
-else:c = "usconn.txt"
+uk_bearer = ""
+us_bearer = ""
+de_bearer = ""
+
+c = uk_bearer
 
 # Read in bearer token and user ID
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as conn_settings:
