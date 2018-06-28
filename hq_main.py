@@ -192,6 +192,10 @@ def nextGame(uk, us):
                             timetous = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         done = True
                     except Exception as e:print(e)
+    print("Time to UK:")
+    print(timetouk)
+    print("Time to US:")
+    print(timetous)
     if timetouk < timetous:return "uk"
     else:return "us"
 
