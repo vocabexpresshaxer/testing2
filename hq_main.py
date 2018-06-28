@@ -185,11 +185,11 @@ def nextGame(uk, us):
                         offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
                         
                         if r == "uk":
-                            next_uk = next_time + offset
+                            next_uk = datetime.fromtimestamp(next_time) + offset
                             timetouk = next_uk - now
                         elif r == "us":
-                            next_us = next_time + offset
-                            timetouk = nextus - now
+                            next_us = datetime.fromtimestamp(next_time) + offset
+                            timetouk = next_us - now
                         done = True
                     except Exception as e:print(e)
     if timetouk < timetous:return "uk"
