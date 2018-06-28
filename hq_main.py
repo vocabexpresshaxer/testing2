@@ -38,6 +38,10 @@ def processConn():
     -> Support For US Game (possible)
     -> Android App (possible)
     
+    Pricing:
+    -> £5 per month
+    -> £30 for lifetime access
+    
     Contact me at caffiene0addict0420@gmail.com (Email) or Caffiene_Addict_420 (Reddit) to suggest features / improvements
     
     If you like the bot, please tell colleagues or friends about us :)
@@ -78,12 +82,12 @@ def getResponse(data):
         "JacobBurns", #Valid Until 6th July
         "DKAMV", #Valid Until 7th July
         "upflare", #18th July
-        "hexcruncher", # started 21th June. topay 22nd june
-        "jacobpotter", #24rd June
-        "chris", #24rd Jun
-        "dankestmemes", #26th june
+        #"hexcruncher", # started 21th June. topay 22nd june
+        #"jacobpotter", #24rd June
+        #"chris", #24rd Jun
+        #"dankestmemes", #26th june
         "amit", #28th june
-        "ross", #24th July
+        #"ross", #24th July
         
     ]
     if ":" in data:
