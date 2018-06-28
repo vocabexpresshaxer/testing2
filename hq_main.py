@@ -172,7 +172,10 @@ def nextGame(uk, us):
                "x-hq-client": "Android/1.3.0"}
         
         done = False
+        loops = 0
         while done == False:
+            loops += 1
+            if loops > 5: return (None , None)
             try:
                 response_data = asyncio.get_event_loop().run_until_complete(
                 networking.get_json_response(main_url, timeout=1.5, headers=headers))
@@ -221,11 +224,12 @@ lastCTime = time.time()
 
 print(nextGame(uk_bearer, us_bearer)[0])
 while True:
-    if nextGame(uk_bearer, us_bearer)[0] == "uk":
+    a = nextGame(uk_bearer, us_bearer)[0]
+    if a == "uk":
         USER_ID = uk_bearer[1]
         BEARER_TOKEN = uk_bearer[0]
         nextG = "UK"
-    else:
+    elif a == "us":
         USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
         nextG = "US"
