@@ -32,6 +32,7 @@ def processConn():
     
     New Features (Since Last Major Version):
     -> Support for US game
+    -> Fix Crash
     
     Upcoming Features:
     -> Extra Lives bot delivers lives at next game (US, UK OR DE), not just next uk game
