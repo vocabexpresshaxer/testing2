@@ -92,7 +92,7 @@ def getResponse(data):
         "JacobBurns", #Valid Until 6th July
         "DKAMV", #Valid Until 7th July
         "upflare", #18th July
-        #"hexcruncher", # started 21th June. topay 22nd june
+        "hexcruncher", # started 21th June. topay 29nd june #ends 25th July
         "ross", #24th July
     ]
     if ":" in data:
