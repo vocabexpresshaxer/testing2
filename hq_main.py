@@ -28,7 +28,8 @@ def processConn():
     Version 1.5.0
     
     *APOLOGIES FOR DOWNTIME*
-    *YOU WILL BE COMPENSATED WITH EXTRA ACCESS AND LIVES WHEN FIXED*
+    *YOU HAVE BEEN COMPENSATED WITH EXTRA ACCESS*
+    *GIVE ME YOUR REF CODE FOR 2 EXTRA LIVES*
     
     New Features (Since Last Major Version):
     -> Support for US game
