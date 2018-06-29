@@ -229,11 +229,11 @@ lastCTime = time.time()
 print(nextGame(uk_bearer, us_bearer)[0])
 while True:
     a = nextGame(uk_bearer, us_bearer)[0]
-    if a[0] == "uk":
+    if a == "uk":
         USER_ID = uk_bearer[1]
         BEARER_TOKEN = uk_bearer[0]
         nextG = "UK"
-    elif a[0] == "us":
+    elif a == "us":
         USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
         nextG = "US"
