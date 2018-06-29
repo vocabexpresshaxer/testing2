@@ -36,7 +36,7 @@ def processConn():
     -> Fix Crash
     
     Upcoming Features:
-    -> Extra Lives bot delivers lives at next game (US, UK OR DE), not just next uk game
+    -> Extra Lives bot delivers lives at next game (US, UK OR DE) depending on phone no. used
     -> Support For DE Game
     
     Planned Features:
