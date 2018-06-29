@@ -177,7 +177,7 @@ def nextGame(uk, us):
         while done == False:
             print(3)
             loops += 1
-            if loops > 5: return (None , None)
+            if loops > 2: return (None , None)
             try:
                 print(4)
                 response_data = asyncio.get_event_loop().run_until_complete(
