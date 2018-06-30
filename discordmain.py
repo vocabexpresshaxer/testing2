@@ -22,7 +22,7 @@ async def on_message(message):
             await client.send_message(message.channel, "Invalid no. of args")
         else:
             try:
-                 auth = str(lives.verify(lifeargs[1]))
+                 auth = str(extralives.verify(lifeargs[1]))
                  await client.send_message(message.channel, "Code Sent. Check your messages")
             except:
                 await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
@@ -37,10 +37,10 @@ async def on_message(message):
                 u = "False"
                 while u == "False":
                     uname = str(random.randint(1000, 100000))
-                    u = str(lives.username_available(uname))
-                if str(lives.submit_code(auth, int(verifyargs[1]))) == "True":
+                    u = str(extralives.username_available(uname))
+                if str(extralives.submit_code(auth, int(verifyargs[1]))) == "True":
                     try:
-                        auth = lives.create_user(uname, auth, verifyargs[2], "US")['authToken']
+                        auth = extralives.create_user(uname, auth, verifyargs[2], "US")['authToken']
                         bearers = pickle.load(open("/root/bearers.p", "rb"))
                         bearers.append(str(auth))
                         pickle.dump(bearers, open("/root/bearers.p", "wb"))
