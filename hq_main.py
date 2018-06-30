@@ -253,6 +253,9 @@ while True:
                     next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
                     now = time.time()
                     offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
+                    prize = response_data["nextShowPrize"]
+                    if nextG == "US" and prize[0] != "$":
+                        nextG = "DE"
                     print("The Next game is a %s game.\nNext game will be at: %s " % (nextG,str((next_time + offset).strftime('%I:%M %p')) + " UTC\n"))
                     print("Prize: " + response_data["nextShowPrize"])
                     with open("uk.txt", "w") as uk:uk.write("The Next game is a %s game.\nNext game will be at: %s " % (nextG,str((next_time + offset).strftime('%I:%M %p')) + " UTC\n" + "Prize: " + response_data["nextShowPrize"]))
@@ -270,8 +273,8 @@ while True:
             #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Show active, connecting to socket at %s" % socket).post()
             try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
             except:pass
-            
-            asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
-            bearers = []
-            pickle.dump(bearers, open("/root/bearers.p", "wb"))
+            if nextG == "US":
+                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
+                bearers = []
+                pickle.dump(bearers, open("/root/bearers.p", "wb"))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
