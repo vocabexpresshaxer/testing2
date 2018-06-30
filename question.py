@@ -5,7 +5,7 @@ from collections import defaultdict
 from _thread import start_new_thread
 
 from colorama import Fore, Style
-from discord import Webhook
+from discordweb import Webhook
 import search
 
 punctuation_to_none = str.maketrans({key: None for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
