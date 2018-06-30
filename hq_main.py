@@ -198,7 +198,7 @@ def nextGame(uk, us):
                             timetous = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         done = True
                     except Exception as e:print(e)
-    tTo = "Time to next UK game: %s\nTime to next UK game: %s" % (timetouk, timetous)
+    tTo = "Time to next UK game: %s\nTime to next US game: %s" % (timetouk, timetous)
     if timetouk < timetous:return ("uk", tTo)
     else:return ("us", tTo)
 
@@ -258,9 +258,9 @@ while True:
                     prize = response_data["nextShowPrize"]
                     if nextG == "US" and prize[0] != "$":
                         nextG = "DE"
-                    print("The Next game is a %s game.\nNext game will be at: %s " % (nextG,str((next_time + offset).strftime('%I:%M %p')) + " UTC\n"))
+                    print("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)"))
                     print("Prize: " + response_data["nextShowPrize"])
-                    with open("uk.txt", "w") as uk:uk.write("The Next game is a %s game.\nNext game will be at: %s " % (nextG,str((next_time + offset).strftime('%I:%M %p')) + " UTC\n" + "Prize: " + response_data["nextShowPrize"]))
+                    with open("uk.txt", "w") as uk:uk.write("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)\n" + "Prize: " + response_data["nextShowPrize"]))
                     #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]).post()
                     #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
                 except Exception as e:print(e)
