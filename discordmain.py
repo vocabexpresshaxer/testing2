@@ -49,9 +49,9 @@ async def on_message(message):
                         bearers.append(str(auth))
                         pickle.dump(bearers, open("/root/bearers.p", "wb"))
                         await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
-                        await client.send_message(message.channel, "Bearer for life (testing purposes only):\n" + str(auth))
+             
                     except Exception as e:
-                        await client.send_message(message.channel, str(e))
+                        await client.send_message(message.channel, "Uh oh. The an error has occured server-side " + str(e))
                 else:
                     await client.send_message(message.channel, "Invalid Code")
 
