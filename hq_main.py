@@ -159,7 +159,6 @@ def getResponse(data):
             """
 
 def nextGame(uk, us):
-    print(0)
     for r in ("uk", "us"):
         if r == "uk":
             USER_ID = uk[1]
@@ -167,22 +166,17 @@ def nextGame(uk, us):
         elif r == "us":
             USER_ID = us[1]
             BEARER_TOKEN = us[0]
-        print(1)
         main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
         headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
                "x-hq-client": "Android/1.3.0"}
-        print(2)
         done = False
         loops = 0
         while done == False:
-            print(3)
             loops += 1
             if loops > 2: return (None , None)
             try:
-                print(4)
                 response_data = asyncio.get_event_loop().run_until_complete(
                 networking.get_json_response(main_url, timeout=1.5, headers=headers))
-                print(5)
             except:
                 print("Server response not JSON, retrying...")
                 time.sleep(1)
@@ -250,7 +244,6 @@ while True:
             print("Server response not JSON, retrying...")
             time.sleep(1)
             continue
-        print(response_data)
         if "broadcast" not in response_data or response_data["broadcast"] is None:
             if "error" in response_data and response_data["error"] == "Auth not valid":
                 raise RuntimeError("Connection settings invalid")
