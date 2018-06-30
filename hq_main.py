@@ -1,7 +1,7 @@
 import asyncio, os, time, colorama, networking, socket, random, pickle
 from datetime import datetime
 from _thread import start_new_thread
-from discord import Webhook
+from discordweb import Webhook
 import extralives
 
 
