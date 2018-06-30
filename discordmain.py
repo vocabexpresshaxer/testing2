@@ -12,7 +12,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('status?'):
+    if message.content in ("status", "Status", "status?", "Status?"):
         msg = 'The Bot Is Currently Active'
         await client.send_message(message.channel, msg)
 
