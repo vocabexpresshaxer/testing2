@@ -12,11 +12,11 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content in ("status", "Status", "status?", "Status?"):
+    if message.content.lower() == "+status":
         msg = 'The Bot Is Currently Active'
         await client.send_message(message.channel, msg)
     elif message.content.lower() == "help":
-        helpmsg = "Bot made by @CaffieneAddict420#8646\nUsage:\n*+life [phone number]*\n*+verify [code] [referal code]*"
+        helpmsg = "Bot made by @\CaffieneAddict420#8646\nUsage:\n*+status* (Check if the bot is active)\n*+life [phone number]*\n*+verify [code] [referal code]*"
         await client.send_message(message.channel, helpmsg)
     
     
