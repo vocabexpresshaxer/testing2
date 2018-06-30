@@ -1,4 +1,5 @@
 import extralives, random, discord, pickle
+import asyncio
 
 TOKEN = 'NDYyNDg2Mzk2NTY1ODQ4MDY1.Dhijsg.JieDm5C74rSoGIkdfCXgUsSjyo4'
 
@@ -54,6 +55,7 @@ async def on_message(message):
             
 @client.event
 async def on_ready():
+    global auth
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
