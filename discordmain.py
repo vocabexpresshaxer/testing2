@@ -16,7 +16,7 @@ async def on_message(message):
         msg = 'The Bot Is Currently Active'
         await client.send_message(message.channel, msg)
     elif message.content.lower() == "+help":
-        helpmsg = "Bot made by @\CaffieneAddict420#8646\nUsage:\n*+status* (Check if the bot is active)\n*+help* (Show this message)\n*+life [phone number]*\n*+verify [code] [referal code]*"
+        helpmsg = "Bot made by \@CaffieneAddict420#8646\nUsage:\n*+status* (Check if the bot is active)\n*+help* (Show this message)\n*+life [phone number]*\n*+verify [code] [referal code]*"
         await client.send_message(message.channel, helpmsg)
     
     
@@ -48,7 +48,7 @@ async def on_message(message):
                         bearers = pickle.load(open("/root/bearers.p", "rb"))
                         bearers.append(str(auth))
                         pickle.dump(bearers, open("/root/bearers.p", "wb"))
-                        await client.send_message(message.channel, "Life is Queued For Creation During Next US Game\n*Life wasn't added as the functionality hasn't been added yet*")
+                        await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
                         await client.send_message(message.channel, "Bearer for life (testing purposes only):\n" + str(auth))
                     except Exception as e:
                         await client.send_message(message.channel, str(e))
