@@ -32,18 +32,15 @@ def processConn():
     *GIVE ME YOUR REF CODE FOR 2 EXTRA LIVES*
     
     New Features (Since Last Major Version):
-    -> Support for US Game
-    -> DE game
-    -> Fix Crash
+    -> Support for all Games
+    -> Fixed Crash
     
     Upcoming Features:
     -> Extra Lives bot delivers lives at next game (US, UK OR DE) depending on phone no. used
-    -> Fix bug where DE game is called us game
+    -> Fix bug where DE game is called US game
     
     Planned Features:
     -> Question no. and question (as suggested)
-    -> Better Anti-Bot Question detection
-    -> Points displayed for Method 1 and 2
     -> Android App (possible)
     
     Pricing:
