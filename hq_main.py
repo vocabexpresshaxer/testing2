@@ -99,6 +99,8 @@ def getResponse(data):
         data = data.split(":")
         if data[0] not in valid:return "Invalid Login"
         if data[1] == "verify":
+            if data[2].startswith("+44") or data[2].startswith("+49"):
+                return "Unfortunately the extra lives bot doesn't support UK or DE phone numbers yet\nUse textnow for free US numbers"
             try:return "Your Extra Life Auth Code is " + str(extralives.verify(data[2]))
             except:return "Invalid Phone Number. Example of valid phone number: +14242196850"
         elif data[1] == "create":
