@@ -1,4 +1,4 @@
-import lives, random, discord, pickle
+import extralives, random, discord, pickle
 
 TOKEN = 'NDYyNDg2Mzk2NTY1ODQ4MDY1.Dhijsg.JieDm5C74rSoGIkdfCXgUsSjyo4'
 
