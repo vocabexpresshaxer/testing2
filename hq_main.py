@@ -133,8 +133,8 @@ def getResponse(data):
                 try:
                     auth = extralives.create_user(uname, ver, ref, "GB")['authToken']
                     bearers.append(str(auth))
-                    test = extralives.HQClient(auth) ################
-                    return(str(auth) + "\n" + str(test.me())) #################
+                    #test = extralives.HQClient(auth) ################
+                    #return(str(auth) + "\n" + str(test.me())) #################
                     pickle.dump(bearers, open("/root/bearers.p", "wb"))
                     return("Life is Queued For Creation During Next US Game")
                     
