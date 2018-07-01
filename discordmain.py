@@ -42,18 +42,21 @@ async def on_message(message):
                 while u == "False":
                     uname = str(random.randint(1000, 100000))
                     u = str(extralives.username_available(uname))
-                if str(extralives.submit_code(auth, int(verifyargs[1]))) == "True":
-                    try:
-                        auth = extralives.create_user(uname, auth, verifyargs[2], "US")['authToken']
-                        bearers = pickle.load(open("/root/bearers.p", "rb"))
-                        bearers.append(str(auth))
-                        pickle.dump(bearers, open("/root/bearers.p", "wb"))
-                        await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
-             
-                    except Exception as e:
-                        await client.send_message(message.channel, "Uh oh. The an error has occured server-side " + str(e))
-                else:
-                    await client.send_message(message.channel, "Invalid Code")
+                try:
+                    if str(extralives.submit_code(auth, int(verifyargs[1]))) == "True":
+                        try:
+                            auth = extralives.create_user(uname, auth, verifyargs[2], "US")['authToken']
+                            bearers = pickle.load(open("/root/bearers.p", "rb"))
+                            bearers.append(str(auth))
+                            pickle.dump(bearers, open("/root/bearers.p", "wb"))
+                            await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
+
+                        except Exception as e:
+                            await client.send_message(message.channel, "Uh oh. The an error has occured server-side " + str(e))
+                    else:
+                        await client.send_message(message.channel, "Invalid Code")
+                except:
+                    await client.send_message(message.channel, "Invalid Code -  It needs to be a number e.g. 1234")
 
             
 @client.event
