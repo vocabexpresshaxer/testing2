@@ -27,6 +27,10 @@ def processConn():
     
     Version 1.5.2
     
+    *DUE TO ISSUES PEOPLE HAVE BEEN HAVING WITH SOCKETS, IVE MADE A DISCORD SERVER WITH THE BOT*
+    https://discord.gg/PJN2ty7
+    MESSAGE ME YOUR DISCORD USERNAME BEFORE YOU JOIN TO AVOID BEING KICKED
+    
     
     New Features (Since Last Major Version):
     -> Support for US Game
