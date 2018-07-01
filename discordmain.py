@@ -37,7 +37,7 @@ Upcoming Features:
     elif message.content.startswith('+life'):
         lifeargs = message.content.split(" ")
         if len(lifeargs) != 2:
-            await client.send_message(message.channel, "Invalid no. of args")
+            await client.send_message(message.channel, "Invalid no. of args\n See +help for usage")
         else:
             try:
                  auth = str(extralives.verify(lifeargs[1]))
@@ -47,7 +47,7 @@ Upcoming Features:
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
         if len(verifyargs) != 3:
-            await client.send_message(message.channel, "Invalid no. of args")
+            await client.send_message(message.channel, "Invalid no. of args\n See +help for usage")
         else:
             if auth == "":
                 await client.send_message(message.channel, "You need to do +life [number] first")
@@ -71,7 +71,8 @@ Upcoming Features:
                         await client.send_message(message.channel, "Invalid Code")
                 except:
                     await client.send_message(message.channel, "Invalid Code -  It needs to be a number e.g. 1234")
-
+    else:
+        await client.send_message(message.channel, "Hmm, i don't know what you are saying\nTry +help to see what commands you can use")
             
 @client.event
 async def on_ready():
