@@ -85,7 +85,7 @@ async def answer_question(question, original_answers):
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
         
-    start_new_thread(runW, ("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", toWrite))
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", toWrite))
     start_new_thread(runW, ("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", toWrite))
     
     if best_answer != "":
@@ -118,7 +118,7 @@ async def answer_question(question, original_answers):
         lines = lines + line
    
     with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
-    start_new_thread(runW, ("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", "Method 2: " + answer3))
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", "Method 2: " + answer3))
     start_new_thread(runW, ("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", "Method 2: " + answer3))
     print("Search took %s seconds" % str(time.time() - start))
 
