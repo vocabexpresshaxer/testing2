@@ -16,8 +16,8 @@ async def on_message(message):
         msg = 'The Bot Is Currently Active'
         await client.send_message(message.channel, msg)
     elif message.content.lower() == "+help":
-        helpmsg = 
-        """Bot made by @"CaffieneAddict420" 
+        helpmsg = """
+        Bot made by @"CaffieneAddict420" 
         Usage:
         -------------------------------
         *+status* (Check if the bot is active)
