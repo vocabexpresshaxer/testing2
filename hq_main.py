@@ -221,6 +221,7 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as c
 print("Starting up Bot...")
 start_new_thread(processConn, ())
 lastCTime = time.time()
+lastDE = time.time()
 
 nextGameDENotPlayed = False
 while True:
@@ -277,7 +278,7 @@ while True:
             try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
             except:pass
             
-            if nextG == "US" and nextGameDENotPlayed == False:
+            if nextG == "US" and nextGameDENotPlayed == False and time.time() - lastDE > 30:
                 print("Sending Lives")
                 asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
                 bearers = []
@@ -286,4 +287,5 @@ while True:
             if nextG == "DE":
                 nextGameDENotPlayed = False
                 nextG = "UK"
+                lastDE = time.time()
             
