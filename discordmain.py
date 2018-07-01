@@ -71,8 +71,8 @@ Upcoming Features:
                         await client.send_message(message.channel, "Invalid Code")
                 except:
                     await client.send_message(message.channel, "Invalid Code -  It needs to be a number e.g. 1234")
-    else:
-        await client.send_message(message.channel, "Hmm, i don't know what you are saying\nTry +help to see what commands you can use")
+    #else:
+       # await client.send_message(message.channel, "Hmm, i don't know what you are saying\nTry +help to see what commands you can use")
             
 @client.event
 async def on_ready():
