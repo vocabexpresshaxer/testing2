@@ -16,7 +16,20 @@ async def on_message(message):
         msg = 'The Bot Is Currently Active'
         await client.send_message(message.channel, msg)
     elif message.content.lower() == "+help":
-        helpmsg = "Bot made by \@CaffieneAddict420 \nUsage:\n*+status* (Check if the bot is active)\n*+help* (Show this message)\n*+life [phone number]*\n*+verify [code] [referal code]*"
+        helpmsg = 
+        """Bot made by @"CaffieneAddict420" 
+        Usage:
+        -------------------------------
+        *+status* (Check if the bot is active)
+        *+help* (Show this message)
+        -------------------------------
+        *+life [phone number]*
+        *+verify [code] [referal code]*
+        -------------------------------
+        Upcoming Features:
+        -> Run Swipe Up Trick for Extra Life
+        -------------------------------
+        """
         await client.send_message(message.channel, helpmsg)
     
     
