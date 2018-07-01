@@ -25,18 +25,15 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.5.1
+    Version 1.5.2
     
-    *APOLOGIES FOR DOWNTIME*
-    *YOU HAVE BEEN COMPENSATED WITH EXTRA ACCESS*
-    *GIVE ME YOUR REF CODE FOR 2 EXTRA LIVES AS COMPENSATION*
     
     New Features (Since Last Major Version):
-    -> Support for all Games
-    -> Fixed bug where DE game is called US game
-    -> Fixed Crash
+    -> Support for US Game
+    -> Removed DE game as the bot is struggling with it (will fix)
     
     Upcoming Features:
+    -> DE game support
     -> Extra Lives bot delivers lives at next game (US, UK OR DE) depending on phone no. used
     
     Planned Features:
