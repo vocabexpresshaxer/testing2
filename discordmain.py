@@ -17,18 +17,19 @@ async def on_message(message):
         await client.send_message(message.channel, msg)
     elif message.content.lower() == "+help":
         helpmsg = """
-        Bot made by @"CaffieneAddict420" 
-        Usage:
-        -------------------------------
-        *+status* (Check if the bot is active)
-        *+help* (Show this message)
-        -------------------------------
-        *+life [phone number]*
-        *+verify [code] [referal code]*
-        -------------------------------
-        Upcoming Features:
-        -> Run Swipe Up Trick for Extra Life
-        -------------------------------
+Bot made by @CaffieneAddict420 
+-------------------------------
+Usage:
+-------------------------------
+*+status* (Check if the bot is active)
+*+help* (Show this message)
+-------------------------------
+*+life [phone number]*
+*+verify [code] [referal code]*
+-------------------------------
+Upcoming Features:
+-> Emulate Swipe Up Trick for Extra Life
+-------------------------------
         """
         await client.send_message(message.channel, helpmsg)
     
