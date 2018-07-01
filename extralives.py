@@ -49,7 +49,8 @@ class HQUserLeaderboard:
         for p in ("alltime", "weekly"):
             for v in ("wins", "total", "rank"):
                 try:
-                    setattr(self, f"{p}_{v}", kwargs.get(p).get(v))
+                    #setattr(self, f"{p}_{v}", kwargs.get(p).get(v))
+                    pass
                 except:
                     pass
 
