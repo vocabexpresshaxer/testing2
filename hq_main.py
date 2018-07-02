@@ -231,7 +231,6 @@ start_new_thread(processConn, ())
 lastCTime = time.time()
 lastDE = time.time()
 
-nextGameDENotPlayed = False
 while True:
     a = nextGame(uk_bearer, us_bearer)[0]
     if a == "uk":
@@ -265,9 +264,7 @@ while True:
                     now = time.time()
                     offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
                     prize = response_data["nextShowPrize"]
-                    if nextG == "US" and prize[0] != "$":
-                        nextG = "DE"
-                        nextGameDENotPlayed = True
+                    
                     print("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)"))
                     print("Prize: " + response_data["nextShowPrize"])
                     with open("uk.txt", "w") as uk:uk.write("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)\n" + "Prize: " + response_data["nextShowPrize"]))
@@ -286,7 +283,7 @@ while True:
             try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
             except:pass
             
-            if nextG == "US" and nextGameDENotPlayed == False and time.time() - lastDE > 30:
+            if nextG == "US":
                 print("Sending Lives")
                 asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
                 bearers = []
