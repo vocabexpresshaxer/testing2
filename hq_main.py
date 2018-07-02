@@ -29,7 +29,11 @@ def processConn():
     
     *DUE TO ISSUES PEOPLE HAVE BEEN HAVING WITH SOCKETS, IVE MADE A DISCORD SERVER WITH THE BOT*
     https://discord.gg/PJN2ty7
-    MESSAGE ME YOUR DISCORD USERNAME BEFORE YOU JOIN TO AVOID BEING KICKED
+    MESSAGE ME YOUR DISCORD USERNAME BEFORE YOU JOIN
+    
+    **Again Apologies for downtime all of last night, by me adding support for both the US and UK games, it tripped a google monitoring thing that blocked all connections from my server**
+    HOPEFULLY this should be fixed as i have updated it to use the official api, but the requests MAY still exceed the allowed requests limit
+    
     
     
     New Features (Since Last Major Version):
@@ -88,13 +92,13 @@ def getResponse(data):
         "AranMartin", #Valid Forever
         "7vsquad", #Valid Forever
         "rohan", #forever
-        "LittleBird", #Valid Until 14th July
-        "Pardeep", #Valid Until 14th July
-        "JacobBurns", #Valid Until 6th July
-        "DKAMV", #Valid Until 7th July
-        "upflare", #18th July
-        "hexcruncher", # started 21th June. topay 29nd june #ends 25th July
-        "ross", #24th July
+        "LittleBird", #Valid Until 21th July
+        "Pardeep", #Valid Until 121th July
+        "JacobBurns", #Valid Until 13th July
+        "DKAMV", #Valid Until 15th July
+        "upflare", #25th July
+        "hexcruncher", # started 21th June. topay 29nd june #ends 1st Aug
+        "ross", #3rd Aug
     ]
     if ":" in data:
         data = data.split(":")
