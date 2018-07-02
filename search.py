@@ -1,6 +1,6 @@
 import re
 from html import unescape
-
+from googleapiclient.discovery import build ######
 from bs4 import BeautifulSoup
 from nltk import word_tokenize
 from nltk.corpus import stopwords
@@ -84,10 +84,12 @@ async def search_google(question, num_results):
     :return: List of length num_results of urls retrieved from the search
     """
     # Could use Google's Custom Search API here, limit of 100 queries per day
-    # result = service.cse().list(q=question, cx=CSE_ID, num=num_results).execute()
-    # return result["items"]
-    page = await networking.get_response(GOOGLE_URL.format(question), timeout=5, headers=HEADERS)
-    return get_google_links(page, num_results)
+           #AIzaSyAL9qFI0KHxhb-ozxoh0nZTTAtS7P8XqfA
+    service = build("customsearch", "v1", developerKey="AIzaSyAL9qFI0KHxhb-ozxoh0nZTTAtS7P8XqfA")
+    result = service.cse().list(q=question, cx=CSE_ID, num=num_results).execute()
+    return result["items"]
+    #page = await networking.get_response(GOOGLE_URL.format(question), timeout=5, headers=HEADERS)
+    #return get_google_links(page, num_results)
 
 
 async def multiple_search(questions, num_results):
