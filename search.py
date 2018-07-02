@@ -56,8 +56,8 @@ def find_nouns(text, num_words, reverse=False):
 
 
 def find_q_word_location(question_lower):
-    for q_word in ["what", "when", "who", "which", "whom", "where", "why", "how"]:
-        q_word_location = question_lower.find(q_word)
+    for q_word in ["what", "when", "who", "which", "whom", "where", "why", "how", "wann", "wer", "welche", "wem", "woher", "warum", "wie"]:
+        q_word_location = question_lower.find(q_word) #i didnt include was because its a common english word too 
         if q_word_location != -1:
             return q_word_location
 
