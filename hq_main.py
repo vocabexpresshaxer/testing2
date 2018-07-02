@@ -25,10 +25,7 @@ def processConn():
     
     Version 1.5.2
     
-    *DUE TO ISSUES PEOPLE HAVE BEEN HAVING WITH SOCKETS, IVE MADE A DISCORD SERVER WITH THE BOT*
-    https://discord.gg/PJN2ty7
-    MESSAGE ME YOUR DISCORD USERNAME BEFORE YOU JOIN
-    
+    Join the discord (need to be paying member of this bot) https://discord.gg/PJN2ty7
     **Again Apologies for downtime all of last night, by me adding support for both the US and UK games, it tripped a google monitoring thing that blocked all connections from my server**
     HOPEFULLY this should be fixed as i have updated it to use the official api, but the requests MAY still exceed the allowed requests limit
     
