@@ -18,8 +18,6 @@ except:
 def processConn():
     global AREconnected
     global lastCTime
-    global uk_bearer
-    global us_bearer
     startMSG = """
     ##############
     #Using ACEBOT#
