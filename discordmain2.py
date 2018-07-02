@@ -1,7 +1,7 @@
 import extralives, random, discord, pickle
 import asyncio
 
-TOKEN = 'NDYzMDk4MTYwOTk1MzY4OTgw.DhrhIg.500IytHVDh_46kE5rjNG9NbnI8k'
+TOKEN = 'NDYzNDIyNTA5MDE1MTA1NTU2.DhwMuA.Yh6KhbiMdeZ_TtF8UFZnt7qYlmY'
 
 client = discord.Client()
 
