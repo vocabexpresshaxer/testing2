@@ -63,7 +63,7 @@ async def answer_question(question, original_answers):
     search_text = [x.translate(punctuation_to_none) for x in await search.get_clean_texts(search_results)]
 
     best_answer = await __search_method1(search_text, answers, reverse)
-    toWrite = "\n\nQuestion:\n" + question + "\n"
+    toWrite = "\n" + question + "\n"
     if inaccurate == True:
         toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n"
     if best_answer == "":
