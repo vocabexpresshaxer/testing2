@@ -1,14 +1,12 @@
 import asyncio
 import json
 import re
-
+from discordweb import Webhook
 import aiohttp
 from colorama import Fore, Style
 from lomond import WebSocket
 from unidecode import unidecode
-
 import question
-
 
 async def fetch(url, session, timeout):
     try:
@@ -61,6 +59,7 @@ async def websocket_handler(uri, headers):
                     print("\n" * 5)
                     print("Question detected.")
                     print("Question %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
+                    with open("uk.txt", "w") as uk:uk.write("\n\nQuestion %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
                     aMsg = Fore.CYAN + question_str + "\n"
                     for a in answers:
                         aMsg = aMsg + "\n" + a
