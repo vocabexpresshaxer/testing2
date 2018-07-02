@@ -66,10 +66,6 @@ async def answer_question(question, original_answers):
     toWrite = "\n\nQuestion:\n" + question + "\n"
     if inaccurate == True:
         toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n"
-    if b_method == 1:
-        toWrite = toWrite + "*AI: [Method 1 Typically Most Accurate]*"
-    elif b_method == 2:
-        toWrite = toWrite + "*AI: Anti Bot Q Detected- DON'T TRUST BOT ANSWERS!*"
     if best_answer == "":
         #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: *inconclusive*"
@@ -91,35 +87,35 @@ async def answer_question(question, original_answers):
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
 
-    # Get key nouns for Method 3
-    key_nouns = set(quoted)
+#    # Get key nouns for Method 3
+#    key_nouns = set(quoted)
 
-    if len(key_nouns) == 0:
-        q_word_location = -1
-        for q_word in ["what", "when", "who", "which", "whom", "where", "why", "how"]:
-            q_word_location = question_lower.find(q_word)
-            if q_word_location != -1:
-                break
+#    if len(key_nouns) == 0:
+#        q_word_location = -1
+#        for q_word in ["what", "when", "who", "which", "whom", "where", "why", "how"]:
+#            q_word_location = question_lower.find(q_word)
+#            if q_word_location != -1:
+#                break
 
-        if q_word_location > len(question) // 2 or q_word_location == -1:
-            key_nouns.update(search.find_nouns(question, num_words=5))
-        else:
-            key_nouns.update(search.find_nouns(question, num_words=5, reverse=True))
+#        if q_word_location > len(question) // 2 or q_word_location == -1:
+#            key_nouns.update(search.find_nouns(question, num_words=5))
+#        else:
+#            key_nouns.update(search.find_nouns(question, num_words=5, reverse=True))#
 
-        key_nouns -= {"type"}
+#        key_nouns -= {"type"}
 
-    key_nouns = [noun.lower() for noun in key_nouns]
-    print("Question nouns: %s" % str(key_nouns))
-    answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
-    if answer3 == "":answer3 = "*inconclusive*"
-    print(Fore.GREEN + answer3 + Style.RESET_ALL)
-    lines = """"""
-    for line in open("uk.txt"):
-        lines = lines + line
+#    key_nouns = [noun.lower() for noun in key_nouns]
+#    print("Question nouns: %s" % str(key_nouns))
+#    answer3 = await __search_method3(list(set(question_keywords)), key_nouns, original_answers, reverse)
+#    if answer3 == "":answer3 = "*inconclusive*"
+#    print(Fore.GREEN + answer3 + Style.RESET_ALL)
+#    lines = """"""
+#    for line in open("uk.txt"):
+#        lines = lines + line
    
-    with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
-    start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", "Method 2: " + answer3))
-    start_new_thread(runW, ("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", "Method 2: " + answer3))
+#    with open("uk.txt", "w") as uk:uk.write("Method 2: " + answer3)
+#    start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", "Method 2: " + answer3))
+#    start_new_thread(runW, ("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt", "Method 2: " + answer3))
     print("Search took %s seconds" % str(time.time() - start))
 
 
