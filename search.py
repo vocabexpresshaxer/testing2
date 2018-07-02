@@ -86,7 +86,7 @@ async def search_google(question, num_results):
     # Could use Google's Custom Search API here, limit of 100 queries per day
            #AIzaSyAL9qFI0KHxhb-ozxoh0nZTTAtS7P8XqfA
     service = build("customsearch", "v1", developerKey="AIzaSyAL9qFI0KHxhb-ozxoh0nZTTAtS7P8XqfA")
-    result = service.cse().list(q=question, cx=CSE_ID, num=num_results).execute()
+    result = service.cse().list(q=question, cx="006676110987290916144:u1aczmb_-he", num=num_results).execute()
     return result["items"]
     #page = await networking.get_response(GOOGLE_URL.format(question), timeout=5, headers=HEADERS)
     #return get_google_links(page, num_results)
