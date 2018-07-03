@@ -8,18 +8,14 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     global auth
-    settings = client.check_server_settings(message.author.server)
-    role = settings["Config"]["Role"]
     # we do not want the bot to reply to itself
 
     if message.author == client.user:
         return
     
-    if role not in [r.name for r in message.author.roles]:
-        limited = True
-    else:
-        limited = False
-        await client.send_message(message.channel, "*Testing Roles*\nYou are a contributor")
+    if "Contributor" in [y.name.lower() for y in message.author.roles]:
+        await client.send_message(message.channel, "You are a contributor")
+
         
     if message.content.lower() == "+status":
         msg = 'The Bot Is Currently Active'
