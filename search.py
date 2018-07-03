@@ -90,7 +90,8 @@ async def search_google(question, num_results):
     links = []
     for r in results:
            links.append(r['link'])
-    return await get_clean_texts(links)
+    return links
+    #return await get_clean_texts(links)
     #return(links)
 
     #page = await networking.get_response(GOOGLE_URL.format(question), timeout=5, headers=HEADERS)
