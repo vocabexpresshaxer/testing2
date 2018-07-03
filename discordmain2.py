@@ -23,6 +23,7 @@ Usage:
 -------------------------------
 *+status* (Check if the bot is active)
 *+help* (Show this message)
+*+queue* (Shows how many lives are queued to be added)
 -------------------------------
 *+life [phone number]*
 *+verify [code] [referal code]*
@@ -30,7 +31,9 @@ Usage:
         """
         await client.send_message(message.channel, helpmsg)
     
-    
+    elif message.content.lower() == "+queue":
+        bearers = pickle.load(open("/root/bearers.p", "rb"))
+        await client.send_message(message.channel, "There are %s lives queued to be added next US game" % str(len(bearers)))
     elif message.content.startswith('+life'):
         lifeargs = message.content.split(" ")
         if len(lifeargs) != 2:
@@ -79,3 +82,4 @@ async def on_ready():
     auth = ""
 
 client.run(TOKEN)
+
