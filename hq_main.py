@@ -268,13 +268,18 @@ while True:
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
             print(response_data['broadcast'])
+            try:
+                broadid = response_data["broadcast"]["broadcastId"]
+            except:
+                print("Couldnt broadcast id")
+                broadid = "placeholder"
             print("Show active, connecting to socket at %s" % socket)
             AREconnected = []
             with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
             
             if nextG == "US":
                 print("Sending Lives")
-                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers))
+                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
                 bearers = []
                 pickle.dump(bearers, open("/root/bearers.p", "wb"))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
