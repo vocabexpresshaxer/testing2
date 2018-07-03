@@ -13,8 +13,11 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    if "Contributor" in [y.name.lower() for y in message.author.roles]:
-        await client.send_message(message.channel, "You are a contributor")
+    if message.content.startswith("+limit"):
+        if "Contributor" in [y.name.lower() for y in message.author.roles]:
+            await client.send_message(message.channel, "You are a contributor, you have infinite uses of this bot")
+        else:
+            await client.send_message(message.channel, "You are not a contributor, you have 1 use per day of this bot")
 
         
     if message.content.lower() == "+status":
