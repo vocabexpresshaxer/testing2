@@ -57,7 +57,7 @@ async def answer_question(question, original_answers):
         question_keywords[question_keywords.index("1placeholder1")] = quote
 
     print(question_keywords)
-    search_results = await search.search_google("+".join(question_keywords), 5)
+    search_results = await search.search_google("+".join(question_keywords), 7)
     print(search_results)
 
     search_text = [x.translate(punctuation_to_none) for x in await search.get_clean_texts(search_results)]
