@@ -28,9 +28,18 @@ async def answer_question(question, original_answers):
     
     question_lower = question.lower()
 
-    reverse = "NOT" in question or\
-              ("least" in question_lower and "at least" not in question_lower) or\
-              "NEVER" in question
+    if "NOT" in question or\("least" in question_lower and "at least" not in question_lower) or\"NEVER" in question:
+        reverse = True
+    elif "NICHT" in question or " kein" in question_lower:
+        reverse = True
+    else:
+        reverse = False
+    
+    
+    
+  #  reverse = "NOT" in question or\
+  #            ("least" in question_lower and "at least" not in question_lower) or\
+  #            "NEVER" in question
     
     #Detecting Possible Inaccuracies#
     inaccurate = False
