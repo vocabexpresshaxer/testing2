@@ -11,6 +11,7 @@ from unidecode import unidecode
 import networking
 
 STOP = set(stopwords.words("english")) - {"most", "least"}
+#########Need to do 4 german soon
 tokenizer = RegexpTokenizer(r"\w+")
 tagger = PerceptronTagger()
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0",
