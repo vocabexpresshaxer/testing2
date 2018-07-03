@@ -70,9 +70,9 @@ async def websocket_handler(uri, headers):
     print("Socket closed")
     
     
-async def websocket_lives_handler(uri, bearers):
+async def websocket_lives_handler(uri, bearers, broadid):
     for bearer in bearers:
-        headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0", "type": "subscribe", "broadcastId": "placeholder_broadcastid"}
+        headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0", "type": "subscribe", "broadcastId": broadid}
         websocket = WebSocket(uri)
         for header, value in headers.items():
             websocket.add_header(str.encode(header), str.encode(value))
