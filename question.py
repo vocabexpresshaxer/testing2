@@ -67,7 +67,6 @@ async def answer_question(question, original_answers):
     if inaccurate == True:
         toWrite = toWrite + "*Bot Highly Likely To Pick Wrong Answer For This Question Due To Answer Being In Question*\n"
     if best_answer == "":
-        #best_answer = await __search_method2(search_text, answers, reverse)
         toWrite = toWrite + "\nMethod 1: *inconclusive*"
         
         best_answer, points = await __search_method2(search_text, answers, reverse)
