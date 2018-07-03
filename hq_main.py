@@ -162,14 +162,17 @@ def getResponse(data):
     To extend your access / buy access (you can still refer friends etc) email me at caffiene0addict0420
             """
 
-def nextGame(uk, us):
-    for r in ("uk", "us"):
+def nextGame(uk, us, de):
+    for r in ("uk", "us", "de"):
         if r == "uk":
             USER_ID = uk[1]
             BEARER_TOKEN = uk[0]
         elif r == "us":
             USER_ID = us[1]
             BEARER_TOKEN = us[0]
+        elif r == "de":
+            USER_ID = de[1]
+            BEARER_TOKEN = de[0]
         main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
         headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
                "x-hq-client": "Android/1.3.0"}
@@ -194,18 +197,21 @@ def nextGame(uk, us):
                         now = time.time()
                         offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
                         
-                        if r == "uk":
+                        if r == "de":
+                            timetode = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
+                        elif r == "uk":
                             timetouk = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         elif r == "us":
                             timetous = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         done = True
                     except Exception as e:print(e)
     tTo = "Time to next UK game: %s\nTime to next US game: %s" % (timetouk, timetous)
-    if timetouk < timetous:return ("uk", tTo)
+    if timetouk < timetous and timetouk < timetode:return ("uk", tTo)
+    elif timetode < timetouk and timetode < timetous:return("de", tTo)
     else:return ("us", tTo)
 
 uk_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4NDY1MTU1LCJ1c2VybmFtZSI6IklDdWNrTmFucyIsImF2YXRhclVybCI6InMzOi8vaHlwZXNwYWNlLXF1aXovZGVmYXVsdF9hdmF0YXJzL1VudGl0bGVkLTFfMDAwMV9ibHVlLnBuZyIsInRva2VuIjoiVENRUEg4Iiwicm9sZXMiOltdLCJjbGllbnQiOiIiLCJndWVzdElkIjpudWxsLCJ2IjoxLCJpYXQiOjE1MjU3ODQ4OTcsImV4cCI6MTUzMzU2MDg5NywiaXNzIjoiaHlwZXF1aXovMSJ9.32laQw5QOA9FuBixO2LIaUKy6Lp6J8uadXud6OdjfuA", "18465155")
-#de_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1OTQ0MTI2LCJ1c2VybmFtZSI6IkFsZXhhbmRlclNpZmZpIiwiYXZhdGFyVXJsIjoiczM6Ly9oeXBlc3BhY2UtcXVpei9hL2JiLzE1OTQ0MTI2LUhpV0M3ci5qcGciLCJ0b2tlbiI6IlVYcW4wYyIsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTIzOTY5NjA1LCJleHAiOjE1MzE3NDU2MDUsImlzcyI6Imh5cGVxdWl6LzEifQ.Nm0p2g7_DhsJoWmB3tSbLGpELe4zkchxRrrmS7my_Qc", "15944126")
+de_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1OTQ0MTI2LCJ1c2VybmFtZSI6IkFsZXhhbmRlclNpZmZpIiwiYXZhdGFyVXJsIjoiczM6Ly9oeXBlc3BhY2UtcXVpei9hL2JiLzE1OTQ0MTI2LUhpV0M3ci5qcGciLCJ0b2tlbiI6IlVYcW4wYyIsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTIzOTY5NjA1LCJleHAiOjE1MzE3NDU2MDUsImlzcyI6Imh5cGVxdWl6LzEifQ.Nm0p2g7_DhsJoWmB3tSbLGpELe4zkchxRrrmS7my_Qc", "15944126")
 us_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxMzIxOTcxLCJ1c2VybmFtZSI6IjMwMjAiLCJhdmF0YXJVcmwiOiJodHRwczovL2QyeHUxaGRvbWgzbnJ4LmNsb3VkZnJvbnQubmV0L2RlZmF1bHRfYXZhdGFycy9VbnRpdGxlZC0xXzAwMDRfZ29sZC5wbmciLCJ0b2tlbiI6bnVsbCwicm9sZXMiOltdLCJjbGllbnQiOiIiLCJndWVzdElkIjpudWxsLCJ2IjoxLCJpYXQiOjE1MzA0NzMzNjMsImV4cCI6MTUzODI0OTM2MywiaXNzIjoiaHlwZXF1aXovMSJ9.-LNtYjnlWG_5C4WpQis7prcZ5i1xXswhTuI9CotwvqM", "18465155")
 
 
@@ -215,7 +221,7 @@ lastCTime = time.time()
 lastDE = time.time()
 
 while True:
-    a = nextGame(uk_bearer, us_bearer)[0]
+    a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     if a == "uk":
         USER_ID = uk_bearer[1]
         BEARER_TOKEN = uk_bearer[0]
@@ -224,6 +230,10 @@ while True:
         USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
         nextG = "US"
+    elif a == "de":
+        USER_ID = de_bearer[1]
+        BEARER_TOKEN = de_bearer[0]    
+        nextG = "DE"
         
     main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
@@ -257,6 +267,7 @@ while True:
                 time.sleep(5)
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
+            print(response_data['broadcast'])
             print("Show active, connecting to socket at %s" % socket)
             AREconnected = []
             with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
