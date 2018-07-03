@@ -28,18 +28,15 @@ async def answer_question(question, original_answers):
     
     question_lower = question.lower()
 
-    if "NOT" in question or\("least" in question_lower and "at least" not in question_lower) or\"NEVER" in question:
-        reverse = True
-    elif "NICHT" in question or " kein" in question_lower:
+    
+    reverse = "NOT" in question or\
+              ("least" in question_lower and "at least" not in question_lower) or\
+              "NEVER" in question
+    if reverse = False and "NICHT" in question or reverse = False" kein" in question_lower:
         reverse = True
     else:
         reverse = False
-    
-    
-    
-  #  reverse = "NOT" in question or\
-  #            ("least" in question_lower and "at least" not in question_lower) or\
-  #            "NEVER" in question
+
     
     #Detecting Possible Inaccuracies#
     inaccurate = False
@@ -48,13 +45,7 @@ async def answer_question(question, original_answers):
            inaccurate = True
     #################################
     
-    
-    #Determining Best method to solve question#
-    b_method = 1
-    if "which of these" in question_lower:
-        if "est " in question_lower or "est?" in question_lower or " the most " in question_lower or " the least " in question_lower:
-            b_method = 2
-    ###########################################
+   
 
     quoted = re.findall('"([^"]*)"', question_lower)  # Get all words in quotes
     no_quote = question_lower
