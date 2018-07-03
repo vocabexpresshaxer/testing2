@@ -1,4 +1,4 @@
-import asyncio, os, time, colorama, networking, socket, random, pickle
+import asyncio, os, time, colorama, networking, socket, random, pickle, discordmain, discordmain2
 from datetime import datetime
 from _thread import start_new_thread
 from discordweb import Webhook
@@ -23,20 +23,14 @@ def processConn():
     #Using ACEBOT#
     ##############
     
-    Version 1.5.2
+    Version 1.5.3
     
     Join the discord (need to be paying member of this bot) https://discord.gg/PJN2ty7
-    **Again Apologies for downtime all of last night, by me adding support for both the US and UK games, it tripped a google monitoring thing that blocked all connections from my server**
-    HOPEFULLY this should be fixed as i have updated it to use the official api, but the requests MAY still exceed the allowed requests limit
-    
-    
     
     New Features (Since Last Major Version):
-    -> Support for US Game
-    -> Removed DE game as the bot is struggling with it (will fix)
+    -> Support for all Games
     
     Upcoming Features:
-    -> DE game support
     -> Extra Lives bot delivers lives at next game (US, UK OR DE) depending on phone no. used
     
     Planned Features:
