@@ -32,7 +32,7 @@ async def answer_question(question, original_answers):
     reverse = "NOT" in question or\
               ("least" in question_lower and "at least" not in question_lower) or\
               "NEVER" in question
-    if reverse = False and "NICHT" in question or reverse = False" kein" in question_lower:
+    if reverse == False and "NICHT" in question or reverse == False" kein" in question_lower:
         reverse = True
     else:
         reverse = False
