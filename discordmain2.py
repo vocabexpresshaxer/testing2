@@ -8,7 +8,7 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     global auth
-    settings = client.check_server_settings(author.server)
+    settings = client.check_server_settings(message.author.server)
     role = settings["Config"]["Role"]
     # we do not want the bot to reply to itself
 
