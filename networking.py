@@ -59,7 +59,7 @@ async def websocket_handler(uri, headers):
                     print("\n" * 5)
                     print("Question detected.")
                     print("Question %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
-                    with open("uk.txt", "w") as uk:uk.write("\n\nQuestion %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
+                    with open("uk.txt", "w") as uk:uk.write("\nQuestion %s out of %s\nCategory: %s" % (message_data['questionNumber'], message_data['questionCount']), message_data['category'])
                     aMsg = Fore.CYAN + question_str + "\n"
                     for a in answers:
                         aMsg = aMsg + "\n" + a
