@@ -134,7 +134,7 @@ def getResponse(data):
                 u = str(extralives.username_available(uname))
             if str(extralives.submit_code(ver, int(code))) == "True":
                 try:
-                    auth = extralives.create_user(uname, ver, ref, "GB")['authToken']
+                    auth = extralives.create_user(uname, ver, ref, "US")['authToken']
                     bearers.append(str(auth))
                     #test = extralives.HQClient(auth) ################
                     #return(str(auth) + "\n" + str(test.me())) #################
@@ -205,21 +205,9 @@ def nextGame(uk, us):
     else:return ("us", tTo)
 
 uk_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4NDY1MTU1LCJ1c2VybmFtZSI6IklDdWNrTmFucyIsImF2YXRhclVybCI6InMzOi8vaHlwZXNwYWNlLXF1aXovZGVmYXVsdF9hdmF0YXJzL1VudGl0bGVkLTFfMDAwMV9ibHVlLnBuZyIsInRva2VuIjoiVENRUEg4Iiwicm9sZXMiOltdLCJjbGllbnQiOiIiLCJndWVzdElkIjpudWxsLCJ2IjoxLCJpYXQiOjE1MjU3ODQ4OTcsImV4cCI6MTUzMzU2MDg5NywiaXNzIjoiaHlwZXF1aXovMSJ9.32laQw5QOA9FuBixO2LIaUKy6Lp6J8uadXud6OdjfuA", "18465155")
-#us_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1OTQ0MTI2LCJ1c2VybmFtZSI6IkFsZXhhbmRlclNpZmZpIiwiYXZhdGFyVXJsIjoiczM6Ly9oeXBlc3BhY2UtcXVpei9hL2JiLzE1OTQ0MTI2LUhpV0M3ci5qcGciLCJ0b2tlbiI6IlVYcW4wYyIsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTIzOTY5NjA1LCJleHAiOjE1MzE3NDU2MDUsImlzcyI6Imh5cGVxdWl6LzEifQ.Nm0p2g7_DhsJoWmB3tSbLGpELe4zkchxRrrmS7my_Qc", "15944126")
+#de_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1OTQ0MTI2LCJ1c2VybmFtZSI6IkFsZXhhbmRlclNpZmZpIiwiYXZhdGFyVXJsIjoiczM6Ly9oeXBlc3BhY2UtcXVpei9hL2JiLzE1OTQ0MTI2LUhpV0M3ci5qcGciLCJ0b2tlbiI6IlVYcW4wYyIsInJvbGVzIjpbXSwiY2xpZW50IjoiIiwiZ3Vlc3RJZCI6bnVsbCwidiI6MSwiaWF0IjoxNTIzOTY5NjA1LCJleHAiOjE1MzE3NDU2MDUsImlzcyI6Imh5cGVxdWl6LzEifQ.Nm0p2g7_DhsJoWmB3tSbLGpELe4zkchxRrrmS7my_Qc", "15944126")
 us_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxMzIxOTcxLCJ1c2VybmFtZSI6IjMwMjAiLCJhdmF0YXJVcmwiOiJodHRwczovL2QyeHUxaGRvbWgzbnJ4LmNsb3VkZnJvbnQubmV0L2RlZmF1bHRfYXZhdGFycy9VbnRpdGxlZC0xXzAwMDRfZ29sZC5wbmciLCJ0b2tlbiI6bnVsbCwicm9sZXMiOltdLCJjbGllbnQiOiIiLCJndWVzdElkIjpudWxsLCJ2IjoxLCJpYXQiOjE1MzA0NzMzNjMsImV4cCI6MTUzODI0OTM2MywiaXNzIjoiaHlwZXF1aXovMSJ9.-LNtYjnlWG_5C4WpQis7prcZ5i1xXswhTuI9CotwvqM", "18465155")
-de_bearer = ("","")
 
-c = "ukconn.txt"
-
-# Read in bearer token and user ID
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), c), "r") as conn_settings:
-    settings = conn_settings.read().splitlines()
-
-    try:
-        BEARER_TOKEN = settings[0].split("=")[1]
-        USER_ID = settings[1].split("=")[1]
-    except IndexError as e:
-        raise e
 
 print("Starting up Bot...")
 start_new_thread(processConn, ())
@@ -263,8 +251,6 @@ while True:
                     print("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)"))
                     print("Prize: " + response_data["nextShowPrize"])
                     with open("uk.txt", "w") as uk:uk.write("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)\n" + "Prize: " + response_data["nextShowPrize"]))
-                    #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Next UK game will be at: %s UTC" % str((next_time + offset).strftime('%I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"]).post()
-                    #https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt
                 except Exception as e:print(e)
 
           
@@ -274,9 +260,6 @@ while True:
             print("Show active, connecting to socket at %s" % socket)
             AREconnected = []
             with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
-            #Webhook("https://discordapp.com/api/webhooks/452560674116337674/nxpS2Qn7pOBsE_sJqAANWqXQzh1Xar0DsdS5sARojRsLfuSVAVk20vQxVMSHbde46ri4",msg="Show active, connecting to socket at %s" % socket).post()
-            try:Webhook("https://discordapp.com/api/webhooks/452830709401255936/9VRsugrmKPqSzV9HoAH8CHDFL4M5yWNAW3fpCZJDTTgVgh-Ttbb4I_pQyC-kssFhSijt",msg="Show active, connecting to socket at %s" % socket).post()
-            except:pass
             
             if nextG == "US":
                 print("Sending Lives")
@@ -284,8 +267,4 @@ while True:
                 bearers = []
                 pickle.dump(bearers, open("/root/bearers.p", "wb"))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
-            if nextG == "DE":
-                nextGameDENotPlayed = False
-                nextG = "UK"
-                lastDE = time.time()
             
