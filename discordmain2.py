@@ -13,15 +13,24 @@ async def on_message(message):
     if message.author == client.user:
         return
     
+    
+    limited = True
+    for validrole in ("admin", "contributor", "donator"):
+        if validrole in [y.name.lower() for y in message.author.roles]:
+            limited = False
+            break
+        elif "lifepass " in [y.name.lower() for y in message.author.roles]:
+            limited = False
+    
     if message.content.startswith("+limit"):
-        limited = True
         for validrole in ("admin", "contributor", "donator"):
             if validrole in [y.name.lower() for y in message.author.roles]:
                 await client.send_message(message.channel, "You are a %s, you have infinite uses of this bot" % validrole)
-                limited = False
                 break
+            elif "lifepass " in [y.name.lower() for y in message.author.roles]:
+                await client.send_message(message.channel, "You have a %s, so you have infinite uses of this bot" % validrole)
         else:
-            await client.send_message(message.channel, "You are not an admin, contributor or donator so you have 1 use per day of this bot")
+            await client.send_message(message.channel, "You are not an admin, contributor or donator (or have a lifepass) so you have 1 use per day of this bot")
 
         
     if message.content.lower() == "+status":
@@ -47,15 +56,18 @@ Usage:
         bearers = pickle.load(open("/root/bearers.p", "rb"))
         await client.send_message(message.channel, "There are %s lives queued to be added next US game" % str(len(bearers)))
     elif message.content.startswith('+life'):
-        lifeargs = message.content.split(" ")
-        if len(lifeargs) != 2:
-            await client.send_message(message.channel, "Invalid no. of args\n See +help for usage")
+        if limited == False:
+            lifeargs = message.content.split(" ")
+            if len(lifeargs) != 2:
+                await client.send_message(message.channel, "Invalid no. of args\n See +help for usage")
+            else:
+                try:
+                     auth = str(extralives.verify(lifeargs[1]))
+                     await client.send_message(message.channel, "Code Sent. Check your messages")
+                except:
+                    await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
         else:
-            try:
-                 auth = str(extralives.verify(lifeargs[1]))
-                 await client.send_message(message.channel, "Code Sent. Check your messages")
-            except:
-                await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
+            await client.send_message(message.channel, "Unfortunately, we cannot create a life for you, as you don't have the correct perms yet\nYou need to be either an admin, contributor, donator, or have a lifepass currently\n\nIn the future, users of all roles will be able to use the bot once per day")
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
         if len(verifyargs) != 3:
