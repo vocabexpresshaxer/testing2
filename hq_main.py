@@ -278,6 +278,10 @@ while True:
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
-        else:asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
+        else:
+            try:
+                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
+            except Exception as e:
+                print(e)
         asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
 
