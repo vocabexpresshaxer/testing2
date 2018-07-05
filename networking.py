@@ -72,14 +72,14 @@ async def websocket_handler(uri, headers):
     
 async def websocket_lives_handler(uri, bearers, broadid):
     for bearer in bearers:
-        headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0", "type": "subscribe", "broadcastId": broadid}
+        headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
         websocket = WebSocket(uri)
         for header, value in headers.items():
             if type(value) == int:
                 websocket.add_header(str.encode(header), value)
             else:
                 websocket.add_header(str.encode(header), str.encode(value))
-            
+                
         for msg in websocket.connect(ping_rate=5):
             if msg.name == "text":
                 message = msg.text
@@ -88,4 +88,6 @@ async def websocket_lives_handler(uri, bearers, broadid):
 
                 if "error" in message_data and message_data["error"] == "Auth not valid":
                     print("Connection settings invalid")
+                if message_data["type"] == "gameStatus" or message_data["type"] == "broadcastStats":
+                    websocket.send_json("authToken":bearer, "type": "subscribe", "broadcastId": broadid)
                 websocket.close()
