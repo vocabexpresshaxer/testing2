@@ -230,7 +230,7 @@ while True:
         BEARER_TOKEN = de_bearer[0]    
         nextG = "DE"
         
-    main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
+    main_url = "https://api-quiz.hype.space/shows/now?type="
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
            "x-hq-client": "Android/1.3.0"}
 
