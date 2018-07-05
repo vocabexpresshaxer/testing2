@@ -276,9 +276,9 @@ while True:
             
             if nextG == "US":
                 print("Sending Lives")
-                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
+                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, str(broadid)))
                 bearers = []
                 pickle.dump(bearers, open("/root/bearers.p", "wb"))
-            else:asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
+            else:asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, str(broadid)))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
             
