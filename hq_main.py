@@ -217,8 +217,9 @@ start_new_thread(processConn, ())
 lastCTime = time.time()
 lastDE = time.time()
 
+a = "uk"
 while True:
-    a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
+    #a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
     if a == "us":
         USER_ID = us_bearer[1]
