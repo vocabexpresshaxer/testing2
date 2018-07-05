@@ -75,7 +75,10 @@ async def websocket_lives_handler(uri, bearers, broadid):
         headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0", "type": "subscribe", "broadcastId": broadid}
         websocket = WebSocket(uri)
         for header, value in headers.items():
-            websocket.add_header(str.encode(header), str.encode(value))
+            if type(value) == int:
+                websocket.add_header(str.encode(header), value)
+            else:
+                websocket.add_header(str.encode(header), str.encode(value))
             
         for msg in websocket.connect(ping_rate=5):
             if msg.name == "text":
