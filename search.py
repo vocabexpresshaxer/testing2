@@ -77,7 +77,7 @@ def get_google_links(page, num_results):
     return links[:num_results]
 
 
-async def search_google(question, num_results):
+async def search_google(question, num_results, method = 1):
     """
     Returns num_results urls from a google search of question.
     :param question: Question to search
@@ -85,18 +85,19 @@ async def search_google(question, num_results):
     :return: List of length num_results of urls retrieved from the search
     """
     # Could use Google's Custom Search API here, limit of 100 queries per day
-    service = build("customsearch", "v1", developerKey="AIzaSyAL9qFI0KHxhb-ozxoh0nZTTAtS7P8XqfA")
-    result = service.cse().list(q=question, cx="006676110987290916144:u1aczmb_-he", num=num_results).execute()
-    results = result["items"]
-    links = []
-    for r in results:
-           links.append(r['link'])
-    return links
-    #return await get_clean_texts(links)
-    #return(links)
-
-    #page = await networking.get_response(GOOGLE_URL.format(question), timeout=5, headers=HEADERS)
-    #return get_google_links(page, num_results)
+           
+    #cx 006527201745644572891:kyw1zvkopha
+    if method == 1:
+        service = build("customsearch", "v1", developerKey="AIzaSyAL9qFI0KHxhb-ozxoh0nZTTAtS7P8XqfA")
+        result = service.cse().list(q=question, cx="006676110987290916144:u1aczmb_-he", num=num_results).execute()
+        results = result["items"]
+        links = []
+        for r in results:
+            links.append(r['link'])
+        return links
+    else:
+        page = await networking.get_response(GOOGLE_URL.format(question), timeout=5, headers=HEADERS)
+        return get_google_links(page, num_results)
 
 
 async def multiple_search(questions, num_results):
