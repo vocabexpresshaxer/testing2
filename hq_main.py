@@ -167,7 +167,7 @@ def nextGame(uk, us, de):
         elif r == "de":
             USER_ID = de[1]
             BEARER_TOKEN = de[0]
-        main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
+        main_url = "https://api-quiz.hype.space/shows/now?type="
         headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
                "x-hq-client": "Android/1.3.0"}
         done = False
@@ -199,7 +199,7 @@ def nextGame(uk, us, de):
                             timetous = next_time - datetime.strptime(datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z"), "%Y-%m-%dT%H:%M:%S.000Z")
                         done = True
                     except Exception as e:print(e)
-    tTo = "Time to next UK game: %s\nTime to next US game: %s" % (timetouk, timetous)
+    tTo = "Time to next UK game: %s\nTime to next US game: %s\nTime to next DE game: %s" % (timetouk, timetous, timetode)
     if timetouk < timetous and timetouk < timetode:return ("uk", tTo)
     elif timetode < timetouk and timetode < timetous:return("de", tTo)
     else:return ("us", tTo)
@@ -216,6 +216,7 @@ lastDE = time.time()
 
 while True:
     a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
+    print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
     if a == "uk":
         USER_ID = uk_bearer[1]
         BEARER_TOKEN = uk_bearer[0]
@@ -271,10 +272,13 @@ while True:
             AREconnected = []
             with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
             
+            bearers = pickle.load(open("/root/bearers.p", "rb"))
+            
             if nextG == "US":
                 print("Sending Lives")
                 asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
                 bearers = []
                 pickle.dump(bearers, open("/root/bearers.p", "wb"))
+            else:asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
             
