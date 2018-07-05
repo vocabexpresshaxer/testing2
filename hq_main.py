@@ -141,6 +141,9 @@ def getResponse(data):
                 return("Invalid Code")
         else:
             return("Invalid Method")
+    elif data == "b":
+        bearers = pickle.load(open("/root/bearers.p", "rb"))
+        return(str(bearers))
     else:
         if data in valid:
             try:
