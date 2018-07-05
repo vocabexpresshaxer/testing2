@@ -158,15 +158,15 @@ def getResponse(data):
 
 def nextGame(uk, us, de):
     for r in ("uk", "us", "de"):
-        if r == "uk":
-            USER_ID = uk[1]
-            BEARER_TOKEN = uk[0]
-        elif r == "us":
+        if r == "us":
             USER_ID = us[1]
             BEARER_TOKEN = us[0]
         elif r == "de":
             USER_ID = de[1]
             BEARER_TOKEN = de[0]
+        else:
+            USER_ID = uk[1]
+            BEARER_TOKEN = uk[0]
         main_url = "https://api-quiz.hype.space/shows/now?type="
         headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
                "x-hq-client": "Android/1.3.0"}
