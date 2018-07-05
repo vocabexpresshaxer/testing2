@@ -217,11 +217,7 @@ lastDE = time.time()
 while True:
     a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
-    if a == "uk":
-        USER_ID = uk_bearer[1]
-        BEARER_TOKEN = uk_bearer[0]
-        nextG = "UK"
-    elif a == "us":
+    if a == "us":
         USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
         nextG = "US"
@@ -229,6 +225,10 @@ while True:
         USER_ID = de_bearer[1]
         BEARER_TOKEN = de_bearer[0]    
         nextG = "DE"
+    else:
+        USER_ID = uk_bearer[1]
+        BEARER_TOKEN = uk_bearer[0]
+        nextG = "UK"
         
     main_url = "https://api-quiz.hype.space/shows/now?type="
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
