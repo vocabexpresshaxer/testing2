@@ -29,7 +29,7 @@ def username_available(username: str) -> bool:
 
 def create_user(username: str, verification_id: str, referral: str="", region: str="US"):
     return requests.post("https://api-quiz.hype.space/users", data={
-        "country": region,
+        #"country": region,
         "language": "en",
         "referringUsername": referral,
         "username": username,
