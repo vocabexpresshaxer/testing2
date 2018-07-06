@@ -7,7 +7,7 @@ import extralives
 
 # Set up color-coding
 colorama.init()
-uk = True
+
 AREconnected = []
 try:
     bearers = pickle.load(open("/root/bearers.p", "rb"))
@@ -217,7 +217,7 @@ start_new_thread(processConn, ())
 lastCTime = time.time()
 lastDE = time.time()
 
-a = "us"
+a = "uk"
 while True:
     #a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
