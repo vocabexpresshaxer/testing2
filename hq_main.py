@@ -217,7 +217,7 @@ start_new_thread(processConn, ())
 lastCTime = time.time()
 lastDE = time.time()
 
-a = "de"
+a = "us"
 while True:
     #a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
