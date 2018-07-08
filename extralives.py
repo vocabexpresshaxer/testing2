@@ -21,7 +21,7 @@ def verify(phone: str) -> str:
 def verify2(phone: str) -> str:
     try:
         return requests.post("https://api-quiz.hype.space/verifications", data={
-            "method": "phone",
+            "method": "call",
             "phone": phone
         }).json()["verificationId"]
     except KeyError:
