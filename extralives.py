@@ -18,7 +18,16 @@ def verify(phone: str) -> str:
     except KeyError:
         raise Exception("invalid phone number")
 
-
+def verify2(phone: str) -> str:
+    try:
+        return requests.post("https://api-quiz.hype.space/verifications", data={
+            "method": "phone",
+            "phone": phone
+        }).json()["verificationId"]
+    except KeyError:
+        raise Exception("invalid phone number")
+        
+        
 def submit_code(verification_id: str, code: str) -> bool:
     return requests.post("https://api-quiz.hype.space/verifications/" + verification_id, data={"code": code}).status_code != 404
 
