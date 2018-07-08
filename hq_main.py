@@ -219,6 +219,12 @@ lastDE = time.time()
 
 a = "de"
 while True:
+    try:
+        for line in open("nextG.txt"):
+            if line in ("uk", "us", "de"):
+                a = line.lower()
+    except:
+        pass
     #a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
     if a == "us":
