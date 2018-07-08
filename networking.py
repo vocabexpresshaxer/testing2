@@ -75,7 +75,7 @@ async def websocket_lives_handler(uri, bearers, broadid):
         headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
         websocket = WebSocket(uri)
         for header, value in headers.items():
-            websocket.add_header(str.encode(str(header)), str.encode(str(value)))
+            websocket.add_header(str.encode(header), str.encode(value))
                 
         for msg in websocket.connect(ping_rate=5):
             if msg.name == "text":
@@ -86,5 +86,5 @@ async def websocket_lives_handler(uri, bearers, broadid):
                 if "error" in message_data and message_data["error"] == "Auth not valid":
                     print("Connection settings invalid")
 
-                websocket.send_json({"authToken":str(bearer), "type": "subscribe", "broadcastId": broadid})
+                websocket.send_json({"authToken":str(bearer), "type": "subscribe", "broadcastId": str(broadid)})
                 websocket.close()
