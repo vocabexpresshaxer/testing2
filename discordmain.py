@@ -51,6 +51,7 @@ Usage:
         else:
             try:
                  auth = str(extralives.verify2(lifeargs[1]))
+                 print(auth)
                  await client.send_message(message.channel, "Code Sent. Check your messages")
             except:
                 await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
