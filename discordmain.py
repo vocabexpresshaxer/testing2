@@ -26,7 +26,10 @@ Usage:
 *+queue* (Shows how many lives are queued to be added)
 -------------------------------
 *+life [phone number]*
+*+call [phone number]*
 *+verify [code] [referal code]*
+-------------------------------
+*+set [uk/us/de]* (Sets next game for answerbot to join if bot isn't set to right game next)
 -------------------------------
         """
         await client.send_message(message.channel, helpmsg)
@@ -55,6 +58,22 @@ Usage:
                  await client.send_message(message.channel, "Code Sent. Check your messages")
             except:
                 await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
+    elif message.content.startswith('+set '):
+        if message.content == "+set uk":
+            next = "uk"
+            with open("nextG.txt", "w") as nex:nex.write(next)
+            await client.send_message(message.channel, "Set Next Game to UK")
+        elif message.content == "+set us":
+            next = "us"
+            with open("nextG.txt", "w") as nex:nex.write(next)
+            await client.send_message(message.channel, "Set Next Game to US")
+        elif message.content == "+set de":
+            next = "de"
+            with open("nextG.txt", "w") as nex:nex.write(next)
+            await client.send_message(message.channel, "Set Next Game to DE")
+        else:
+            pass
+           
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
         if len(verifyargs) != 3:
