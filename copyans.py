@@ -14,7 +14,7 @@ def on_message():
         chatid = "463094183272644640"
         message = client.get_message(chatid)
         if message != last:
-            client.send_message("465899313403527169", message)
+            client.send_message("465923931023343636", message)
             last = message
 
 def getChoice(m1, m2):
