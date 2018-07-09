@@ -80,8 +80,8 @@ async def answer_question(question, original_answers):
     
     with open("uk.txt", "w") as uk:uk.write(toWrite)
         
-    start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", toWrite + " :black_large_square:"))
-    start_new_thread(runW, ("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", toWrite + " :black_large_square:"))
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", toWrite + " :white_check_mark: + \n\n"))
+    start_new_thread(runW, ("https://discordapp.com/api/webhooks/454396453474009098/S1VOpB5cOGMix4wyrmNEf17DYUQ3ey6UE7nR_zn1E1x1Rj7OzkBHzJj2G5ur2C2LBLT6", toWrite + " :white_check_mark: + \n\n"))
     
     if best_answer != "":
         print(Fore.GREEN + best_answer + Style.RESET_ALL + "\n")
