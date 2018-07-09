@@ -15,6 +15,10 @@ except:
     bearers = []
     pickle.dump(bearers, open("/root/bearers.p", "wb"))
 
+def runW(url, tosend):
+    try:Webhook(url, msg=tosend).post()
+    except:pass    
+    
 def processConn():
     global AREconnected
     global lastCTime
