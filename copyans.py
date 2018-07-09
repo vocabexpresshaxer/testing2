@@ -15,7 +15,9 @@ def on_message():
         message = client.get_message(chatid)
         message = message.replace("\"", "'")
         if message != last:
-            client.send_message("465923931023343636", message)
+            messages = message.split("\n")
+            for msg in messages:
+                client.send_message("465899313403527169", msg)
             last = message
 
 def getChoice(m1, m2):
