@@ -11,8 +11,8 @@ def obfuscate(byt):
 def on_message():
     global last
     while True:
-        chatid = "463094183272644640"
-        #chatid = "462330902580822037"
+        #chatid = "463094183272644640"
+        chatid = "462330902580822037"
         message = client.get_message(chatid)
         message = message.split("\", \"channel_id:")[0]
         if message != last:
