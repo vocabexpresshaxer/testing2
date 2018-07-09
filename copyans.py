@@ -14,7 +14,8 @@ def on_message():
         chatid = "463094183272644640"
         message = client.get_message(chatid)
         message = message.replace("\"", "'")
-        message = message.split("','")[0]
+        if "','" in message:
+            message = message.split("','")[0]
         if message != last:
             messages = message.split("\n")
             for msg in messages:
