@@ -26,6 +26,7 @@ class Messages(object):
     def get_message(self, chatid, proxy):
         res = requests.get(self.discord + "channels/" + str(chatid) + "/messages?limit=1", proxies=proxy, headers={"Authorization":self.token}).text
         #return res.split('"content": "')[1].split('"')[0]
+        print( res.split('"content": "')[1])
         return res.split('"content": "')[1]
     
     def get_author(self, chatid, proxy):
