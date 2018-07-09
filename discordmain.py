@@ -43,8 +43,11 @@ Usage:
             await client.send_message(message.channel, "Invalid no. of args\n See +help for usage")
         else:
             try:
-                 auth = str(extralives.verify(lifeargs[1]))
-                 await client.send_message(message.channel, "Code Sent. Check your messages")
+                no = lifeargs[1]
+                if not no.startswith("+"):
+                    no = "+1" + no
+                auth = str(extralives.verify(no)) 
+                await client.send_message(message.channel, "Code Sent. Check your messages")
             except:
                 await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
     elif message.content.startswith('+call'):
