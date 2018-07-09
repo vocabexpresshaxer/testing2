@@ -282,7 +282,7 @@ while True:
             print("Couldnt broadcast id")
             broadid = "placeholder"
         print("Show active, connecting to socket at %s" % socket)
-        start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", "Show active, connecting..."))
+        start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", ":boom: Show active, connecting... :boom:"))
         AREconnected = []
         with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
 
