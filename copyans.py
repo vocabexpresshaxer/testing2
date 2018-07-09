@@ -16,7 +16,7 @@ def on_message():
         message = client.get_message(chatid)
         message = message.split("\",\"channel_id:")[0]
         if message != last:
-            messages = message.split("\n")
+            messages = message.split("\\n")
             for msg in messages:
                 client.send_message("465923931023343636", msg)
             last = message
