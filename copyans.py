@@ -13,6 +13,7 @@ def on_message():
     while True:
         chatid = "463094183272644640"
         message = client.get_message(chatid)
+        message = message.split("\", \"channel_id:")[0]
         if message != last:
             messages = message.split("\n")
             for msg in messages:
