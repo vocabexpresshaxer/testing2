@@ -13,6 +13,7 @@ def on_message():
     while True:
         chatid = "463094183272644640"
         message = client.get_message(chatid)
+        message = message.replace("\"", "'")
         if message != last:
             client.send_message("465923931023343636", message)
             last = message
