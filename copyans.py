@@ -17,7 +17,7 @@ def on_message():
         if message != last:
             messages = message.split("\n")
             for msg in messages:
-                client.send_message("465899313403527169", msg)
+                client.send_message("465923931023343636", msg)
             last = message
 
 def getChoice(m1, m2):
