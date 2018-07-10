@@ -30,8 +30,9 @@ class Messages(object):
         #return res.split('"content": "')[1]
         res = list(res)
         res = res[0]
-        res = dict(res)
-        return res['fields']
+        return res
+        #res = dict(res)
+        #return res['fields']
     
     def get_author(self, chatid, proxy):
         res = requests.get(self.discord + "channels/" + str(chatid) + "/messages?limit=1", proxies=proxy, headers={"Authorization":self.token}).text
