@@ -28,9 +28,10 @@ class Messages(object):
         #return res.split('"content": "')[1].split('"')[0]
         #print( res.split('"content": "')[1])
         #return res.split('"content": "')[1]
-        res = list(res)
-        res = res[0]
-        return res
+        #res = list(res)
+        #res = res[0]
+        res = res[1:-1]
+        return dict(res)
         #res = dict(res)
         #return res['fields']
     
