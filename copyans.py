@@ -15,14 +15,20 @@ def on_message():
         chatid = "462330902580822037"
         message = client.get_message(chatid)
         #print(message)
-        message = message.split("\"value\": \"")[1]
-        message = message.split("\"}, {\"")[0]
-        print(message)
-        if message != last:
-            messages = message.split("\\n")
-            for msg in messages:
-                client.send_message("465923931023343636", msg)
-            last = message
+        try:
+            message = message.split("\"value\": \"")[1]
+            message = message.split("\"}, {\"")[0]
+            message = message.replace("\\u2705", "")
+            message = message + " :white_check_mark:"
+            #print(message)
+            if message != last:
+                messages = message.split("\\n")
+                for msg in messages:
+                    client.send_message("465923931023343636", msg)
+                last = message
+        except:
+            pass
+       
 
 def getChoice(m1, m2):
     choice1 = random.choice(("1", "2", "3", "4"))
