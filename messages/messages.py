@@ -31,7 +31,8 @@ class Messages(object):
         #res = list(res)
         #res = res[0]
         res = res[1:-1]
-        return dict(res)
+        return res
+        #return dict(res)
         #res = dict(res)
         #return res['fields']
     
