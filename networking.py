@@ -87,5 +87,7 @@ async def websocket_lives_handler(uri, bearers, broadid):
                 if "error" in message_data and message_data["error"] == "Auth not valid":
                     print("Connection settings invalid")
 
-                if first == True:websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
+                if first == True:
+                    websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
+                    first = False
                 else:websocket.close()
