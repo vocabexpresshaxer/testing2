@@ -97,6 +97,8 @@ Usage:
                             bearers.append(str(auth))
                             pickle.dump(bearers, open("/root/bearers.p", "wb"))
                             await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
+                            test = extralives.HQClient(auth)
+                            test.make_it_rain()
 
                         except Exception as e:
                             await client.send_message(message.channel, "Uh oh. The an error has occured server-side " + str(e))
