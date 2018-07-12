@@ -162,7 +162,9 @@ def getResponse(data):
     
     To extend your access / buy access (you can still refer friends etc) email me at caffiene0addict0420
             """
-
+def playGame(uri, bearer):
+    pass
+    
 def nextGame(uk, us, de):
     for r in ("uk", "us", "de"):
         if r == "us":
@@ -221,15 +223,15 @@ start_new_thread(processConn, ())
 lastCTime = time.time()
 lastDE = time.time()
 
-a = "de"
+a = "us"
 while True:
-    try:
-        for line in open("nextG.txt"):
-            if line in ("uk", "us", "de"):
-                a = line.lower()
-    except:
-        pass
-    print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
+ #   try:
+  #      for line in open("nextG.txt"):
+   #         if line in ("uk", "us", "de"):
+    #            a = line.lower()
+    #except:
+     #   pass
+    #print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
     if a == "us":
         USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
@@ -281,7 +283,6 @@ while True:
             print("Couldnt broadcast id")
             broadid = "placeholder"
         print("Show active, connecting to socket at %s" % socket)
-        start_new_thread(runW, ("https://discordapp.com/api/webhooks/463095598514438144/itml2ezy3zOenC_gOYmyJxoNzBfOjE1wMelFcg5cKFGA0kJmd88AFdPRffOGJNOCvixW", ":boom: Show active, connecting... :boom:"))
         AREconnected = []
         with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
 
@@ -293,6 +294,9 @@ while True:
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
+            allbearers = pickle.load(open("/root/acc.p", "rb"))
+            for b in allbearers:
+                start_new_thread(playGame, (socket, b)) 
         #else:
          #   try:
           #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
