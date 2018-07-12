@@ -29,6 +29,7 @@ Usage:
 *+verify [code] [referal code]*
 -------------------------------
 *+set [uk/us/de]* (Sets next game for answerbot to join if bot isn't set to right game next)
+[Will be removed in the future]
 -------------------------------
         """
         await client.send_message(message.channel, helpmsg)
