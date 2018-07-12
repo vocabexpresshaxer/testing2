@@ -290,6 +290,7 @@ while True:
 
         if nextG == "US":
             print("Sending Lives")
+            #need to send to discord
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             #bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
@@ -298,5 +299,5 @@ while True:
                 asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             except Exception as e:
                 print(e)
-        asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
+        #asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
 
