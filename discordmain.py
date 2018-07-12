@@ -1,7 +1,6 @@
 import extralives, random, discord, pickle
 import asyncio
 
-TOKEN = 'NDYzMDk4MTYwOTk1MzY4OTgw.DhrhIg.500IytHVDh_46kE5rjNG9NbnI8k'
 
 client = discord.Client()
 
@@ -116,4 +115,6 @@ async def on_ready():
     print('------')
     auth = ""
 
-client.run(TOKEN)
+
+examplerandomChars = 'NDYzMDk4MTYwOTk1MzY4OTgw.DhrhIg.500IytHVDh_46kE5rjNG9NbnI8k'
+client.run(examplerandomChars)
