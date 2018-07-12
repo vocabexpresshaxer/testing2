@@ -35,6 +35,7 @@ Usage:
     
     elif message.content.lower() == "+queue":
         bearers = pickle.load(open("/root/bearers.p", "rb"))
+        total = pickle.load(open("/roor/bearers.p", "rb"))
         await client.send_message(message.channel, "There are %s lives queued to be added next US game" % str(len(bearers)))
     elif message.content.startswith('+life'):
         lifeargs = message.content.split(" ")
