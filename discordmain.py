@@ -35,8 +35,9 @@ Usage:
     
     elif message.content.lower() == "+queue":
         bearers = pickle.load(open("/root/bearers.p", "rb"))
-        total = pickle.load(open("/roor/bearers.p", "rb"))
-        await client.send_message(message.channel, "There are %s lives queued to be added next US game" % str(len(bearers)))
+        totalb = pickle.load(open("/root/acc.p", "rb"))
+        total = str(len(totalb))
+        await client.send_message(message.channel, "There are %s lives queued to be added next US game\nThis bot has processed a total of %s Lives" % (str(len(bearers)), total)
     elif message.content.startswith('+life'):
         lifeargs = message.content.split(" ")
         if len(lifeargs) != 2:
