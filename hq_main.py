@@ -3,7 +3,7 @@ from datetime import datetime
 from _thread import start_new_thread
 from discordweb import Webhook
 import extralives
-
+from lomond import WebSocket
 
 # Set up color-coding
 colorama.init()
