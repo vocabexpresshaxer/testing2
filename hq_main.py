@@ -229,7 +229,6 @@ while True:
                 a = line.lower()
     except:
         pass
-    #a = nextGame(uk_bearer, us_bearer, de_bearer)[0]
     print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
     if a == "us":
         USER_ID = us_bearer[1]
@@ -292,12 +291,12 @@ while True:
             print("Sending Lives")
             #need to send to discord
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
-            #bearers = []
+            bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
-        else:
-            try:
-                asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
-            except Exception as e:
-                print(e)
+        #else:
+         #   try:
+          #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
+           # except Exception as e:
+            #    print(e)
         #asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
 
