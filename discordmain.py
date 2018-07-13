@@ -98,17 +98,28 @@ Usage:
             if auth == "":
                 await client.send_message(message.channel, "You need to do +life [number] first")
             else:
-                naming = random.choice(("1", "2"))
+                naming = random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
                 if naming == "1":
                     u = "False"
                     while u == "False":
                         uname = str(random.randint(1000, 100000))
                         u = str(extralives.username_available(uname))
-                elif naming == "2":
+                else:
                     u = "False"
                     while u == "False":
                         first = random.choice(("joe", "shazza", "sarah", "bob", "james", "edward", "steve", "steven", "ben", "charlie", "josh", "robert", "beric"))
                         second = random.choice(("davis", "johnson", "stevenson", "tucker", "moore", "browne", "dietrich", "fuller", "capponi", "markus", "scheffler", "fekete", "accomazzi", "garson", "orsi", "hampton"))
+                        c = random.choice(("1", "2", "3"))
+                        if c == "1":name = first + second
+                        elif c == "2":name = first.title() + second.title()
+                        elif c == "3": name = first + second.title()
+                        c2 = random.choice(("1", "2", "3"))
+                        if c2 == "1":pass
+                        elif c2 == "2":name = name + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+                        elif c2 == "3":name = name + "19" + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9")) + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9"))
+                        u = str(extralives.username_available(uname))
+                            
+                        
                 try:
                     if str(extralives.submit_code(auth, int(verifyargs[1]))) == "True":
                         try:
