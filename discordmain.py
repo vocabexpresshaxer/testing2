@@ -78,7 +78,13 @@ Usage:
             await client.send_message(message.channel, "Set Next Game to DE")
         else:
             pass
-           
+    elif message.content == "+allbots":
+        totalb = pickle.load(open("/root/acc.p", "rb"))
+        for b in totalb:
+            test = extralives.HQClient(auth)
+            print(test.me())
+            break
+      
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
         if len(verifyargs) != 3:
