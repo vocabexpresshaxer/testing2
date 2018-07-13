@@ -79,13 +79,17 @@ Usage:
         else:
             pass
     elif message.content == "+allbots":
+        totLives = 0
         totalb = pickle.load(open("/root/acc.p", "rb"))
         for b in totalb:
             test = extralives.HQClient(b)
             test.make_it_rain()
             test2 = test.me()
-            print(test2.lives)
-            #break
+            #print(test2.lives)
+            if test2.lives != None:
+                totLives += 1
+            print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
+            await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
       
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
