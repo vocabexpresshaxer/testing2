@@ -117,7 +117,7 @@ Usage:
                         if c2 == "1":pass
                         elif c2 == "2":name = name + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
                         elif c2 == "3":name = name + "19" + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9")) + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9"))
-                        u = str(extralives.username_available(uname))
+                        u = str(extralives.username_available(name))
                             
                         
                 try:
