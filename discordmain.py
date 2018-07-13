@@ -84,7 +84,7 @@ Usage:
             test = extralives.HQClient(auth)
             test2 = test.me()
             print(test2.lives)
-            break
+            #break
       
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
