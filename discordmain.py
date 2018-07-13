@@ -98,10 +98,17 @@ Usage:
             if auth == "":
                 await client.send_message(message.channel, "You need to do +life [number] first")
             else:
-                u = "False"
-                while u == "False":
-                    uname = str(random.randint(1000, 100000))
-                    u = str(extralives.username_available(uname))
+                naming = random.choice(("1", "2"))
+                if naming == "1":
+                    u = "False"
+                    while u == "False":
+                        uname = str(random.randint(1000, 100000))
+                        u = str(extralives.username_available(uname))
+                elif naming == "2":
+                    u = "False"
+                    while u == "False":
+                        first = random.choice(("joe", "shazza", "sarah", "bob", "james", "edward", "steve", "steven", "ben", "charlie", "josh", "robert", "beric"))
+                        second = random.choice(("davis", "johnson", "stevenson", "tucker", "moore", "browne", "dietrich", "fuller", "capponi", "markus", "scheffler", "fekete", "accomazzi", "garson", "orsi", "hampton"))
                 try:
                     if str(extralives.submit_code(auth, int(verifyargs[1]))) == "True":
                         try:
