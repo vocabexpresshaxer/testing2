@@ -110,14 +110,14 @@ Usage:
                         first = random.choice(("joe", "shazza", "sarah", "bob", "james", "edward", "steve", "steven", "ben", "charlie", "josh", "robert", "beric"))
                         second = random.choice(("davis", "johnson", "stevenson", "tucker", "moore", "browne", "dietrich", "fuller", "capponi", "markus", "scheffler", "fekete", "accomazzi", "garson", "orsi", "hampton"))
                         c = random.choice(("1", "2", "3"))
-                        if c == "1":name = first + second
-                        elif c == "2":name = first.title() + second.title()
-                        elif c == "3": name = first + second.title()
+                        if c == "1":uname = first + second
+                        elif c == "2":uname = first.title() + second.title()
+                        elif c == "3": uname = first + second.title()
                         c2 = random.choice(("1", "2", "3"))
                         if c2 == "1":pass
-                        elif c2 == "2":name = name + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
-                        elif c2 == "3":name = name + "19" + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9")) + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9"))
-                        u = str(extralives.username_available(name))
+                        elif c2 == "2":uname = uname + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+                        elif c2 == "3":uname = uname + "19" + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9")) + random.choice(("1", "2", "3", "4", "5", "6", "7", "8", "9"))
+                        u = str(extralives.username_available(uname))
                             
                         
                 try:
