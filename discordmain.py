@@ -82,7 +82,7 @@ Usage:
         totalb = pickle.load(open("/root/acc.p", "rb"))
         for b in totalb:
             test = extralives.HQClient(auth)
-            print(test.me())
+            print(test.me().lives)
             break
       
     elif message.content.startswith('+verify'):
