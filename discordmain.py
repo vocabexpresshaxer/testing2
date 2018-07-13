@@ -81,7 +81,8 @@ Usage:
     elif message.content == "+allbots":
         totalb = pickle.load(open("/root/acc.p", "rb"))
         for b in totalb:
-            test = extralives.HQClient(auth)
+            test = extralives.HQClient(b)
+            test.make_it_rain()
             test2 = test.me()
             print(test2.lives)
             #break
