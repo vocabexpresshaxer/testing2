@@ -4,6 +4,13 @@ from _thread import start_new_thread
 
 client = discord.Client()
 
+def getLife(b):
+    test = extralives.HQClient(b)
+    test.make_it_rain()
+    test2 = test.me()
+    if test2.lives != None:
+        return True
+
 @client.event
 async def on_message(message):
     global auth
