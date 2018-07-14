@@ -29,7 +29,10 @@ def on_message():
                 last = message
         except:
             pass
-       
+
+def fix(mystring):
+    higher = re.sub(r"[^\w]", "", mystring)
+    return higher.lower()
 
 def getChoice(m1, m2):
     choice1 = random.choice(("1", "2", "3", "4"))
