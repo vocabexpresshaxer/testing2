@@ -1,6 +1,6 @@
 import extralives, random, discord, pickle
 import asyncio
-
+from _thread import start_new_thread
 
 client = discord.Client()
 
