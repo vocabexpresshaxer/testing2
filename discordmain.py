@@ -94,7 +94,7 @@ Usage:
         r = 0
         totLives = 0
         for b in totalb:
-            start_new_thread(getLife, (b)) 
+            start_new_thread(getLife, (b,)) 
             #start thread
             pass
         while r != totalb:
