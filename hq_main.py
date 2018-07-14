@@ -22,7 +22,11 @@ def runW(url, tosend):
 
 def playGame(uri, bearer):
     pass
-    
+
+def fix(mystring):
+    higher = re.sub(r"[^\w]", "", mystring)
+    return higher.lower()
+
 def nextGame(uk, us, de):
     for r in ("uk", "us", "de"):
         if r == "us":
