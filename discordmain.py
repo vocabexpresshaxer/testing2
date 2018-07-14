@@ -10,6 +10,7 @@ def getLife(b):
     test2 = test.me()
     if test2.lives != None:
         return True
+    return False
 
 @client.event
 async def on_message(message):
@@ -89,10 +90,7 @@ Usage:
         totLives = 0
         totalb = pickle.load(open("/root/acc.p", "rb"))
         for b in totalb:
-            test = extralives.HQClient(b)
-            test.make_it_rain()
-            test2 = test.me()
-            if test2.lives != None:
+            if getLife(b) == True:
                 totLives += 1
         print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
         await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
