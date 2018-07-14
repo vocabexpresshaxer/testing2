@@ -1,3 +1,4 @@
+
 import extralives, random, discord, pickle, time
 import asyncio
 from _thread import start_new_thread
@@ -91,6 +92,7 @@ Usage:
     elif message.content == "+allbots":
         totalb = pickle.load(open("/root/acc.p", "rb"))
         r = 0
+        global r
         global totLives
         totLives = 0
         time.sleep(1)
