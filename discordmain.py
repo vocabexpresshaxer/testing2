@@ -1,16 +1,18 @@
-import extralives, random, discord, pickle
+import extralives, random, discord, pickle, time
 import asyncio
 from _thread import start_new_thread
 
 client = discord.Client()
 
 def getLife(b):
+    global r
+    global totLives
     test = extralives.HQClient(b)
     test.make_it_rain()
     test2 = test.me()
     if test2.lives != None:
-        return True
-    return False
+        totLives += 1
+    r += 1
 
 @client.event
 async def on_message(message):
@@ -89,9 +91,14 @@ Usage:
     elif message.content == "+allbots":
         totLives = 0
         totalb = pickle.load(open("/root/acc.p", "rb"))
+        r = 0
+        totLives = 0
         for b in totalb:
-            if getLife(b) == True:
-                totLives += 1
+            start_new_thread(getLife, (b)) 
+            #start thread
+            pass
+        while r != totalb:
+            time.sleep(1)
         print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
         await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
       
