@@ -89,9 +89,9 @@ Usage:
         else:
             pass
     elif message.content == "+allbots":
-        totLives = 0
         totalb = pickle.load(open("/root/acc.p", "rb"))
         r = 0
+        global totLives
         totLives = 0
         time.sleep(1)
         for b in totalb:
