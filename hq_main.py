@@ -21,7 +21,25 @@ def runW(url, tosend):
     
 
 def playGame(uri, bearer):
-    pass
+    broadid = "placeholderbroadid"
+    headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
+    websocket = WebSocket(uri)
+    for header, value in headers.items():
+        websocket.add_header(str.encode(header), str.encode(value))
+    first = True
+    for msg in websocket.connect(ping_rate=5):
+        if msg.name == "text":
+            message = msg.text
+            message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
+            message_data = json.loads(message)
+
+            if "error" in message_data and message_data["error"] == "Auth not valid":
+                print("Connection settings invalid")
+
+            if first == True:
+                websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
+                first = False
+            else:websocket.close()
 
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
