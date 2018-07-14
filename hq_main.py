@@ -99,7 +99,6 @@ us_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxMzIxOTcxLCJ1c
 
 
 print("Starting up Bot...")
-start_new_thread(processConn, ())
 lastCTime = time.time()
 lastDE = time.time()
 
