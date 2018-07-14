@@ -93,11 +93,10 @@ Usage:
         totalb = pickle.load(open("/root/acc.p", "rb"))
         r = 0
         totLives = 0
+        time.sleep(1)
         for b in totalb:
             start_new_thread(getLife, (b,)) 
-            #start thread
-            pass
-        while r != totalb:
+        while r != len(totalb):
             time.sleep(1)
         print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
         await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
