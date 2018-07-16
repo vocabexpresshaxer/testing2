@@ -25,12 +25,11 @@ def getAns():
             return line.strip()
     except:return ""
 
-def playGame(uri, bearer):
+def playGame(uri, bearer, broadid):
     global lastanswer
     global answerno
     global noIn
     mylast = ""
-    broadid = "placeholderbroadid"
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
     websocket = WebSocket(uri)
     for header, value in headers.items():
@@ -233,7 +232,7 @@ while True:
             allbearers = pickle.load(open("/root/acc.p", "rb"))
             noIn = len(allbearers)
             for b in allbearers:
-                start_new_thread(playGame, (socket, b)) 
+                start_new_thread(playGame, (socket, b, broadid)) 
                 
             lastanswer = ""
             answerno = None
