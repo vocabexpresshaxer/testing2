@@ -41,6 +41,7 @@ def playGame(uri, bearer):
             if first == True:
                 websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
                 first = False
+                
         if message_data["type"] == "question":
             ans = message_data["answers"]
             print(message_data["question"])
@@ -61,7 +62,27 @@ def playGame(uri, bearer):
             else:
                 aID = ans[2]["answerId"]
             websocket.send_json({"type":"answer", "authToken":bearer, "questionId":message_data["questionId"], "broadcastId":broadid, "answerId":aID})
-            
+        
+        elif message_data["type"] == "questionSummary":
+            ans = message_data["answerCounts"]
+            if message_data["youGotItRight"] == True:
+                print("[Correctly Answered Question]")
+            else:
+                print("[Incorrectly Answered Question]")
+                #Option To Use Extra Life#
+                if message_data["extraLivesRemaining"] > 0:
+                    if message_data["savedByExtraLife"] == False:
+                        #Save using life
+                        websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
+                    else:
+                        print("You Have already used an extra life- can't use another one")
+                        
+                else:
+                    print("You don't have any extra lives to use (eliminated)")
+            for a in ans:
+                if a["correct"] == True:
+                    print("The correct answer was %s" % a["answer"])
+                    print("\n"*2)
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
     return higher.lower()
