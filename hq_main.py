@@ -228,6 +228,29 @@ while True:
             noIn = len(allbearers)
             for b in allbearers:
                 start_new_thread(playGame, (socket, b)) 
+            websocket = WebSocket(socket)
+            for header, value in headers.items():websocket.add_header(str.encode(header), str.encode(value))
+            first = True 
+            for msg in websocket.connect(ping_rate=5):
+                if msg.name == "text":
+                    message = msg.text
+                    message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
+                    message_data = json.loads(message)
+                    if first == True:
+                        websocket.send_json({"authToken":us_bearer, "type": "subscribe", "broadcastId": broadid})
+                        websocket.send_json({"chatVisible":0, "authToken":us_bearer, "broadcastId":broadid, "type":"chatVisibilityToggled"})
+                        first = False
+                    if "error" in message_data and message_data["error"] == "Auth not valid":
+                        print("Connection settings invalid")
+                        
+                    if message_data["type"] == "question":
+                        ans = message_data["answers"]
+                        qid = message_data["questionId"]
+                        print("Q ID: " + str(message_data["questionId"]))
+
+                    elif message_data["type"] == "questionSummary":
+                        ans = message_data["answerCounts"]
+                        
         #else:
          #   try:
           #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
