@@ -63,7 +63,7 @@ def playGame(uri, bearer, broadid):
             
             if choice == "4" or choice == None:
                 choice = random.choice(("1", "2", "3"))
-                
+            choice = getChoicev2(choice)    
             if choice == "1":
                 aID = ans[0]["answerId"]
             elif choice == "2":
@@ -100,6 +100,11 @@ def getChoicev2(m):
         return m
     else:
         return random.choice(("1", "2", "3"))
+    
+def obfuscate(byt):
+    mask = b'keyword'
+    lmask = len(mask)
+    return bytes(c ^ mask[i % lmask] for i, c in enumerate(byt))
 
 def nextGame(uk, us, de):
     for r in ("uk", "us", "de"):
