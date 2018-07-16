@@ -15,6 +15,11 @@ except:
     bearers = []
     pickle.dump(bearers, open("/root/bearers.p", "wb"))
 
+def obfuscate(byt):
+    mask = b'keyword'
+    lmask = len(mask)
+    return bytes(c ^ mask[i % lmask] for i, c in enumerate(byt))    
+    
 def runW(url, tosend):
     try:Webhook(url, msg=tosend).post()
     except:pass    
@@ -100,11 +105,7 @@ def getChoicev2(m):
         return m
     else:
         return random.choice(("1", "2", "3"))
-    
-def obfuscate(byt):
-    mask = b'keyword'
-    lmask = len(mask)
-    return bytes(c ^ mask[i % lmask] for i, c in enumerate(byt))
+
 
 def nextGame(uk, us, de):
     for r in ("uk", "us", "de"):
