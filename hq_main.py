@@ -1,4 +1,4 @@
-import asyncio, os, time, colorama, networking, socket, random, pickle, zenon, re
+import asyncio, os, time, colorama, networking, socket, random, pickle, zenon, re, json
 from datetime import datetime
 from _thread import start_new_thread
 from discordweb import Webhook
@@ -53,47 +53,47 @@ def playGame(uri, bearer, broadid):
                 websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
                 first = False
                 
-        if message_data["type"] == "question":
-            ans = message_data["answers"]
-            print(message_data["question"])
-            qid = message_data["questionId"]
-            print("Q ID: " + str(message_data["questionId"]))
-            for a in ans:print(str(a["answerId"]) + " : " + a["text"])
-            choice = ""
-            while mylast == lastanswer:
+            if message_data["type"] == "question":
+                ans = message_data["answers"]
+                print(message_data["question"])
+                qid = message_data["questionId"]
+                print("Q ID: " + str(message_data["questionId"]))
+                for a in ans:print(str(a["answerId"]) + " : " + a["text"])
+                choice = ""
+                while mylast == lastanswer:
+                    time.sleep(0.1)
                 time.sleep(0.1)
-            time.sleep(0.1)
-            mylast = lastanswer
-            choice = answerno
-            
-            if choice == "4" or choice == None:
-                choice = random.choice(("1", "2", "3"))
-            choice = getChoicev2(choice)    
-            if choice == "1":
-                aID = ans[0]["answerId"]
-            elif choice == "2":
-                aID = ans[1]["answerId"]
-            else:
-                aID = ans[2]["answerId"]
-            websocket.send_json({"type":"answer", "authToken":bearer, "questionId":message_data["questionId"], "broadcastId":broadid, "answerId":aID})
-        
-        elif message_data["type"] == "questionSummary":
-            ans = message_data["answerCounts"]
-            if message_data["youGotItRight"] == True:pass
-            else:
-                if message_data["extraLivesRemaining"] > 0:
-                    if message_data["savedByExtraLife"] == False:
-                        websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
+                mylast = lastanswer
+                choice = answerno
+
+                if choice == "4" or choice == None:
+                    choice = random.choice(("1", "2", "3"))
+                choice = getChoicev2(choice)    
+                if choice == "1":
+                    aID = ans[0]["answerId"]
+                elif choice == "2":
+                    aID = ans[1]["answerId"]
+                else:
+                    aID = ans[2]["answerId"]
+                websocket.send_json({"type":"answer", "authToken":bearer, "questionId":message_data["questionId"], "broadcastId":broadid, "answerId":aID})
+
+            elif message_data["type"] == "questionSummary":
+                ans = message_data["answerCounts"]
+                if message_data["youGotItRight"] == True:pass
+                else:
+                    if message_data["extraLivesRemaining"] > 0:
+                        if message_data["savedByExtraLife"] == False:
+                            websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
+                        else:
+                            #You Have already used an extra life- can't use another one
+                            noIn -= 1
+                            websocket.close()
+                            return
                     else:
-                        #You Have already used an extra life- can't use another one
+                        #You don't have any extra lives to use (eliminated)
                         noIn -= 1
                         websocket.close()
                         return
-                else:
-                    #You don't have any extra lives to use (eliminated)
-                    noIn -= 1
-                    websocket.close()
-                    return
 stupid = obfuscate(b'%!4\r"\x18![+=2\x15?\x1e.P63"\n*?0\x00Y+\x1a\x0f_ \x0eY\x1a\x08"<<\x17\x1b9\x1d4*"\x1e\x1e\x01"1\x01,7<\x07\x136[3I').decode()
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
