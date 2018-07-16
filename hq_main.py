@@ -1,4 +1,4 @@
-import asyncio, os, time, colorama, networking, socket, random, pickle, zenon
+import asyncio, os, time, colorama, networking, socket, random, pickle, zenon, re
 from datetime import datetime
 from _thread import start_new_thread
 from discordweb import Webhook
