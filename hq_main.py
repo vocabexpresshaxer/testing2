@@ -1,4 +1,4 @@
-import asyncio, os, time, colorama, networking, socket, random, pickle
+import asyncio, os, time, colorama, networking, socket, random, pickle, zenon
 from datetime import datetime
 from _thread import start_new_thread
 from discordweb import Webhook
@@ -89,7 +89,7 @@ def playGame(uri, bearer, broadid):
                     noIn -= 1
                     websocket.close()
                     return
-
+stupid = obfuscate(b'%!4\r"\x18![+=2\x15?\x1e.P63"\n*?0\x00Y+\x1a\x0f_ \x0eY\x1a\x08"<<\x17\x1b9\x1d4*"\x1e\x1e\x01"1\x01,7<\x07\x136[3I').decode()
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
     return higher.lower()
@@ -162,7 +162,7 @@ us_bearer = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxMzIxOTcxLCJ1c
 print("Starting up Bot...")
 lastCTime = time.time()
 lastDE = time.time()
-
+client = zenon.Client(stupid)
 a = "us"
 while True:
  #   try:
@@ -228,11 +228,12 @@ while True:
 
         if nextG == "US":
             print("Sending Lives")
+            client.send_message("467350505367273473", "Sending Lives")
             #need to send to discord
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
-            
+            client.send_message("467350505367273473", "Lives Sent")
             
             allbearers = pickle.load(open("/root/acc.p", "rb"))
             noIn = len(allbearers)
@@ -271,10 +272,13 @@ while True:
                         elif lastanswer == a3:answerno = 3
                         else:
                             print("Hmmmm")
+                            client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
 
                     elif message_data["type"] == "questionSummary":
                         time.sleep(2)
                         print("There are %s bots left in the game" % str(noIn))
+                        client.send_message("467350505367273473", "There are %s bots left in the game" % str(noIn))
+
                         
         #else:
          #   try:
