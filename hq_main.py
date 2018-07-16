@@ -23,6 +23,7 @@ def runW(url, tosend):
 def playGame(uri, bearer):
     #global answer
     #global answerno
+    global noIn
     broadid = "placeholderbroadid"
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
     websocket = WebSocket(uri)
@@ -76,9 +77,10 @@ def playGame(uri, bearer):
                         websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
                     else:
                         print("You Have already used an extra life- can't use another one")
-                        
+                        noIn -= 1
                 else:
                     print("You don't have any extra lives to use (eliminated)")
+                    noIn -= 1
             for a in ans:
                 if a["correct"] == True:
                     print("The correct answer was %s" % a["answer"])
@@ -223,6 +225,7 @@ while True:
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
             allbearers = pickle.load(open("/root/acc.p", "rb"))
+            noIn = len(allbearers)
             for b in allbearers:
                 start_new_thread(playGame, (socket, b)) 
         #else:
