@@ -19,7 +19,8 @@ def on_message():
             message = message.split("\"value\": \"")[1]
             message = message.split("\"}, {\"")[0]
             message = message.replace("\\u2705", "")
-            with open("answers.txt", "w") as ans:ans.write(message)
+            with open("answers.txt", "w") as ans:
+                ans.write(fix(message))
             message = message + " :white_check_mark:"
             #print(message)
             if message != last:
