@@ -26,8 +26,8 @@ def getAns():
     except:return ""
 
 def playGame(uri, bearer):
-    #global answer
-    #global answerno
+    global lastanswer
+    global answerno
     global noIn
     broadid = "placeholderbroadid"
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
@@ -226,10 +226,15 @@ while True:
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
+            
+            
             allbearers = pickle.load(open("/root/acc.p", "rb"))
             noIn = len(allbearers)
             for b in allbearers:
                 start_new_thread(playGame, (socket, b)) 
+                
+            lastanswer = ""
+            answerno = None
             websocket = WebSocket(socket)
             for header, value in headers.items():websocket.add_header(str.encode(header), str.encode(value))
             first = True 
@@ -250,6 +255,10 @@ while True:
                         a1 = fix(ans[0])
                         a2 = fix(ans[1])
                         a3 = fix(ans[2])
+                        while lastanswer == answer:
+                            answer = getAns()
+                            time.sleep(0.1)
+                        lastanswer = answer
                         qid = message_data["questionId"]
                         print("Q ID: " + str(message_data["questionId"]))
 
