@@ -71,7 +71,6 @@ async def websocket_handler(uri, headers):
     
     
 async def websocket_lives_handler(uri, bearers, broadid):
-    broadid = "placeholderbroadid"
     for bearer in bearers:
         headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
         websocket = WebSocket(uri)
