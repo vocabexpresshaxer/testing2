@@ -39,9 +39,6 @@ Usage:
 *+call [phone number]*
 *+verify [code] [referal code]*
 -------------------------------
-*+set [uk/us/de]* (Sets next game for answerbot to join if bot isn't set to right game next)
-[Will be removed in the future]
--------------------------------
         """
         await client.send_message(message.channel, helpmsg)
     
@@ -91,9 +88,9 @@ Usage:
             pass
     elif message.content == "+allbots":
         totalb = pickle.load(open("/root/acc.p", "rb"))
-        r = 0
         global r
         global totLives
+        r = 0
         totLives = 0
         time.sleep(1)
         for b in totalb:
@@ -120,8 +117,8 @@ Usage:
                 else:
                     u = "False"
                     while u == "False":
-                        first = random.choice(("joe", "shazza", "sarah", "bob", "james", "edward", "steve", "steven", "ben", "charlie", "josh", "robert", "beric"))
-                        second = random.choice(("davis", "johnson", "stevenson", "tucker", "moore", "browne", "dietrich", "fuller", "capponi", "markus", "scheffler", "fekete", "accomazzi", "garson", "orsi", "hampton"))
+                        first = random.choice(("joe", "shazza", "sarah", "bob", "james", "edward", "steve", "jaye", "lola", "saad", "flynn", "peter", "yousif", "steven", "ben", "charlie", "josh", "robert", "beric"))
+                        second = random.choice(("davis", "johnson", "stevenson", "tucker", "samuels", "byrne", "wynn", "moore", "peters", "flynn", "greig", "alvarado", "hardy", "curry", "esparza", "small", "valdez", "mustafa", "traynor", "kent", "matthews", "browne", "dietrich", "fuller", "capponi", "markus", "scheffler", "fekete", "accomazzi", "garson", "orsi", "hampton"))
                         c = random.choice(("1", "2", "3"))
                         if c == "1":uname = first + second
                         elif c == "2":uname = first.title() + second.title()
