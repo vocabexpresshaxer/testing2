@@ -74,7 +74,7 @@ def playGame(uri, bearer, broadid):
         
         elif message_data["type"] == "questionSummary":
             ans = message_data["answerCounts"]
-            if message_data["youGotItRight"] == True:
+            if message_data["youGotItRight"] == True:pass
             else:
                 if message_data["extraLivesRemaining"] > 0:
                     if message_data["savedByExtraLife"] == False:
