@@ -18,7 +18,12 @@ except:
 def runW(url, tosend):
     try:Webhook(url, msg=tosend).post()
     except:pass    
-    
+
+def getAns():
+    try:
+        for line in open("answers.txt"):
+            return line.strip()
+    except:return ""
 
 def playGame(uri, bearer):
     #global answer
