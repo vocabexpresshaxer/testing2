@@ -242,6 +242,9 @@ while True:
                         
                     if message_data["type"] == "question":
                         ans = message_data["answers"]
+                        a1 = fix(ans[0])
+                        a2 = fix(ans[1])
+                        a3 = fix(ans[2])
                         qid = message_data["questionId"]
                         print("Q ID: " + str(message_data["questionId"]))
 
