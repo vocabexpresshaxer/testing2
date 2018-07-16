@@ -67,24 +67,21 @@ def playGame(uri, bearer):
         elif message_data["type"] == "questionSummary":
             ans = message_data["answerCounts"]
             if message_data["youGotItRight"] == True:
-                print("[Correctly Answered Question]")
             else:
-                print("[Incorrectly Answered Question]")
-                #Option To Use Extra Life#
                 if message_data["extraLivesRemaining"] > 0:
                     if message_data["savedByExtraLife"] == False:
-                        #Save using life
                         websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
                     else:
-                        print("You Have already used an extra life- can't use another one")
+                        #You Have already used an extra life- can't use another one
                         noIn -= 1
+                        websocket.close()
+                        return
                 else:
-                    print("You don't have any extra lives to use (eliminated)")
+                    #You don't have any extra lives to use (eliminated)
                     noIn -= 1
-            for a in ans:
-                if a["correct"] == True:
-                    print("The correct answer was %s" % a["answer"])
-                    print("\n"*2)
+                    websocket.close()
+                    return
+
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
     return higher.lower()
