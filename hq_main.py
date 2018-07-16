@@ -41,8 +41,27 @@ def playGame(uri, bearer):
             if first == True:
                 websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
                 first = False
-            else:websocket.close()
-
+        if message_data["type"] == "question":
+            ans = message_data["answers"]
+            print(message_data["question"])
+            qid = message_data["questionId"]
+            print("Q ID: " + str(message_data["questionId"]))
+            for a in ans:print(str(a["answerId"]) + " : " + a["text"])
+            choice = ""
+            while choice not in ("1", "2", "3", "4"):
+                choice = input("Which Option? ") #Fetch Answers#
+                
+            if choice == "4":
+                choice = random.choice(("1", "2", "3"))
+                
+            if choice == "1":
+                aID = ans[0]["answerId"]
+            elif choice == "2":
+                aID = ans[1]["answerId"]
+            else:
+                aID = ans[2]["answerId"]
+            websocket.send_json({"type":"answer", "authToken":bearer, "questionId":message_data["questionId"], "broadcastId":broadid, "answerId":aID})
+            
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
     return higher.lower()
