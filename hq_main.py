@@ -29,6 +29,7 @@ def playGame(uri, bearer):
     global lastanswer
     global answerno
     global noIn
+    mylast = ""
     broadid = "placeholderbroadid"
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
     websocket = WebSocket(uri)
@@ -55,9 +56,12 @@ def playGame(uri, bearer):
             print("Q ID: " + str(message_data["questionId"]))
             for a in ans:print(str(a["answerId"]) + " : " + a["text"])
             choice = ""
-            while choice not in ("1", "2", "3", "4"):
-                choice = input("Which Option? ") #Fetch Answers#
-                
+            while mylast == lastanswer:
+                time.sleep(0.1)
+            time.sleep(0.1)
+            mylast = lastanswer
+            choice = answerno
+            
             if choice == "4":
                 choice = random.choice(("1", "2", "3"))
                 
