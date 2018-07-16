@@ -21,6 +21,8 @@ def runW(url, tosend):
     
 
 def playGame(uri, bearer):
+    #global answer
+    #global answerno
     broadid = "placeholderbroadid"
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
     websocket = WebSocket(uri)
