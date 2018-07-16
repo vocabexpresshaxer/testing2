@@ -203,8 +203,6 @@ while True:
                 print("Prize: " + response_data["nextShowPrize"])
                 with open("uk.txt", "w") as uk:uk.write("Next game will be at: %s " % (str((next_time + offset).strftime('%I:%M %p')) + " UTC (" + nextG + " game)\n" + "Prize: " + response_data["nextShowPrize"]))
             except Exception as e:print(e)
-
-
             time.sleep(5)
     else:
         socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
@@ -250,9 +248,12 @@ while True:
                         
                     if message_data["type"] == "question":
                         ans = message_data["answers"]
-                        a1 = fix(ans[0])
-                        a2 = fix(ans[1])
-                        a3 = fix(ans[2])
+                        index = 0
+                        for a in answers:
+                            if index == 0:a1 = fix(a['text'])
+                            elif index == 1:a2 = fix(a['text'])
+                            elif index == 2:a3 = fix(a['text'])
+                            index += 1
                         while lastanswer == answer:
                             answer = getAns()
                             time.sleep(0.1)
