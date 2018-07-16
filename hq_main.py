@@ -249,7 +249,8 @@ while True:
                         print("Q ID: " + str(message_data["questionId"]))
 
                     elif message_data["type"] == "questionSummary":
-                        ans = message_data["answerCounts"]
+                        time.sleep(2)
+                        print("There are %s bots left in the game" % str(noIn))
                         
         #else:
          #   try:
