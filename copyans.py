@@ -1,8 +1,6 @@
 import re, json, random, time, zenon
 from lomond import WebSocket
 
-#462330902580822037 or 459166849091895296 ???
-
 def obfuscate(byt):
     mask = b'keyword'
     lmask = len(mask)
@@ -11,10 +9,8 @@ def obfuscate(byt):
 def on_message():
     global last
     while True:
-        #chatid = "463094183272644640"
         chatid = "462330902580822037"
         message = client.get_message(chatid)
-        #print(message)
         try:
             message = message.split("\"value\": \"")[1]
             message = message.split("\"}, {\"")[0]
