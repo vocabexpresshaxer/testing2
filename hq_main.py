@@ -247,8 +247,6 @@ while True:
                         websocket.send_json({"authToken":us_bearer, "type": "subscribe", "broadcastId": broadid})
                         websocket.send_json({"chatVisible":0, "authToken":us_bearer, "broadcastId":broadid, "type":"chatVisibilityToggled"})
                         first = False
-                    if "error" in message_data and message_data["error"] == "Auth not valid":
-                        print("Connection settings invalid")
                         
                     if message_data["type"] == "question":
                         ans = message_data["answers"]
@@ -259,8 +257,11 @@ while True:
                             answer = getAns()
                             time.sleep(0.1)
                         lastanswer = answer
-                        qid = message_data["questionId"]
-                        print("Q ID: " + str(message_data["questionId"]))
+                        if lastanswer == a1:answerno = 1
+                        elif lastanswer == a2:answerno = 2
+                        elif lastanswer == a3:answerno = 3
+                        else:
+                            print("Hmmmm")
 
                     elif message_data["type"] == "questionSummary":
                         time.sleep(2)
