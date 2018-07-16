@@ -62,7 +62,7 @@ def playGame(uri, bearer):
             mylast = lastanswer
             choice = answerno
             
-            if choice == "4":
+            if choice == "4" or choice == None:
                 choice = random.choice(("1", "2", "3"))
                 
             if choice == "1":
