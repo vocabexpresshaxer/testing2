@@ -59,6 +59,7 @@ def playGame(uri, bearer, broadid):
                 qid = message_data["questionId"]
                 print("Q ID: " + str(message_data["questionId"]))
                 for a in ans:print(str(a["answerId"]) + " : " + a["text"])
+                noQs = message_data['questionCount']
                 choice = ""
                 while mylast == lastanswer:
                     time.sleep(0.1)
@@ -81,7 +82,7 @@ def playGame(uri, bearer, broadid):
                 ans = message_data["answerCounts"]
                 if message_data["youGotItRight"] == True:pass
                 else:
-                    if message_data["extraLivesRemaining"] > 0:
+                    if message_data["extraLivesRemaining"] > 0 and noQs != 8:
                         if message_data["savedByExtraLife"] == False:
                             websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
                         else:
