@@ -259,7 +259,7 @@ while True:
                     if message_data["type"] == "question":
                         ans = message_data["answers"]
                         index = 0
-                        for a in answers:
+                        for a in ans:
                             if index == 0:a1 = fix(a['text'])
                             elif index == 1:a2 = fix(a['text'])
                             elif index == 2:a3 = fix(a['text'])
