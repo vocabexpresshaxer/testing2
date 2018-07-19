@@ -248,7 +248,8 @@ while True:
             for header, value in headers.items():websocket.add_header(str.encode(header), str.encode(value))
             first = True
             try:
-                answer = getAns()
+                a1 = getAns()
+                if a1 != "":answer= a1 
             except:answer = ""
             for msg in websocket.connect(ping_rate=5):
                 if msg.name == "text":
