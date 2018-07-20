@@ -174,18 +174,18 @@ while True:
     #except:
      #   pass
     #print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
-    if a == "us":
-        USER_ID = us_bearer[1]
-        BEARER_TOKEN = us_bearer[0]
-        nextG = "US"
-    elif a == "de":
-        USER_ID = de_bearer[1]
-        BEARER_TOKEN = de_bearer[0]    
-        nextG = "DE"
-    else:
-        USER_ID = uk_bearer[1]
-        BEARER_TOKEN = uk_bearer[0]
-        nextG = "UK"
+   
+    USER_ID = us_bearer[1]
+    BEARER_TOKEN = us_bearer[0]
+    nextG = "US"
+    
+        
+      
+        
+    
+      
+       
+
         
     main_url = "https://api-quiz.hype.space/shows/now?type="
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
