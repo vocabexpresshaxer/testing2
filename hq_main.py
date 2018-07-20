@@ -231,7 +231,7 @@ while True:
         if nextG == "US":
             print("Sending Lives")
             client.send_message("467350505367273473", "Sending Lives")
-            #need to send to discord
+          
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
@@ -249,7 +249,8 @@ while True:
             first = True
             try:
                 a1 = getAns()
-                if a1 != "":answer= a1 
+                if a1 != "":
+                    answer= a1 
             except:answer = ""
             for msg in websocket.connect(ping_rate=5):
                 if msg.name == "text":
