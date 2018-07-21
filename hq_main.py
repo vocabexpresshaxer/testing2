@@ -280,7 +280,7 @@ while True:
                         else:
                             print("Hmmmm")
                             client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
-                            client.send_message("467350505367273473", "")
+                            client.send_message("467350505367273473", "Predicted: %s\nA1: %s\nA2: %s\nA3: %s" % ())
 
                         
 
