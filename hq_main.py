@@ -280,6 +280,9 @@ while True:
                         else:
                             print("Hmmmm")
                             client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
+                            client.send_message("467350505367273473", "")
+
+                        
 
                     elif message_data["type"] == "questionSummary":
                         time.sleep(2)
