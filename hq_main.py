@@ -101,8 +101,8 @@ def fix(mystring):
     return higher.lower()
 
 def getChoicev2(m):
-    choice1 = random.choice(("1", "2", "3", "4"))
-    if choice1 in ("1", "2") and m!= "4":
+    choice1 = random.choice(("1", "2", "3", "4", "5"))
+    if choice1 in ("1", "2", "3") and m!= "4":
         return m
     else:
         return random.choice(("1", "2", "3"))
