@@ -276,7 +276,7 @@ while True:
                         lastanswer = answer
                         if answer == a1:answerno = 1
                         elif answer == a2:answerno = 2
-                        elif lastanswer == a3:answerno = 3
+                        elif answer == a3:answerno = 3
                         else:
                             print("Hmmmm")
                             client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
