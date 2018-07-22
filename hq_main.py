@@ -274,8 +274,8 @@ while True:
                             answer = getAns()
                             time.sleep(0.1)
                         lastanswer = answer
-                        if lastanswer == a1:answerno = 1
-                        elif lastanswer == a2:answerno = 2
+                        if answer == a1:answerno = 1
+                        elif answer == a2:answerno = 2
                         elif lastanswer == a3:answerno = 3
                         else:
                             print("Hmmmm")
