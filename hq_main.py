@@ -242,7 +242,8 @@ while True:
             for b in allbearers:
                 start_new_thread(playGame, (socket, b, broadid)) 
                 
-            lastanswer = ""
+          
+            answer = ""
             answerno = None
             websocket = WebSocket(socket)
             for header, value in headers.items():websocket.add_header(str.encode(header), str.encode(value))
@@ -250,8 +251,9 @@ while True:
             try:
                 a1 = getAns()
                 if a1 != "":
-                    answer= a1 
-            except:answer = ""
+                    answer = a1
+                    lastanswer= a1 
+            except:lastanswer = ""
             for msg in websocket.connect(ping_rate=5):
                 if msg.name == "text":
                     message = msg.text
