@@ -242,7 +242,7 @@ while True:
             for b in allbearers:
                 start_new_thread(playGame, (socket, b, broadid)) 
                 
-          
+            lastanswer = ""
             answer = ""
             answerno = None
             websocket = WebSocket(socket)
