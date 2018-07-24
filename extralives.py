@@ -11,8 +11,8 @@ _cap_re = re.compile("([a-z0-9])([A-Z])")
 
 def verify(phone: str) -> str:
     try:
-        return requests.post("https://api-quiz.hype.space/verifications",headers={
-+            "x-hq-client": "iOS/1.3.12 b96", data={
+        return requests.post("https://api-quiz.hype.space/verifications", headers={
++           "x-hq-client": "iOS/1.3.12 b96"}, data={
             "method": "sms",
             "phone": phone
         }).json()["verificationId"]
