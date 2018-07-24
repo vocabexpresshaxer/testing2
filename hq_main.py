@@ -272,7 +272,7 @@ while True:
                             elif index == 1:a2 = fix(a['text'])
                             elif index == 2:a3 = fix(a['text'])
                             index += 1
-                        while lastanswer == answer:
+                        while answer not in (a1, a2, a3):
                             answer = getAns()
                             time.sleep(0.1)
                         lastanswer = answer
