@@ -8,6 +8,7 @@ client = discord.Client()
 def getLife(b):
     global r
     global totLives
+    global numLives
     test = extralives.HQClient(b)
     test.make_it_rain()
     test2 = test.me()
@@ -90,7 +91,9 @@ Usage:
         totalb = pickle.load(open("/root/acc.p", "rb"))
         global r
         global totLives
+        global numLives
         r = 0
+        numLives = 0
         totLives = 0
         time.sleep(1)
         for b in totalb:
