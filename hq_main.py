@@ -292,7 +292,7 @@ while True:
                         time.sleep(2)
                         print("There are %s bots left in the game" % str(noIn))
                         client.send_message("467350505367273473", "There are %s bots left in the game" % str(noIn))
-                        ans = message_data["answers"]
+                        ans = message_data["answerCounts"]
                         for a in ans:
                             if a["correct"] == True:
                                 print(a["answer"])
