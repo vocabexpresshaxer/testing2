@@ -71,7 +71,7 @@ Usage:
             try:
                  auth = str(extralives.verify2(lifeargs[1]))
                  print(auth)
-                 await client.send_message(message.channel, "Code Sent. Check your messages")
+                 await client.send_message(message.channel, "Calling you, listen closely for the verification code")
             except:
                 await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
     elif message.content.startswith('+set '):
