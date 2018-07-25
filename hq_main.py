@@ -72,7 +72,7 @@ def playGame(uri, bearer, broadid):
                 if choice == "4" or choice == None:
                     choice = random.choice(("1", "2", "3"))
                 if nowNumber > 3:
-                choice = getChoicev2(choice)    
+                    choice = getChoicev2(choice)    
                 if choice == "1":
                     aID = ans[0]["answerId"]
                 elif choice == "2":
