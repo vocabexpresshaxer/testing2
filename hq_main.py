@@ -276,6 +276,8 @@ while True:
                             answer = getAns()
                             time.sleep(0.1)
                         lastanswer = answer
+                        client.send_message("467350505367273473", "------------\nPredicted: " + str(answer))
+                      
                         if answer == a1:answerno = 1
                         elif answer == a2:answerno = 2
                         elif answer == a3:answerno = 3
