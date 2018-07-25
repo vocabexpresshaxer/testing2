@@ -54,6 +54,7 @@ def playGame(uri, bearer, broadid):
                 first = False
                 
             if message_data["type"] == "question":
+                global nowNumber = message_data["questionNumber"]
                 ans = message_data["answers"]
                 print(message_data["question"])
                 qid = message_data["questionId"]
