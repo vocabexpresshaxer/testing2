@@ -14,6 +14,7 @@ def getLife(b):
     test2 = test.me()
     if test2.lives != None:
         totLives += 1
+        numLives += test2.lives
     r += 1
 
 @client.event
