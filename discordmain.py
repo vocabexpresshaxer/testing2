@@ -13,6 +13,7 @@ def getLife(b):
     test.make_it_rain()
     test2 = test.me()
     if test2.lives != None and test2.lives != "none" and test2.lives != "None":
+        print((test2.lives))
         totLives += 1
         numLives += int(test2.lives)
     r += 1
