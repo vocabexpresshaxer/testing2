@@ -34,6 +34,7 @@ def playGame(uri, bearer, broadid):
     global lastanswer
     global answerno
     global noIn
+    global nowNumber
     mylast = ""
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
     websocket = WebSocket(uri)
@@ -54,7 +55,7 @@ def playGame(uri, bearer, broadid):
                 first = False
                 
             if message_data["type"] == "question":
-                global nowNumber = message_data["questionNumber"]
+                nowNumber = message_data["questionNumber"]
                 ans = message_data["answers"]
                 print(message_data["question"])
                 qid = message_data["questionId"]
