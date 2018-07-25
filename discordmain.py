@@ -12,7 +12,7 @@ def getLife(b):
     test = extralives.HQClient(b)
     test.make_it_rain()
     test2 = test.me()
-    if test2.lives != None and test2.lives != "none" and test2.lives != "None":
+    if test2.lives != None and test2.lives != "none" and test2.lives != "None" and test2.lives != 0 and test2.lives != "0":
         print((test2.lives))
         totLives += 1
         numLives += int(test2.lives)
