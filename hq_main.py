@@ -71,6 +71,7 @@ def playGame(uri, bearer, broadid):
 
                 if choice == "4" or choice == None:
                     choice = random.choice(("1", "2", "3"))
+                if nowNumber > 3:
                 choice = getChoicev2(choice)    
                 if choice == "1":
                     aID = ans[0]["answerId"]
@@ -84,7 +85,7 @@ def playGame(uri, bearer, broadid):
                 ans = message_data["answerCounts"]
                 if message_data["youGotItRight"] == True:pass
                 else:
-                    if message_data["extraLivesRemaining"] > 0 and noQs != 8:
+                    if message_data["extraLivesRemaining"] > 0 and noQs != 8 and nowNumber > 3:
                         if message_data["savedByExtraLife"] == False:
                             websocket.send_json({"type":"useExtraLife", "authToken":bearer, "broadcastId":broadid, "questionId":qid})
                         else:
