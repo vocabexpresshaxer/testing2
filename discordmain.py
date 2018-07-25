@@ -103,6 +103,8 @@ Usage:
             time.sleep(1)
         print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
         await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
+        await client.send_message(message.channel, "The bots have a total of %s lives between them" % str(numLives))
+                      
       
     elif message.content.startswith('+verify'):
         verifyargs = message.content.split(" ")
