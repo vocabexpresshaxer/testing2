@@ -149,13 +149,15 @@ Usage:
                     if str(extralives.submit_code(auth, int(verifyargs[1]))) == "True":
                         try:
                             auth = extralives.create_user(uname, auth, verifyargs[2], "US")['authToken']
-                            bearers = pickle.load(open("/root/bearers.p", "rb"))
-                            totalb = pickle.load(open("/root/acc.p", "rb"))
-                            totalb.append(str(auth))
-                            bearers.append(str(auth))
-                            pickle.dump(bearers, open("/root/bearers.p", "wb"))
-                            pickle.dump(totalb, open("/root/acc.p", "wb"))
-                            await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
+                            if ukNo == False:
+                                bearers = pickle.load(open("/root/bearers.p", "rb"))
+                                totalb = pickle.load(open("/root/acc.p", "rb"))
+                            
+                                totalb.append(str(auth))
+                                bearers.append(str(auth))
+                                pickle.dump(bearers, open("/root/bearers.p", "wb"))
+                                pickle.dump(totalb, open("/root/acc.p", "wb"))
+                                await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
                             test = extralives.HQClient(auth)
                             test.make_it_rain()
 
