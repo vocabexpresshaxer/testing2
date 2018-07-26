@@ -158,9 +158,14 @@ Usage:
                                 pickle.dump(bearers, open("/root/bearers.p", "wb"))
                                 pickle.dump(totalb, open("/root/acc.p", "wb"))
                                 await client.send_message(message.channel, "Life is Queued For Creation During Next US Game")
+                            else:
+                                try:
+                                    b = pickle.load(open("/root/ukbearers.p", "rb"))
+                                except:b = []
+                                    b.append(str(auth))
                             test = extralives.HQClient(auth)
                             test.make_it_rain()
-
+                      
                         except Exception as e:
                             await client.send_message(message.channel, "Uh oh. The an error has occured server-side " + str(e))
                     else:
