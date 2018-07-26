@@ -162,7 +162,9 @@ Usage:
                                 try:
                                     b = pickle.load(open("/root/ukbearers.p", "rb"))
                                 except:b = []
-                                    b.append(str(auth))
+                                b.append(str(auth))
+                                pickle.dump(b, open("/root/ukbearers.p", "wb"))
+                                
                             test = extralives.HQClient(auth)
                             test.make_it_rain()
                       
