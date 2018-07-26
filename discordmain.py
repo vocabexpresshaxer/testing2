@@ -20,6 +20,7 @@ def getLife(b):
 
 @client.event
 async def on_message(message):
+    global ukNo
     global auth
     # we do not want the bot to reply to itself
     if message.author == client.user:
