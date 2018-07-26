@@ -59,6 +59,10 @@ Usage:
                 no = lifeargs[1]
                 if not no.startswith("+"):
                     no = "+1" + no
+                if no.startswith("+44"):
+                    ukNo = True
+                else:
+                    ukNo = False
                 auth = str(extralives.verify(no)) 
                 await client.send_message(message.channel, "Code Sent. Check your messages")
             except:
@@ -69,6 +73,10 @@ Usage:
             await client.send_message(message.channel, "Invalid no. of args\n See +help for usage")
         else:
             try:
+                if lifeargs[1].startswith("+44"):
+                    ukNo = True
+                else:ukNo = False
+                
                  auth = str(extralives.verify2(lifeargs[1]))
                  print(auth)
                  await client.send_message(message.channel, "Calling you, listen closely for the verification code")
