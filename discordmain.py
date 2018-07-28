@@ -98,6 +98,10 @@ Usage:
             await client.send_message(message.channel, "Set Next Game to DE")
         else:
             pass
+    elif message.content == "+money":
+        totalb = pickle.load(open("/root/acc.p", "rb"))
+        for b in totalb:
+            pass
     elif message.content == "+allbots":
         totalb = pickle.load(open("/root/acc.p", "rb"))
         global r
