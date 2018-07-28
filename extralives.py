@@ -46,7 +46,7 @@ class HQPayout:
 
 class HQPayoutInfo:
     def __init__(self, **kwargs):
-        self.balance = HQBalanceInfo(**(kwargs.get("unpaid")))
+        self.balance = HQBalanceInfo(**(kwargs.get("balance")))
         self.payouts = []
 
         for payout in kwargs.get("payouts", []):
