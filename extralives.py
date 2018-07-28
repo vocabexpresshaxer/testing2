@@ -9,6 +9,50 @@ import random
 _first_re = re.compile("(.)([A-Z][a-z]+)")
 _cap_re = re.compile("([a-z0-9])([A-Z])")
 
+class HQBalanceInfo:
+    def __init__(self, **kwargs):
+        self.prize_total = kwargs.get("prize_total") # "$123.45"
+        self.paid = kwargs.get("paid") # "$123.45"
+        self.pending = kwargs.get("pending") # "$123.45"
+        self.unpaid = kwargs.get("unpaid") # same thing, current balance
+        self.eligible_for_payout = kwargs.get("eligible_for_payout") # bool
+        self.has_pending = kwargs.get("has_pending") # bool
+        self.payouts_connected = kwargs.get("payouts_connected") # bool
+        self.payouts_email = kwargs.get("payouts_email") # first used email
+        self.document_required = kwargs.get("document_required") # bool
+        self.document_status = kwargs.get("document_status") # str
+
+
+class HQPayout:
+    def __init__(self, **kwargs):
+        self.payout_id = kwargs.get("payout_id") # int
+        self.user_id = kwargs.get("user_id") # int
+        self.amount = kwargs.get("amount") # "$123.45"
+        self.currency = kwargs.get("currency") # "USD"
+        self.target_user_id = kwargs.get("target_user_id") # ?
+        self.target_email = kwargs.get("target_email") # email to withdraw
+        self.target_phone = kwargs.get("target_phone") # ?
+        self.status = kwargs.get("status") # 10001 if succeeded?
+        _md = kwargs.get("metadata")
+        self.metadata = {
+            "payouts_connected": _md.get("payoutsConnected"),
+            "client": _md.get("client"),
+            "sender_batch_id": _md.get("senderBatchId"),
+            "batchId": _md.get("batchId")
+        }
+        self.created = kwargs.get("created") # button hit, YYYY-MM-DDTHH:MM:SS.000Z
+        self.modified = kwargs.get("modified") # successful, same format
+
+
+class HQPayoutInfo:
+    def __init__(self, **kwargs):
+        self.balance = HQBalanceInfo(**(kwargs.get("balance")))
+        self.payouts = []
+
+        for payout in kwargs.get("payouts", []):
+            self.payouts.append(HQPayout(**payout))
+
+
 def verify(phone: str) -> str:
     try:
         return requests.post("https://api-quiz.hype.space/verifications", headers={
