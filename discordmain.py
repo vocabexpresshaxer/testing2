@@ -104,6 +104,8 @@ Usage:
         for b in totalb:
             botuser = extralives.HQClient(b)
             bot_payout_info = botuser.payouts()
+            bot_bal = bot_payout_info.balance
+            print(str(index) + " : " + str(bot_bal))
             index += 1
     elif message.content == "+allbots":
         totalb = pickle.load(open("/root/acc.p", "rb"))
