@@ -100,8 +100,11 @@ Usage:
             pass
     elif message.content == "+money":
         totalb = pickle.load(open("/root/acc.p", "rb"))
+        index = 0
         for b in totalb:
-            pass
+            botuser = extralives.HQClient(b)
+            bot_payout_info = botuser.payouts()
+            index += 1
     elif message.content == "+allbots":
         totalb = pickle.load(open("/root/acc.p", "rb"))
         global r
