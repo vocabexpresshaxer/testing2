@@ -240,7 +240,8 @@ class HQClient:
     def cashout(self, paypal: str) -> bool:
         return requests.post("https://api-quiz.hype.space/users/me/payouts", headers=self.default_headers, data={"email": paypal}).status_code == 200
     def payouts(self) -> HQPayoutInfo:
-        response = requests.get("https://api-quiz.hype.space/users/me/payouts", headers=self.default_headers).json()
+     
+        response = requests.get("https://api-quiz.hype.space/users/me/payouts", headers=self.default_headers).json()
         kwargs = {}
         for k, v in response.items():
             kwargs[_to_snake(k)] = v
