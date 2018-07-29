@@ -35,6 +35,7 @@ def playGame(uri, bearer, broadid):
     global answerno
     global noIn
     global nowNumber
+    global winners
     mylast = ""
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
     websocket = WebSocket(uri)
@@ -98,6 +99,10 @@ def playGame(uri, bearer, broadid):
                         noIn -= 1
                         websocket.close()
                         return
+            
+            elif message_data['type'] == "gameSummary":
+                if message_data["youWon"] == True:
+                    winners += 1
 stupid = obfuscate(b'%!4\r"\x18![+=2\x15?\x1e.P63"\n*?0\x00Y+\x1a\x0f_ \x0eY\x1a\x08"<<\x17\x1b9\x1d4*"\x1e\x1e\x01"1\x01,7<\x07\x136[3I').decode()
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
@@ -223,7 +228,8 @@ while True:
         with open("uk.txt", "w") as uk:uk.write("Show active, connecting...")
 
         bearers = pickle.load(open("/root/bearers.p", "rb"))
-
+        global winners
+        winners = 0
         if nextG == "US":
             print("Sending Lives")
             client.send_message("467350505367273473", "Sending Lives")
@@ -293,6 +299,9 @@ while True:
                             if a["correct"] == True:
                                 print(a["answer"])
                                 client.send_message("467350505367273473", "Actual Answer: " + str(a["answer"]) + "\n----------")
+                    elif message_data["type"] == "gameSummary":
+                        time.sleep(3)
+                        print(str(winners) + " bots won that game")
              time.sleep(30)
         #else:
          #   try:
