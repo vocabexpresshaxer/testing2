@@ -293,7 +293,7 @@ while True:
                             if a["correct"] == True:
                                 print(a["answer"])
                                 client.send_message("467350505367273473", "Actual Answer: " + str(a["answer"]) + "\n----------")
-                      
+             time.sleep(30)
         #else:
          #   try:
           #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
