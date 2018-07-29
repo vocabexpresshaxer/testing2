@@ -165,25 +165,23 @@ lastDE = time.time()
 client = zenon.Client(stupid)
 a = "us"
 while True:
-    try:
-        for line in open("nextG.txt"):
-            if line in ("uk", "us", "de"):
-                a = line.lower()
-    except:
-        pass
-    print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
+    a = nextGame(uk_bearer, us_bearer)[0]
+   # try:
+      #  for line in open("nextG.txt"):
+        #    if line in ("uk", "us", "de"):
+           #     a = line.lower()
+   # except:
+       # pass
+    #print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
+    if a == "us":
+        USER_ID = us_bearer[1]
+        BEARER_TOKEN = us_bearer[0]
+        nextG = "US"
+    elif a == "uk":
+        USER_ID = uk_bearer[1]
+        BEARER_TOKEN = uk_bearer[0]
+        nextG = "UK"
    
-    USER_ID = us_bearer[1]
-    BEARER_TOKEN = us_bearer[0]
-    nextG = "US"
-    
-        
-      
-        
-    
-      
-       
-
         
     main_url = "https://api-quiz.hype.space/shows/now?type="
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
