@@ -303,7 +303,7 @@ while True:
                         time.sleep(3)
                         print(str(winners) + " bots won that game")
                         client.send_message("467350505367273473", str(winners) + " bots won that game")
-             time.sleep(30)
+                        time.sleep(30)
         #else:
          #   try:
           #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
