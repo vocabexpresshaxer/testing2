@@ -244,7 +244,7 @@ while True:
             allbearers = pickle.load(open("/root/acc.p", "rb"))
             noIn = len(allbearers)
         else:
-            allbearers = pickle.load(open("/root/acc.p", "rb"))
+            allbearers = pickle.load(open("/root/ukbearers.p", "rb"))
             noIn = len(allbearers)
         for b in allbearers:
             start_new_thread(playGame, (socket, b, broadid)) 
