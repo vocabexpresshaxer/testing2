@@ -230,6 +230,7 @@ while True:
         bearers = pickle.load(open("/root/bearers.p", "rb"))
         global winners
         winners = 0
+        #ukbearers.p
         if nextG == "US":
             print("Sending Lives")
             client.send_message("467350505367273473", "Sending Lives")
