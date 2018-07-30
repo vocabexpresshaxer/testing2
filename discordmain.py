@@ -99,31 +99,40 @@ Usage:
         else:
             pass
     elif message.content == "+money":
-        totalb = pickle.load(open("/root/acc.p", "rb"))
-        index = 0
-        for b in totalb:
-            botuser = extralives.HQClient(b)
-            bot_payout_info = botuser.payouts()
-            bot_bal = bot_payout_info.balance
-            print(str(index) + " : " + str(bot_bal.unpaid))
-            await client.send_message(message.channel, str(index) + " : " + str(bot_bal.unpaid))
-            index += 1
+        for region in ("us", "uk"):
+            if region == "us":
+                await client.send_message(message.channel, "US accounts:")
+                totalb = pickle.load(open("/root/acc.p", "rb"))
+            else:
+                await client.send_message(message.channel, "UK accounts:")
+                totalb = pickle.load(open("/root/ukbearers.p", "rb"))
+            index = 0
+            for b in totalb:
+                botuser = extralives.HQClient(b)
+                bot_payout_info = botuser.payouts()
+                bot_bal = bot_payout_info.balance
+                print(str(index) + " : " + str(bot_bal.unpaid))
+                await client.send_message(message.channel, str(index) + " : " + str(bot_bal.unpaid))
+                index += 1
     elif message.content == "+allbots":
-        totalb = pickle.load(open("/root/acc.p", "rb"))
         global r
         global totLives
         global numLives
-        r = 0
-        numLives = 0
-        totLives = 0
-        time.sleep(1)
-        for b in totalb:
-            start_new_thread(getLife, (b,)) 
-        while r != len(totalb):
+        for region in ("uk", "us"):
+            await client.send_message(message.channel, region.upper() + " Accounts:")
+            if region == "uk":totalb = pickle.load(open("/root/acc.p", "rb"))
+            else:totalb = pickle.load(open("/root/ukbearers.p", "rb"))
+            r = 0
+            numLives = 0
+            totLives = 0
             time.sleep(1)
-        print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
-        await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
-        await client.send_message(message.channel, "The bots have a total of %s lives between them" % str(numLives))
+            for b in totalb:
+                start_new_thread(getLife, (b,)) 
+            while r != len(totalb):
+                time.sleep(1)
+            print("%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
+            await client.send_message(message.channel, "%s out of %s bots have extra lives" % (str(totLives),str(len(totalb))))
+            await client.send_message(message.channel, "The bots have a total of %s lives between them" % str(numLives))
                       
       
     elif message.content.startswith('+verify'):
