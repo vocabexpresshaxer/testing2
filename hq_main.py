@@ -109,11 +109,12 @@ def fix(mystring):
     return higher.lower()
 
 def getChoicev2(m):
-    choice1 = random.choice(("1", "2", "3", "4", "5"))
-    if choice1 in ("1", "2", "3", "4") and m!= "4":
-        return m
-    else:
-        return random.choice(("1", "2", "3"))
+    return m
+   #choice1 = random.choice(("1", "2", "3", "4", "5"))
+   # if choice1 in ("1", "2", "3", "4") and m!= "4":
+    #    return m
+    #else:
+    #    return random.choice(("1", "2", "3"))
 
 
 def nextGame(uk, us):
@@ -242,73 +243,76 @@ while True:
             
             allbearers = pickle.load(open("/root/acc.p", "rb"))
             noIn = len(allbearers)
-            for b in allbearers:
-                start_new_thread(playGame, (socket, b, broadid)) 
-                
-            lastanswer = ""
-            answer = ""
-            answerno = None
-            websocket = WebSocket(socket)
-            for header, value in headers.items():websocket.add_header(str.encode(header), str.encode(value))
-            first = True
-            try:
-                a1 = getAns()
-                if a1 != "":
-                    answer = a1
-                    lastanswer= a1 
-            except:lastanswer = ""
-            for msg in websocket.connect(ping_rate=5):
-                if msg.name == "text":
-                    message = msg.text
-                    message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
-                    message_data = json.loads(message)
-                    if first == True:
-                        websocket.send_json({"authToken":us_bearer, "type": "subscribe", "broadcastId": broadid})
-                        websocket.send_json({"chatVisible":0, "authToken":us_bearer, "broadcastId":broadid, "type":"chatVisibilityToggled"})
-                        first = False
-                        
-                    if message_data["type"] == "question":
-                        ans = message_data["answers"]
-                        index = 0
-                        for a in ans:
-                            if index == 0:a1 = fix(a['text'])
-                            elif index == 1:a2 = fix(a['text'])
-                            elif index == 2:a3 = fix(a['text'])
-                            index += 1
-                        while answer not in (a1, a2, a3):
-                            answer = getAns()
-                            time.sleep(0.1)
-                        lastanswer = answer
-                        client.send_message("467350505367273473", "------------\nPredicted: " + str(answer))
-                      
-                        if answer == a1:answerno = 1
-                        elif answer == a2:answerno = 2
-                        elif answer == a3:answerno = 3
-                        else:
-                            print("Hmmmm")
-                            client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
-                            client.send_message("467350505367273473", "Predicted: %s\nA1: %s\nA2: %s\nA3: %s" % (lastanswer, a1, a2, a3))
+        else:
+            allbearers = pickle.load(open("/root/acc.p", "rb"))
+            noIn = len(allbearers)
+        for b in allbearers:
+            start_new_thread(playGame, (socket, b, broadid)) 
 
-                        
+        lastanswer = ""
+        answer = ""
+        answerno = None
+        websocket = WebSocket(socket)
+        for header, value in headers.items():websocket.add_header(str.encode(header), str.encode(value))
+        first = True
+        try:
+            a1 = getAns()
+            if a1 != "":
+                answer = a1
+                lastanswer= a1 
+        except:lastanswer = ""
+        for msg in websocket.connect(ping_rate=5):
+            if msg.name == "text":
+                message = msg.text
+                message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
+                message_data = json.loads(message)
+                if first == True:
+                    websocket.send_json({"authToken":us_bearer, "type": "subscribe", "broadcastId": broadid})
+                    websocket.send_json({"chatVisible":0, "authToken":BEARER_TOKEN, "broadcastId":broadid, "type":"chatVisibilityToggled"})
+                    first = False
 
-                    elif message_data["type"] == "questionSummary":
-                        time.sleep(2)
-                        print("There are %s bots left in the game" % str(noIn))
-                        client.send_message("467350505367273473", "There are (approx) %s bots left in the game" % str(noIn))
-                        ans = message_data["answerCounts"]
-                        for a in ans:
-                            if a["correct"] == True:
-                                print(a["answer"])
-                                client.send_message("467350505367273473", "Actual Answer: " + str(a["answer"]) + "\n----------")
-                    elif message_data["type"] == "gameSummary":
-                        time.sleep(3)
-                        print(str(winners) + " bots won that game")
-                        client.send_message("467350505367273473", str(winners) + " bots won that game")
-                        time.sleep(30)
-        #else:
-         #   try:
-          #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
-           # except Exception as e:
-            #    print(e)
-        #asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
+                if message_data["type"] == "question":
+                    ans = message_data["answers"]
+                    index = 0
+                    for a in ans:
+                        if index == 0:a1 = fix(a['text'])
+                        elif index == 1:a2 = fix(a['text'])
+                        elif index == 2:a3 = fix(a['text'])
+                        index += 1
+                    while answer not in (a1, a2, a3):
+                        answer = getAns()
+                        time.sleep(0.1)
+                    lastanswer = answer
+                    client.send_message("467350505367273473", "------------\nPredicted: " + str(answer))
+
+                    if answer == a1:answerno = 1
+                    elif answer == a2:answerno = 2
+                    elif answer == a3:answerno = 3
+                    else:
+                        print("Hmmmm")
+                        client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
+                        client.send_message("467350505367273473", "Predicted: %s\nA1: %s\nA2: %s\nA3: %s" % (lastanswer, a1, a2, a3))
+
+
+
+                elif message_data["type"] == "questionSummary":
+                    time.sleep(2)
+                    print("There are %s bots left in the game" % str(noIn))
+                    client.send_message("467350505367273473", "There are (approx) %s bots left in the game" % str(noIn))
+                    ans = message_data["answerCounts"]
+                    for a in ans:
+                        if a["correct"] == True:
+                            print(a["answer"])
+                            client.send_message("467350505367273473", "Actual Answer: " + str(a["answer"]) + "\n----------")
+                elif message_data["type"] == "gameSummary":
+                    time.sleep(3)
+                    print(str(winners) + " bots won that game")
+                    client.send_message("467350505367273473", str(winners) + " bots won that game")
+                    time.sleep(30)
+    #else:
+     #   try:
+      #      asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
+       # except Exception as e:
+        #    print(e)
+    #asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
 
