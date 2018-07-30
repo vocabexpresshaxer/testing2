@@ -120,7 +120,7 @@ Usage:
         global numLives
         for region in ("uk", "us"):
             await client.send_message(message.channel, region.upper() + " Accounts:")
-            if region == "uk":totalb = pickle.load(open("/root/acc.p", "rb"))
+            if region == "us":totalb = pickle.load(open("/root/acc.p", "rb"))
             else:totalb = pickle.load(open("/root/ukbearers.p", "rb"))
             r = 0
             numLives = 0
