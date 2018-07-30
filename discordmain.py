@@ -83,21 +83,6 @@ Usage:
                 await client.send_message(message.channel, "Calling you, listen closely for the verification code")
             except:
                 await client.send_message(message.channel, "Invalid Phone Number. Example of valid phone number: +14242196850")
-    elif message.content.startswith('+set '):
-        if message.content == "+set uk":
-            next = "uk"
-            with open("nextG.txt", "w") as nex:nex.write(next)
-            await client.send_message(message.channel, "Set Next Game to UK")
-        elif message.content == "+set us":
-            next = "us"
-            with open("nextG.txt", "w") as nex:nex.write(next)
-            await client.send_message(message.channel, "Set Next Game to US")
-        elif message.content == "+set de":
-            next = "de"
-            with open("nextG.txt", "w") as nex:nex.write(next)
-            await client.send_message(message.channel, "Set Next Game to DE")
-        else:
-            pass
     elif message.content == "+money":
         for region in ("uk", "us"):
             if region == "us":
