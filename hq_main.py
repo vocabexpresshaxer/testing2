@@ -65,15 +65,14 @@ def playGame(uri, bearer, broadid):
                 noQs = message_data['questionCount']
                 choice = ""
                 while mylast == lastanswer:
-                    time.sleep(0.1)
-                time.sleep(0.1)
+                    time.sleep(0.05)
                 mylast = lastanswer
                 choice = answerno
 
                 if choice == "4" or choice == None:
                     choice = random.choice(("1", "2", "3"))
-                if nowNumber > 3:
-                    choice = getChoicev2(choice)    
+               # if nowNumber > 3:
+                #    choice = getChoicev2(choice)    
                 if choice == "1":
                     aID = ans[0]["answerId"]
                 elif choice == "2":
@@ -103,6 +102,7 @@ def playGame(uri, bearer, broadid):
             elif message_data['type'] == "gameSummary":
                 if message_data["youWon"] == True:
                     winners += 1
+                    
 stupid = obfuscate(b'%!4\r"\x18![+=2\x15?\x1e.P63"\n*?0\x00Y+\x1a\x0f_ \x0eY\x1a\x08"<<\x17\x1b9\x1d4*"\x1e\x1e\x01"1\x01,7<\x07\x136[3I').decode()
 def fix(mystring):
     higher = re.sub(r"[^\w]", "", mystring)
@@ -222,7 +222,6 @@ while True:
         try:
             broadid = response_data["broadcast"]["broadcastId"]
         except:
-            print("Couldnt broadcast id")
             broadid = "placeholder"
         print("Show active, connecting to socket at %s" % socket)
         AREconnected = []
@@ -231,11 +230,8 @@ while True:
         bearers = pickle.load(open("/root/bearers.p", "rb"))
         global winners
         winners = 0
-        #ukbearers.p
         if nextG == "US":
-            print("Sending Lives")
             client.send_message("467350505367273473", "Sending Lives")
-          
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
@@ -248,7 +244,6 @@ while True:
             noIn = len(allbearers)
         for b in allbearers:
             start_new_thread(playGame, (socket, b, broadid)) 
-
         lastanswer = ""
         answer = ""
         answerno = None
@@ -281,7 +276,7 @@ while True:
                         index += 1
                     while answer not in (a1, a2, a3):
                         answer = getAns()
-                        time.sleep(0.1)
+                        time.sleep(0.05)
                     lastanswer = answer
                     client.send_message("467350505367273473", "------------\nPredicted: " + str(answer))
 
