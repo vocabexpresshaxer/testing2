@@ -99,7 +99,7 @@ Usage:
         else:
             pass
     elif message.content == "+money":
-        for region in ("us", "uk"):
+        for region in ("uk", "us"):
             if region == "us":
                 await client.send_message(message.channel, "US accounts:")
                 totalb = pickle.load(open("/root/acc.p", "rb"))
