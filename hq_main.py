@@ -67,15 +67,15 @@ def playGame(uri, bearer, broadid):
                 while mylast == lastanswer:
                     time.sleep(0.05)
                 mylast = lastanswer
-                choice = answerno
+               
 
-                if choice == "4" or choice == None:
-                    choice = random.choice(("1", "2", "3"))
+                if answerno == "4" or answerno == None:
+                    answerno = random.choice(("1", "2", "3"))
                # if nowNumber > 3:
                 #    choice = getChoicev2(choice)    
-                if choice == "1":
+                if answerno == "1":
                     aID = ans[0]["answerId"]
-                elif choice == "2":
+                elif answerno == "2":
                     aID = ans[1]["answerId"]
                 else:
                     aID = ans[2]["answerId"]
