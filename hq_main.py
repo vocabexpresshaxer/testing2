@@ -53,6 +53,7 @@ def playGame(uri, bearer, broadid):
 
             if first == True:
                 websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
+                websocket.send_json({"chatVisible":0, "authToken":bearer, "broadcastId":broadid, "type":"chatVisibilityToggled"})
                 first = False
                 
             if message_data["type"] == "question":
