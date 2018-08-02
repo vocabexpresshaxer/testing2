@@ -37,7 +37,7 @@ def playGame(uri, bearer, broadid):
     global nowNumber
     global winners
     mylast = ""
-    headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.3.0"}
+    headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.15.0"}
     websocket = WebSocket(uri)
     for header, value in headers.items():
         websocket.add_header(str.encode(header), str.encode(value))
