@@ -52,8 +52,8 @@ def playGame(uri, bearer, broadid):
                 print("Connection settings invalid")
 
             if first == True:
-                websocket.send_json({"authToken":bearer, "type": "subscribe", "broadcastId": broadid})
-                websocket.send_json({"chatVisible":0, "authToken":bearer, "broadcastId":broadid, "type":"chatVisibilityToggled"})
+                websocket.send_json({"type": "subscribe", "broadcastId": broadid})
+                websocket.send_json({"chatVisible":0, "broadcastId":broadid, "type":"chatVisibilityToggled"})
                 first = False
                 
             if message_data["type"] == "question":
@@ -80,7 +80,7 @@ def playGame(uri, bearer, broadid):
                     aID = ans[1]["answerId"]
                 else:
                     aID = ans[2]["answerId"]
-                websocket.send_json({"type":"answer", "authToken":bearer, "questionId":message_data["questionId"], "broadcastId":broadid, "answerId":aID})
+                websocket.send_json({"type":"answer", "questionId":int(message_data["questionId"]), "broadcastId":broadid, "answerId":int(aID)})
 
             elif message_data["type"] == "questionSummary":
                 ans = message_data["answerCounts"]
