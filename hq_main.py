@@ -277,19 +277,19 @@ while True:
                         elif index == 2:a3 = fix(a['text'])
                         index += 1
                     answer = a1 ######
-                    while answer not in (a1, a2, a3):
-                        answer = getAns()
-                        time.sleep(0.05)
-                    lastanswer = answer
-                    client.send_message("467350505367273473", "------------\nPredicted: " + str(answer))
+                   
+                      
+                       
+
+                   
 
                     if answer == a1:answerno = 1
                     elif answer == a2:answerno = 2
                     elif answer == a3:answerno = 3
-                    else:
-                        print("Hmmmm")
-                        client.send_message("467350505367273473", "Answer generated not expected hmmm, take a look at this soon")
-                        client.send_message("467350505367273473", "Predicted: %s\nA1: %s\nA2: %s\nA3: %s" % (lastanswer, a1, a2, a3))
+                  
+                        
+           
+                    
 
 
 
