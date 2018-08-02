@@ -73,7 +73,8 @@ def playGame(uri, bearer, broadid):
                 if answerno == "4" or answerno == None:
                     answerno = random.choice(("1", "2", "3"))
                # if nowNumber > 3:
-                #    choice = getChoicev2(choice)    
+                #    choice = getChoicev2(choice)  
+                answerno = random.choice(("1", "2", "3"))
                 if answerno == "1":
                     aID = ans[0]["answerId"]
                 elif answerno == "2":
@@ -275,6 +276,7 @@ while True:
                         elif index == 1:a2 = fix(a['text'])
                         elif index == 2:a3 = fix(a['text'])
                         index += 1
+                    answer = a1 ######
                     while answer not in (a1, a2, a3):
                         answer = getAns()
                         time.sleep(0.05)
