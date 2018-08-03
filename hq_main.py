@@ -69,7 +69,7 @@ def playGame(uri, bearer, broadid):
                
                 while answer == mylast:
                     time.sleep(0.1)
-                    mylast = answer
+                mylast = answer
                     
                     
              
