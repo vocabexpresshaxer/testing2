@@ -279,7 +279,7 @@ while True:
                     client.send_message("467350505367273473", message_data["category"])
                     index = 0
                     for a in ans:
-                        client.send_message("467350505367273473", str(index) + ") " + a)
+                        client.send_message("467350505367273473", str(index) + ") " + a["text"])
                         if index == 0:a1 = fix(a['text'])
                         elif index == 1:a2 = fix(a['text'])
                         elif index == 2:a3 = fix(a['text'])
