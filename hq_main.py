@@ -65,8 +65,13 @@ def playGame(uri, bearer, broadid):
                 for a in ans:print(str(a["answerId"]) + " : " + a["text"])
                 noQs = message_data['questionCount']
                 choice = ""
+                time.sleep(0.5)
                
-                
+                while answer == mylast:
+                    time.sleep(0.1)
+                    mylast = answer
+                    
+                    
              
                
 
@@ -74,7 +79,7 @@ def playGame(uri, bearer, broadid):
                     answerno = random.choice(("1", "2", "3"))
               
               
-                answerno = random.choice(("1", "2", "3"))
+     
                 if answerno == "1":
                     aID = ans[0]["answerId"]
                 elif answerno == "2":
