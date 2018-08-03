@@ -277,16 +277,21 @@ while True:
                         elif index == 1:a2 = fix(a['text'])
                         elif index == 2:a3 = fix(a['text'])
                         index += 1
+                    
+                    message = ""
+                    while message not in ("1", "2", "3", "4"):
+                        message = client.get_message("467350505367273473")
                     answer = a1 ######
+                    
                    
-                      
-                       
+                   
+                    
 
                    
 
-                    if answer == a1:answerno = 1
-                    elif answer == a2:answerno = 2
-                    elif answer == a3:answerno = 3
+                    answerno = int(message)
+                   
+                 
                   
                         
            
