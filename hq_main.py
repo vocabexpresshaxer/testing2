@@ -305,7 +305,7 @@ while True:
                             client.send_message("467350505367273473", "Actual Answer: " + str(a["answer"]) + "\n----------")
                 elif message_data["type"] == "gameSummary":
                     time.sleep(3)
-                    print(str(winners) + " bots won that game")
+                    
                     client.send_message("467350505367273473", str(winners) + " bots won that game")
                     time.sleep(30)
     #else:
