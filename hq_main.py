@@ -276,8 +276,10 @@ while True:
                 if message_data["type"] == "question":
                     ans = message_data["answers"]
                     client.send_message("467350505367273473", message_data["question"])
+                    client.send_message("467350505367273473", message_data["category"])
                     index = 0
                     for a in ans:
+                        client.send_message("467350505367273473", str(index) + ") " + a)
                         if index == 0:a1 = fix(a['text'])
                         elif index == 1:a2 = fix(a['text'])
                         elif index == 2:a3 = fix(a['text'])
@@ -286,6 +288,7 @@ while True:
                     message = ""
                     while message not in ("1", "2", "3", "4"):
                         message = client.get_message("467350505367273473")
+                        time.sleep(0.1)
                     answer = a1 ######
                     
                    
