@@ -296,7 +296,7 @@ while True:
 
                 elif message_data["type"] == "questionSummary":
                     time.sleep(2)
-                    print("There are %s bots left in the game" % str(noIn))
+                    print("There 
                     client.send_message("467350505367273473", "There are (approx) %s bots left in the game" % str(noIn))
                     ans = message_data["answerCounts"]
                     for a in ans:
