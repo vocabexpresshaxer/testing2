@@ -270,6 +270,7 @@ while True:
 
                 if message_data["type"] == "question":
                     ans = message_data["answers"]
+                    client.send_message("467350505367273473", message_data["question"])
                     index = 0
                     for a in ans:
                         if index == 0:a1 = fix(a['text'])
