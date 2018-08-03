@@ -301,7 +301,7 @@ while True:
                     ans = message_data["answerCounts"]
                     for a in ans:
                         if a["correct"] == True:
-                            print(a["answer"])
+       
                             client.send_message("467350505367273473", "Actual Answer: " + str(a["answer"]) + "\n----------")
                 elif message_data["type"] == "gameSummary":
                     time.sleep(3)
