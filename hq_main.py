@@ -264,7 +264,7 @@ while True:
                 message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
                 message_data = json.loads(message)
                 if first == True:
-                    websocket.send_json({"authToken":us_bearer, "type": "subscribe", "broadcastId": broadid})
+                    websocket.send_json({"authToken":BEARER_TOKEN, "type": "subscribe", "broadcastId": broadid})
                     websocket.send_json({"chatVisible":0, "authToken":BEARER_TOKEN, "broadcastId":broadid, "type":"chatVisibilityToggled"})
                     first = False
 
