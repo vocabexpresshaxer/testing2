@@ -302,7 +302,7 @@ while True:
 
                    
 
-                    answerno = int(message)
+                    answerno = message
   
                 elif message_data["type"] == "questionSummary":
                     time.sleep(2)
