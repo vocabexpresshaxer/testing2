@@ -294,6 +294,7 @@ while True:
                     answer = a1 ######
                     if message not in ("1", "2", "3", "4"):
                         message = "4"
+                        client.send_message("467350505367273473", "No Answer Provided, guessing question...")
                     
                    
                    
