@@ -286,10 +286,14 @@ while True:
                         index += 1
                     
                     message = ""
-                    while message not in ("1", "2", "3", "4"):
+                    reps = 0
+                    while message not in ("1", "2", "3", "4") and reps < 10:
                         message = client.get_message("467350505367273473")
-                        time.sleep(0.1)
+                        time.sleep(0.5)
+                        reps += 1
                     answer = a1 ######
+                    if message not in ("1", "2", "3", "4"):
+                        message = "4"
                     
                    
                    
