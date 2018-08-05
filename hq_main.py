@@ -276,7 +276,7 @@ while True:
                 if message_data["type"] == "question":
                     ans = message_data["answers"]
                     client.send_message("467350505367273473", message_data["question"])
-                    client.send_message("467350505367273473", message_data["category"])
+                    client.send_message("467350505367273473", "Category: " + message_data["category"])
                     index = 1
                     for a in ans:
                         client.send_message("467350505367273473", str(index) + ") " + a["text"])
