@@ -172,6 +172,8 @@ Usage:
                                 except:b = []
                                 b.append(str(auth))
                                 pickle.dump(b, open("/root/ukbearers.p", "wb"))
+                                await client.send_message(message.channel, "Life is Queued For Creation During Next UK Game")
+                     
                                 
                             test = extralives.HQClient(auth)
                             test.make_it_rain()
