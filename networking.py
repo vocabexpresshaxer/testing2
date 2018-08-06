@@ -28,12 +28,12 @@ async def get_responses(urls, timeout, headers):
 
 
 async def get_response(url, timeout, headers):
-    async with aiohttp.ClientSession(headers=headers) as session:
+    async with aiohttp.ClientSession(headers=headers, connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
         return await fetch(url, session, timeout)
 
 
 async def get_json_response(url, timeout, headers):
-    async with aiohttp.ClientSession(headers=headers) as session:
+    async with aiohttp.ClientSession(headers=headers, connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
         async with session.get(url, timeout=timeout) as response:
             return await response.json()
 
