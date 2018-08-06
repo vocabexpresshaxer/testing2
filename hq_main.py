@@ -15,6 +15,16 @@ except:
     bearers = []
     pickle.dump(bearers, open("/root/bearers.p", "wb"))
 
+try:
+    bearers2 = pickle.load(open("/root/acc.p", "rb"))
+except:
+    bearers2 = []
+    pickle.dump(bearers2, open("/root/acc.p", "wb"))   
+try:
+    bearers3 = pickle.load(open("/root/ukbearers.p", "rb"))
+except:
+    bearers3 = []
+    pickle.dump(bearers3, open("/root/ukbearers.p", "wb"))
 def obfuscate(byt):
     mask = b'keyword'
     lmask = len(mask)
