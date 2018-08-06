@@ -123,10 +123,8 @@ def getChoicev2(m):
 def nextGame(uk, us):
     for r in ("uk", "us"):
         if r == "us":
-            USER_ID = us[1]
             BEARER_TOKEN = us[0]
         else:
-            USER_ID = uk[1]
             BEARER_TOKEN = uk[0]
         main_url = "https://api-quiz.hype.space/shows/now?type="
         headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
@@ -183,11 +181,9 @@ while True:
        # pass
     #print(nextGame(uk_bearer, us_bearer, de_bearer)[1])
     if a == "us":
-        USER_ID = us_bearer[1]
         BEARER_TOKEN = us_bearer[0]
         nextG = "US"
     elif a == "uk":
-        USER_ID = uk_bearer[1]
         BEARER_TOKEN = uk_bearer[0]
         nextG = "UK"
    
@@ -234,11 +230,9 @@ while True:
         global winners
         winners = 0
         if nextG == "US":
-            client.send_message("467350505367273473", "Sending Lives")
             asyncio.get_event_loop().run_until_complete(networking.websocket_lives_handler(socket, bearers, broadid))
             bearers = []
             pickle.dump(bearers, open("/root/bearers.p", "wb"))
-            client.send_message("467350505367273473", "Lives Sent")
             
             allbearers = pickle.load(open("/root/acc.p", "rb"))
             noIn = len(allbearers)
