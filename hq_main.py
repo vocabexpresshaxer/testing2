@@ -36,12 +36,14 @@ def playGame(uri, bearer, broadid):
     global noIn
     global nowNumber
     global winners
+    global q
     mylast = ""
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.15.0"}
     websocket = WebSocket(uri)
     for header, value in headers.items():
         websocket.add_header(str.encode(header), str.encode(value))
     first = True
+    myq = 0
     for msg in websocket.connect(ping_rate=5):
         if msg.name == "text":
             message = msg.text
@@ -57,6 +59,7 @@ def playGame(uri, bearer, broadid):
                 first = False
                 
             if message_data["type"] == "question":
+                myq += 1
                 nowNumber = message_data["questionNumber"]
                 ans = message_data["answers"]
                 print(message_data["question"])
@@ -67,19 +70,12 @@ def playGame(uri, bearer, broadid):
                 choice = ""
                 time.sleep(0.5)
                
-                while answer == mylast:
+                while myq != q:
                     time.sleep(0.1)
-                mylast = answer
-                    
-                    
-             
-               
-
+                time.sleep(0.3)
                 if answerno == "4" or answerno == None:
                     answerno = random.choice(("1", "2", "3"))
               
-              
-     
                 if answerno == "1":
                     aID = ans[0]["answerId"]
                 elif answerno == "2":
@@ -263,6 +259,8 @@ while True:
                 answer = a1
                 lastanswer= a1 
         except:lastanswer = ""
+        global q
+        q = 0
         for msg in websocket.connect(ping_rate=5):
             if msg.name == "text":
                 message = msg.text
@@ -274,9 +272,11 @@ while True:
                     first = False
 
                 if message_data["type"] == "question":
+                    q += 1
                     ans = message_data["answers"]
                     client.send_message("467350505367273473", message_data["question"])
                     client.send_message("467350505367273473", "Category: " + message_data["category"])
+                    
                     index = 1
                     for a in ans:
                         client.send_message("467350505367273473", str(index) + ") " + a["text"])
