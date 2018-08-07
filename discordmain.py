@@ -95,9 +95,9 @@ Usage:
             for b in totalb:
                 botuser = extralives.HQClient(b)
                 bot_payout_info = botuser.payouts()
-                if region == "us" and bot_payout_info.balance.startswith("£"):
-                    totalb.remove(b)
-                    continue
+                s" and 
+                   
+                  
                 bot_bal = bot_payout_info.balance
                 print(str(index) + " : " + str(bot_bal.unpaid))
                 await client.send_message(message.channel, str(index) + " : " + str(bot_bal.unpaid))
