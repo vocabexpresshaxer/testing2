@@ -95,7 +95,7 @@ Usage:
             for b in totalb:
                 botuser = extralives.HQClient(b)
                 bot_payout_info = botuser.payouts()
-                s" and 
+               #
                    
                   
                 bot_bal = bot_payout_info.balance
