@@ -47,6 +47,7 @@ def playGame(uri, bearer, broadid):
     global nowNumber
     global winners
     global q
+    time.sleep(random.randint(1,60)
     mylast = ""
     headers = {"Authorization": "Bearer %s" % bearer,"x-hq-client": "Android/1.15.0"}
     websocket = WebSocket(uri)
