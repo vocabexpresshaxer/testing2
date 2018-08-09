@@ -73,10 +73,10 @@ def playGame(uri, bearer, broadid):
                 myq += 1
                 nowNumber = message_data["questionNumber"]
                 ans = message_data["answers"]
-                print(message_data["question"])
+                #print(message_data["question"])
                 qid = message_data["questionId"]
-                print("Q ID: " + str(message_data["questionId"]))
-                for a in ans:print(str(a["answerId"]) + " : " + a["text"])
+                #print("Q ID: " + str(message_data["questionId"]))
+                #for a in ans:print(str(a["answerId"]) + " : " + a["text"])
                 noQs = message_data['questionCount']
                 choice = ""
                 time.sleep(0.5)
