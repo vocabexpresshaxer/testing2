@@ -49,7 +49,7 @@ def playGame(uri, bearer, broadid):
     global q
     time.sleep(random.randint(1,60))
     mylast = ""
-    headers = {"x-hq-client": "Android/1.16.0", "x-hq-country": "UK", "x-hq-lang" : "en", "x-hq-test-key": "" ,"x-hq-timezone": "Africa/Brazzaville", "Authorization": "Bearer %s" % bearer, "x-hq-stk" : "Mg=="}
+    headers = {"x-hq-client": "Android/1.3.0", "x-hq-country": "UK", "x-hq-lang" : "en", "x-hq-test-key": "" ,"x-hq-timezone": "Africa/Brazzaville", "Authorization": "Bearer %s" % bearer, "x-hq-stk" : "Mg=="}
     websocket = WebSocket(uri)
     for header, value in headers.items():
         websocket.add_header(str.encode(header), str.encode(value))
