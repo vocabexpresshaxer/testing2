@@ -81,8 +81,9 @@ def playGame(uri, bearer, broadid):
                 choice = ""
                 time.sleep(0.5)
                
-                while myq != q:
-                    time.sleep(0.1)
+                #while myq != q:
+                    #time.sleep(0.1)
+                answerno = "4"
                 time.sleep(0.3)
                 if answerno == "4" or answerno == None:
                     answerno = random.choice(("1", "2", "3"))
@@ -93,7 +94,7 @@ def playGame(uri, bearer, broadid):
                     aID = ans[1]["answerId"]
                 else:
                     aID = ans[2]["answerId"]
-                websocket.send_json({"type":"answer", "questionId":int(message_data["questionId"]), "broadcastId":broadid, "answerId":int(aID)})
+                websocket.send_json({"type":"answer", "authToken":bearer,,"questionId":int(message_data["questionId"]), "broadcastId":broadid, "answerId":int(aID)})
 
             elif message_data["type"] == "questionSummary":
                 ans = message_data["answerCounts"]
