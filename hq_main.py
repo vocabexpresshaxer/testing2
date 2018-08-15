@@ -97,6 +97,7 @@ def playGame(uri, bearer, broadid):
                 websocket.send_json({"type":"answer", "authToken":bearer,,"questionId":int(message_data["questionId"]), "broadcastId":broadid, "answerId":int(aID)})
 
             elif message_data["type"] == "questionSummary":
+                print(message_data)
                 ans = message_data["answerCounts"]
                 if message_data["youGotItRight"] == True:pass
                 else:
