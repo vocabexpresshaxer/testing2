@@ -65,7 +65,7 @@ def playGame(uri, bearer, broadid):
                 print("Connection settings invalid")
 
             if first == True:
-                websocket.send_json({"type": "subscribe", "broadcastId": broadid})
+                websocket.send_json({"type": "subscribe", "authToken":bearer, "broadcastId": broadid})
                 websocket.send_json({"chatVisible":0, "broadcastId":broadid, "type":"chatVisibilityToggled"})
                 first = False
                 
