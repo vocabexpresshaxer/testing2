@@ -56,7 +56,7 @@ class HQPayoutInfo:
 def verify(phone: str) -> str:
     try:
         return requests.post("https://api-quiz.hype.space/verifications", headers={
-        "x-hq-client": "iOS/1.3.12 b96"}, data={
+        "x-hq-client": "Android/1.15.0"}, data={
             "method": "sms",
             "phone": phone
         }).json()["verificationId"]
@@ -65,7 +65,7 @@ def verify(phone: str) -> str:
 
 def verify2(phone: str) -> str:
     try:
-        return requests.post("https://api-quiz.hype.space/verifications", headers={"x-hq-client": "iOS/1.3.12 b96"},
+        return requests.post("https://api-quiz.hype.space/verifications", headers={"x-hq-client": "Android/1.15.0"},
             data={
             "method": "call",
             "phone": phone
@@ -151,7 +151,7 @@ class HQMeInfo(HQUserInfo):
 
 
 class HQClient:
-    def __init__(self, auth_token: str, client: str="Android/1.6.2", user_agent: str="okhttp/3.8.0", caching=False, cache_time=15, no_ws_requests=False):
+    def __init__(self, auth_token: str, client: str="Android/1.15.0", user_agent: str="okhttp/3.8.0", caching=False, cache_time=15, no_ws_requests=False):
         self.auth_token = auth_token
         self.headers = {
             "x-hq-client": client,
@@ -171,7 +171,7 @@ class HQClient:
         return {
             "x-hq-client": self.headers["x-hq-client"],
             "authorization": "Bearer " + self.auth_token,
-            "user-agent": self.headers["user-agent"]
+            "user-agent": "Android/1.15.0"
         }
 
     def valid_auth(self) -> bool:
