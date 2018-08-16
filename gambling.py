@@ -9,9 +9,11 @@ def obfuscate(byt):
 def on_message():
     global last
     while True:
-        chatid = "462330902580822037"
+        chatid = "478431088361078787"
         message = client.get_message(chatid)
         try:
+            #print(message)
+            
             message = message.split("\"value\": \"")[1]
             message = message.split("\"}, {\"")[0]
             message = message.replace("\\u2705", "")
