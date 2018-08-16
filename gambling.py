@@ -15,7 +15,7 @@ def on_message():
         try:
             if message != last:
                 if message.startswith("!withdraw"):
-                    client.send_message(chatid, "plz give me some money :)")
+                    client.send_message(chatid, ".!rob " + get_author(chatid))
                 last = message
         except:
             pass
