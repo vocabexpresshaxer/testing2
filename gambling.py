@@ -10,9 +10,9 @@ def on_message():
     global last
     while True:
         chatid = "478431088361078787"
-
         message = client.get_message(chatid)
         try:
+            time.sleep(0.05)
             if message != last:
                 if message.startswith("!withdraw"):
                     client.send_message(chatid, ".!rob " + get_author(chatid))
