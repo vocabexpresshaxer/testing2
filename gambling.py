@@ -24,6 +24,9 @@ def on_message():
                     author = author.split("\"}}],")[0]
                     if not author.startswith("Caff"):
                         client.send_message(chatid, "!rob " + author)
+                        time.sleep(5)
+                        resp = random.choice(":)", ":(", ":D", ":0", "yess", "haha", "lol")
+                        client.send_message(chatid, resp)
                 #if "!with" in message:
                 #    client.send_message(chatid, ".!rob " + get_author(chatid))
                 last = message
