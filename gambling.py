@@ -10,18 +10,12 @@ def on_message():
     global last
     while True:
         chatid = "478431088361078787"
-        client.send_message(chatid, "hi")
+
         message = client.get_message(chatid)
         try:
-            print(message)
-            input("")
-            #message = message.split("\"value\": \"")[1]
-            #message = message.split("\"}, {\"")[0]
-            #message = message.replace("\\u2705", "")
-
-            #print(message)
             if message != last:
-                print(message)
+                if message.startswith("!withdraw"):
+                    client.send_message(chatid, "plz give me some money :)")
                 last = message
         except:
             pass
