@@ -18,8 +18,9 @@ def on_message():
                 #if "!with" in message:
                 #    client.send_message(chatid, ".!rob " + get_author(chatid))
                 last = message
-        except:
-            pass
+        except Exception as e:
+            print(e)
+            input("")
 
 
 if __name__ == '__main__':
