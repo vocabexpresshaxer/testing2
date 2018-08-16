@@ -10,7 +10,7 @@ def on_message():
     global last
     while True:
         chatid = "478431088361078787"
-        cliend.send_message(chatid, "hi")
+        client.send_message(chatid, "hi")
         message = client.get_message(chatid)
         try:
             print(message)
