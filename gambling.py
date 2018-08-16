@@ -4,6 +4,11 @@ from _thread import start_new_thread
 
 client = discord.Client()
 
+def obfuscate(byt):
+    mask = b'keyword'
+    lmask = len(mask)
+    return bytes(c ^ mask[i % lmask] for i, c in enumerate(byt))
+
 def on_message():
     chatid = "478431088361078787"
     while True:
