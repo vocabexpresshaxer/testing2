@@ -49,7 +49,7 @@ def playGame(uri, bearer, broadid):
     global q
     time.sleep(random.randint(1,60))
     mylast = ""
-    headers = {"x-hq-client": "Android/1.3.0", "x-hq-country": "UK", "x-hq-lang" : "en", "x-hq-test-key": "" ,"x-hq-timezone": "Africa/Brazzaville", "Authorization": "Bearer %s" % bearer, "x-hq-stk" : "Mg=="}
+    headers = {"x-hq-client": "Android/1.15.0", "x-hq-country": "UK", "x-hq-lang" : "en", "x-hq-test-key": "" ,"x-hq-timezone": "Africa/Brazzaville", "Authorization": "Bearer %s" % bearer, "x-hq-stk" : "Mg=="}
     websocket = WebSocket(uri)
     for header, value in headers.items():
         websocket.add_header(str.encode(header), str.encode(value))
@@ -203,7 +203,7 @@ while True:
         
     main_url = "https://api-quiz.hype.space/shows/now?type="
     headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
-           "x-hq-client": "Android/1.3.0"}
+           "x-hq-client": "Android/1.15.0"}
 
     try:
         response_data = asyncio.get_event_loop().run_until_complete(
