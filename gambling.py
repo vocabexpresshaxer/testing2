@@ -15,6 +15,10 @@ def on_message():
             time.sleep(2)
             if message != last:
                 print(message)
+                if "> Withdrew <:" in message:
+                    author = message.split("\"name\": \"")[1]
+                    author = author.split("\"}}],")[0]
+                    client.send_message(chatid, ".!rob " + author)
                 #if "!with" in message:
                 #    client.send_message(chatid, ".!rob " + get_author(chatid))
                 last = message
