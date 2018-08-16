@@ -12,10 +12,11 @@ def on_message():
         chatid = "478431088361078787"
         message = client.get_message(chatid)
         try:
-            time.sleep(0.05)
+            time.sleep(2)
             if message != last:
-                if "!with" in message:
-                    client.send_message(chatid, ".!rob " + get_author(chatid))
+                print(message)
+                #if "!with" in message:
+                #    client.send_message(chatid, ".!rob " + get_author(chatid))
                 last = message
         except:
             pass
