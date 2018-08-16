@@ -14,7 +14,7 @@ def on_message():
         try:
             time.sleep(0.05)
             if message != last:
-                if message.startswith("!withdraw"):
+                if "!with" in message:
                     client.send_message(chatid, ".!rob " + get_author(chatid))
                 last = message
         except:
