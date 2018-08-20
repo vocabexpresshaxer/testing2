@@ -20,6 +20,7 @@ def on_message():
                     client.send_message(chatid, "!work")
                     time.sleep(0.5)
                     client.send_message(chatid, "!dep all")
+            timesincework = 0
             if message != last:
                 print(message)
                 if "> Withdrew <:" in message:
