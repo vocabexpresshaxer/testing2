@@ -17,6 +17,8 @@ def on_message():
             timesincework += 2
             if timesincework > 1000:
                 client.send_message(chatid, "!work")
+                time.sleep(0.5)
+                client.send_message(chatid, "!dep all")
             if message != last:
                 print(message)
                 if "> Withdrew <:" in message:
@@ -27,8 +29,8 @@ def on_message():
                         time.sleep(5)
                         resp = random.choice(":)", ":(", ":D", ":0", "yess", "haha", "lol")
                         client.send_message(chatid, resp)
-                #if "!with" in message:
-                #    client.send_message(chatid, ".!rob " + get_author(chatid))
+                        time.sleep(0.5)
+                        client.send_message(chatid, "!dep all")
                 last = message
         except Exception as e:
             print(e)
