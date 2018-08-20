@@ -16,9 +16,10 @@ def on_message():
             time.sleep(2)
             timesincework += 2
             if timesincework > 1000:
-                client.send_message(chatid, "!work")
-                time.sleep(0.5)
-                client.send_message(chatid, "!dep all")
+                if random.choice((True, False, False, False, False, False, False)):
+                    client.send_message(chatid, "!work")
+                    time.sleep(0.5)
+                    client.send_message(chatid, "!dep all")
             if message != last:
                 print(message)
                 if "> Withdrew <:" in message:
